@@ -1,4 +1,0 @@
-/* normqlize и подключение шрифтов*/
-@import url(./vendor/normalize.css);
-@import url(./vendor/fonts/inter.css);
-@import url(./components/app/App.css);
