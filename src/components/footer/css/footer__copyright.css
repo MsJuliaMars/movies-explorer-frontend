@@ -1,0 +1,11 @@
+.footer__copyright {
+    margin: 20px auto 20px 0px;
+}
+
+@media screen and (max-width: 320px) {
+    .footer__copyright {
+        align-items: center;
+        margin: 30px auto 20px auto;
+        color: #A0A0A0;
+    }
+}

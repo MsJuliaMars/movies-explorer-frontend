@@ -1,0 +1,15 @@
+.footer__reference {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 20px 0px 20px 0px;
+}
+
+@media screen and (max-width: 320px) {
+    .footer__reference {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 0;
+        gap: 12px;
+    }
+}

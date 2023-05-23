@@ -1,0 +1,31 @@
+@import './css/footer__caption.css';
+@import './css/footer__container.css';
+@import './css/footer__copyright.css';
+@import './css/footer__reference.css';
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    background: #FAFAFA;
+    align-content: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+}
+
+@media screen and (max-width: 320px) {
+    .footer {
+        font-size: 12px;
+        line-height: 15px;
+    }
+}
+
+/*@media screen and (min-width: 1024px) {*/
+/*    .footer {*/
+/*        max-width: 880px;*/
+/*        flex-direction: row;*/
+/*        justify-content: space-between;*/
+/*    }*/
+/*}*/

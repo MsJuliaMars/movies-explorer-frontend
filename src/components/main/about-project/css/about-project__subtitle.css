@@ -1,0 +1,26 @@
+.about-project__subtitle {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    max-width: 550px;
+    margin-bottom: 110px;
+}
+
+@media screen and (max-width: 768px) {
+    .about-project__subtitle {
+        margin-bottom: 93px;
+        margin-top: 0px;
+        max-width: 319px;
+        height: 54px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .about-project__subtitle {
+        margin-bottom: 0px;
+        margin-top: 0px;
+        max-width: 284px;
+        height: 48px;
+    }
+}
