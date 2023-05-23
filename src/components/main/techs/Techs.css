@@ -1,0 +1,13 @@
+@import './css/techs__title.css';
+@import './css/techs__container.css';
+@import './css/techs__container-title.css';
+@import './css/techs__container-subtitle.css';
+@import './css/techs__list.css';
+@import './css/techs__list-element.css';
+@import './css/techs__list-skill.css';
+
+.techs {
+    display:flex;
+    flex-direction: column;
+    background-color: #F5F5F5;
+}

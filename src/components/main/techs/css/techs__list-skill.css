@@ -1,0 +1,11 @@
+.techs__list-skill {
+    margin-top: 21px;
+    margin-bottom: 21px;
+}
+
+@media screen and (max-width: 768px) {
+    .techs__list-skill{
+        margin-top: 21px;
+        margin-bottom: 21px;
+    }
+}

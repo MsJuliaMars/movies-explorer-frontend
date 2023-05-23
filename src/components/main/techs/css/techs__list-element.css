@@ -1,0 +1,21 @@
+.techs__list-element {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    letter-spacing: -0.04em;
+    background-color: #E8E8E8;
+    width: 90px;
+    height: 60px;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .techs__list-element {
+        font-size: 12px;
+        line-height: 15px;
+        width: 84px;
+        height: 57px;
+    }
+}

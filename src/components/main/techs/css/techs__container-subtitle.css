@@ -1,0 +1,28 @@
+.techs__container-subtitle {
+    max-width:460px;
+    max-height: 40px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0px auto 100px auto;
+    align-self: center;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .techs__container-subtitle {
+        margin: 0px auto 83px auto;
+        font-size: 12px;
+        line-height: 18px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .techs__container-subtitle {
+        margin: 0px auto 50px auto;
+        font-size: 11px;
+        line-height: 16px;
+        max-width: 292px;
+    }
+}

@@ -1,0 +1,21 @@
+.techs__list {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin: 0px auto 100px auto;
+    padding: 0px;
+}
+@media screen and (max-width: 768px) {
+    .techs__list {
+        margin: 0px auto 90px auto;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .techs__list {
+        margin: 0px auto 70px auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+}
