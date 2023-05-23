@@ -1,0 +1,16 @@
+.about-project__progress-lines {
+    height: 36px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: 400;
+}
+
+@media screen and (max-width: 320px) {
+    .about-project__progress-lines {
+        font-size: 11px;
+        line-height: 13px;
+        height: 35px;
+    }
+}
