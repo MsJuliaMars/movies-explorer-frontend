@@ -1,0 +1,15 @@
+@import './css/not-found__title.css';
+@import './css/not-found__subtitle.css';
+@import './css/not-found__back.css';
+
+.not-found {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}

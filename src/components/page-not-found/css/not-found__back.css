@@ -1,0 +1,24 @@
+.not-found__back {
+    color: #FF6838;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    margin: 0px 619px 60px 616px;
+    position: fixed;
+    bottom: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .not-found__back {
+        margin: 0px 363px 222px 363px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .not-found__back {
+        margin: 0px 142px 30px 142px;
+        font-size: 12px;
+        line-height: 15px;
+    }
+}
