@@ -1,0 +1,17 @@
+@import 'css/login__logo.css';
+@import 'css/login__form.css';
+@import 'css/login__title.css';
+@import 'css/login__field.css';
+@import 'css/login__text.css';
+@import 'css/login__button-enter.css';
+@import './css/login__question.css';
+@import './css/login__link-entry.css';
+
+.login {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}

@@ -1,0 +1,16 @@
+.promo__text {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    align-items: center;
+    color: #000000;
+    margin: 10px 17px;
+    text-align: center;
+}
+
+@media screen and (max-width: 320px){
+    .promo__text {
+       font-size: 10px;
+    }
+}
