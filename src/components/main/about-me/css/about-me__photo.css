@@ -1,0 +1,14 @@
+.about-me__photo {
+    border-radius: 10px;
+    max-width: 270px;
+    height: 327px;
+    margin-top: 66px;
+}
+
+@media screen and (max-width: 320px) {
+    .about-me__photo {
+        max-width: 292px;
+        height: 352px;
+        margin-top: 60px;
+    }
+}

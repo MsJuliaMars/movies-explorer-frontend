@@ -5,11 +5,13 @@ import PageNotFound from "../page-not-found/PageNotFound";
 import Login from "../login/Login";
 import NavTab from "../main/nav-tab/NavTab";
 import Promo from "../main/promo/Promo";
+import AboutMe from "../main/about-me/AboutMe";
 
 function App() {
     return (
         <div className="root">
-            <Promo />
+            <AboutMe />
+                {/*<Promo />*/}
             {/*<NavTab/>*/}
             {/*<AboutProject />*/}
             {/*<Techs />*/}

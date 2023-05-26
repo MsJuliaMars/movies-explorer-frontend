@@ -1,0 +1,13 @@
+@import './css/about-me__title.css';
+@import './css/about-me__container.css';
+@import './css/about-me__student.css';
+@import './css/about-me__name.css';
+@import './css/about-me__job.css';
+@import './css/about-me__text.css';
+@import './css/about-me__git.css';
+@import './css/about-me__photo.css';
+
+.about-me{
+    display: flex;
+    flex-direction: column;
+}
