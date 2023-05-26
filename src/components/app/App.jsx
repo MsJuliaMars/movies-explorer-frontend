@@ -6,11 +6,13 @@ import Login from "../login/Login";
 import NavTab from "../main/nav-tab/NavTab";
 import Promo from "../main/promo/Promo";
 import AboutMe from "../main/about-me/AboutMe";
+import Portfolio from "../main/portfolio/Portfolio";
 
 function App() {
     return (
         <div className="root">
-            <AboutMe />
+            <Portfolio />
+            {/*<AboutMe />*/}
                 {/*<Promo />*/}
             {/*<NavTab/>*/}
             {/*<AboutProject />*/}

@@ -1,0 +1,26 @@
+@import './css/portfolio__title.css';
+@import './css/portfolio__list.css';
+@import './css/portfolio__list-item.css';
+@import './css/portfolio__link.css';
+@import './css/portfolio__arrow.css';
+
+/*.portfolio {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*}*/
+
+.portfolio {
+    margin: 0px 70px 125px 70px;
+}
+
+@media (max-width: 768px) {
+    .portfolio {
+        margin: 0px 50px 90px 50px;
+    }
+}
+
+@media (max-width: 320px) {
+    .portfolio {
+        margin: 0px 14px 70px 14px;
+    }
+}
