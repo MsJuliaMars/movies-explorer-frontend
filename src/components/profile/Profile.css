@@ -1,0 +1,15 @@
+@import './css/profile__title.css';
+@import './css/profile__form.css';
+@import './css/profile__field.css';
+@import './css/profile__text.css';
+@import './css/profile__button-edit.css';
+@import './css/profile__button-logout.css';
+
+.profile {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}

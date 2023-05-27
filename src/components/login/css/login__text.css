@@ -22,6 +22,7 @@
 @media screen and (max-width: 320px) {
     .login__text {
         max-width: 260px;
+        margin-bottom: 0px;
     }
 }
 

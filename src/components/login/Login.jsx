@@ -43,9 +43,6 @@ function Login() {
                 <p className="login__question">
                     Ещё не зарегистрированы?{" "}
                     <a className="login__link-entry">Регистрация</a>
-                    {/*<Link to="/sign-in" className="login__link-entry">*/}
-                    {/*    Регистрация*/}
-                    {/*</Link>*/}
                 </p>
         </div>
     )

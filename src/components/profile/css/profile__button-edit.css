@@ -1,0 +1,26 @@
+.profile__button-edit {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    margin: 203px auto 16px auto;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .profile__button-edit {
+        margin: 193px auto 16px auto;
+    }
+}
+@media screen and (max-width: 320px) {
+    .profile__button-edit {
+        margin: 362px auto 16px auto;
+        font-size: 12px;
+        line-height: 15px;
+    }
+}

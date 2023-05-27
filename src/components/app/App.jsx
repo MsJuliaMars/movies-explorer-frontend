@@ -7,19 +7,26 @@ import NavTab from "../main/nav-tab/NavTab";
 import Promo from "../main/promo/Promo";
 import AboutMe from "../main/about-me/AboutMe";
 import Portfolio from "../main/portfolio/Portfolio";
+import Header from "../header/Header";
+import Register from "../register/Register";
+import Profile from "../profile/Profile";
 
 function App() {
     return (
         <div className="root">
-            <Portfolio />
-            {/*<AboutMe />*/}
-                {/*<Promo />*/}
+
+            {/*<Header/>*/}
+            {/*<Promo/>*/}
             {/*<NavTab/>*/}
-            {/*<AboutProject />*/}
-            {/*<Techs />*/}
+            {/*<AboutProject/>*/}
+            {/*<Techs/>*/}
+            {/*<AboutMe/>*/}
+            {/*<Portfolio/>*/}
             {/*<Footer/>*/}
             {/*<PageNotFound />*/}
             {/*<Login />*/}
+            {/*<Register />*/}
+            <Profile />
         </div>
     );
 }
