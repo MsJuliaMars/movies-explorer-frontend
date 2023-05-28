@@ -1,22 +1,21 @@
 import React from 'react';
-
 import './NavTab.css';
 
 function NavTab() {
     return (
-        <section className="navigation">
-            <nav className="navigation__container">
-                <nav className='header__movies-navigator'>
-
-                        Фильмы
-
-                        Сохраненые фильмы
-                </nav>
-
-                    Аккаунт
-                    <div className='header__account-logo' alt='account logo'></div>
-
-            </nav>
+        <section className='nav-tab'>
+            <div className="nav-tab__container">
+                <div className="nav-tab__container-element"><p className="nav-tab__text"><a href="#about-project"
+                                                                                            className="nav-tab__link">О
+                    проекте</a></p>
+                </div>
+                <div className="nav-tab__container-element"><p className="nav-tab__text"><a href='#techs'
+                                                                                            className="nav-tab__link">Технологии</a>
+                </p></div>
+                <div className="nav-tab__container-element"><p className="nav-tab__text"><a href='#about-me'
+                                                                                            className="nav-tab__link">Студент</a>
+                </p></div>
+            </div>
         </section>
     )
 }

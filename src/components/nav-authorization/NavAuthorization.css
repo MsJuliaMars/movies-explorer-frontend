@@ -1,0 +1,31 @@
+@import './css/nav-auth__register.css';
+@import './css/nav-auth__login.css';
+
+.nav-auth {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 70px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #000000;
+    gap: 30px;
+}
+
+@media screen and (max-width: 768px) {
+    .nav-auth {
+        margin-right: 30px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .nav-auth {
+        margin-right: 14px;
+        font-size: 10px;
+        line-height: 16px;
+        gap: 14px;
+    }
+}

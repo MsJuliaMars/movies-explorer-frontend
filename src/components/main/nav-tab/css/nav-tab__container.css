@@ -1,4 +1,4 @@
-.promo__container {
+.nav-tab__container {
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -7,7 +7,7 @@
 }
 
 @media screen and (max-width: 320px) {
-    .promo__container {
+    .nav-tab__container {
         gap: 6px;
         margin: 0px 17px 17px 17px;
     }

@@ -1,7 +1,4 @@
 @import './css/promo__title.css';
-@import './css/promo__container.css';
-@import './css/promo__container-element.css';
-@import './css/promo__text.css';
 
 .promo {
     display:flex;
@@ -10,9 +7,10 @@
     justify-content: center;
     background: #F5F5F5;
     border-radius: 10px;
-    max-width: 1200px;
+    /*max-width: 1200px;*/
     height: 493px;
     margin: 20px 40px 0px 40px;
+    /*border: 1px solid red;*/
 }
 
 @media screen and (max-width: 768px) {

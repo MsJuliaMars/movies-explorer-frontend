@@ -10,14 +10,14 @@ import Portfolio from "../main/portfolio/Portfolio";
 import Header from "../header/Header";
 import Register from "../register/Register";
 import Profile from "../profile/Profile";
+import Main from "../main/Main";
 
 function App() {
     return (
         <div className="root">
-
-            {/*<Header/>*/}
+            {/*<Main/>*/}
+            <Header/>
             {/*<Promo/>*/}
-            {/*<NavTab/>*/}
             {/*<AboutProject/>*/}
             {/*<Techs/>*/}
             {/*<AboutMe/>*/}
@@ -26,7 +26,7 @@ function App() {
             {/*<PageNotFound />*/}
             {/*<Login />*/}
             {/*<Register />*/}
-            <Profile />
+            {/*<Profile />*/}
         </div>
     );
 }

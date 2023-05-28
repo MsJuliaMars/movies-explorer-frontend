@@ -1,0 +1,9 @@
+@import './css/nav-tab__container.css';
+@import './css/nav-tab__container-element.css';
+@import './css/nav-tab__text.css';
+@import './css/nav-tab__link.css';
+
+.nav-tab{
+display: flex;
+    max-width: 320px;
+}

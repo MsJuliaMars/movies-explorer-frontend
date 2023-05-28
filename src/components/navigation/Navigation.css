@@ -1,0 +1,17 @@
+@import './css/nav__container.css';
+@import './css/nav__element.css';
+@import './css/nav__img.css';
+@import './css/nav__account-title.css';
+
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    color: #000000;
+    gap: 364px;
+    max-width: 676px;
+}

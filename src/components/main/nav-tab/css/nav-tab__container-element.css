@@ -1,4 +1,4 @@
-.promo__container-element {
+.nav-tab__container-element {
     width: 96px;
     height: 36px;
     background: #E8E8E8;
@@ -7,7 +7,7 @@
 }
 
 @media screen and (max-width: 320px) {
-    .promo__container-element {
+    .nav-tab__container-element {
         width: 82px;
         height: 26px;
     }
