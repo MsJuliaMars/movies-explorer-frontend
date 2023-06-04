@@ -9,8 +9,8 @@ function Footer() {
                 &copy; {new Date().getFullYear()}
             </p>
             <div className="footer__reference">
-                <a href="https://practicum.yandex.ru/" className="footer__link" target='_blank'>Яндекс.Практикум</a>
-                <a href="https://github.com/" className="footer__link" target='_blank'>Github</a>
+                <a href="https://practicum.yandex.ru/" rel="noopener noreferrer" className="footer__link" target='_blank'>Яндекс.Практикум</a>
+                <a href="https://github.com/" rel="noopener noreferrer" className="footer__link" target='_blank'>Github</a>
             </div>
             </div>
         </footer>
