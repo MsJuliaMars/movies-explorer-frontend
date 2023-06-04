@@ -1,0 +1,11 @@
+@import './css/search__form.css';
+@import './css/search__input.css';
+@import './css/search__btn.css';
+@import './css/search__container.css';
+@import './css/search__checkbox.css';
+@import './css/search__text.css';
+
+.search {
+    display: flex;
+    flex-direction: column;
+}

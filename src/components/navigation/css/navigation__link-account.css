@@ -1,0 +1,22 @@
+.navigation__link-account {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 17px;
+    bottom: 92px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #000000;
+}
+
+@media screen and (max-width: 320px) {
+    .navigation__link-account {
+        bottom: 48px;
+        font-size: 14px;
+        line-height: 16px;
+    }
+}

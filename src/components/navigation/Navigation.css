@@ -1,17 +1,20 @@
-@import './css/nav__container.css';
-@import './css/nav__element.css';
-@import './css/nav__img.css';
-@import './css/nav__account-title.css';
+@import './css/navigation__burger-btn.css';
+@import './css/navigation__link-account.css';
+@import './css/navigation__link-icon.css';
+@import './css/navigation__links.css';
+@import './css/navigation__popup.css';
+@import './css/navigation__popup-none.css';
+@import './css/navigation__popup-opened.css';
+@import './css/navigation__link-active.css';
+@import './css/navigation__link.css';
+@import './css/navigation__close-btn.css';
+@import './css/navigation__overlay.css';
+@import './css/navigation__laptop.css';
+@import './css/navigation__elements.css';
+@import './css/navigation__element-account.css';
 
-.nav{
-    display: flex;
-    flex-direction: row;
-    justify-content: right;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 18px;
-    color: #000000;
-    gap: 364px;
-    max-width: 676px;
+@media screen and (max-width: 320px) {
+    .navigation {
+        width: 100%;
+    }
 }

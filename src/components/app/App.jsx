@@ -1,32 +1,64 @@
 import Footer from "../footer/Footer";
-import AboutProject from "../main/about-project/AboutProject";
-import Techs from "../main/techs/Techs";
 import PageNotFound from "../page-not-found/PageNotFound";
 import Login from "../login/Login";
-import NavTab from "../main/nav-tab/NavTab";
-import Promo from "../main/promo/Promo";
-import AboutMe from "../main/about-me/AboutMe";
-import Portfolio from "../main/portfolio/Portfolio";
 import Header from "../header/Header";
 import Register from "../register/Register";
 import Profile from "../profile/Profile";
 import Main from "../main/Main";
+import {Navigate, Route, Routes, useNavigate} from "react-router-dom";
+import Movies from "../movies/Movies";
+import SavedMovies from "../saved-movies/SavedMovies";
 
 function App() {
+    const navigate = useNavigate();
+
     return (
         <div className="root">
-            {/*<Main/>*/}
-            <Header/>
-            {/*<Promo/>*/}
-            {/*<AboutProject/>*/}
-            {/*<Techs/>*/}
-            {/*<AboutMe/>*/}
-            {/*<Portfolio/>*/}
-            {/*<Footer/>*/}
-            {/*<PageNotFound />*/}
-            {/*<Login />*/}
-            {/*<Register />*/}
-            {/*<Profile />*/}
+            <Routes>
+                <Route exact path="/"  element={<>
+                    <Main/>
+                    <Footer/>
+                </>}>
+                </Route>
+
+                <Route
+                    path="/sign-up"
+                    element={<Register/>}
+                >
+                </Route>
+                <Route
+                    path="/sign-in"
+                    element={<Login/>}
+                ></Route>
+                <Route
+                    path="*"
+                    element={<PageNotFound/>}
+                >
+                </Route>
+
+                <Route path="/profile" element={<>
+                    <Header/>
+                    <Profile/>
+                </>}>
+                </Route>
+
+                <Route path="/movies" element={<>
+                    <Header/>
+                    <Movies/>
+                    <Footer/>
+                </>}>
+                </Route>
+
+                <Route path="/saved-movies" element={<>
+                    <Header/>
+                    <SavedMovies/>
+                    <Footer/>
+                </>}>
+                </Route>
+
+                <Route path="*" element={<PageNotFound/>}>
+                </Route>
+            </Routes>
         </div>
     );
 }

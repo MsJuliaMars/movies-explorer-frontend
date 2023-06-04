@@ -1,0 +1,8 @@
+.navigation__laptop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 676px;
+    margin-right: 71px;
+    gap: 215px;
+}

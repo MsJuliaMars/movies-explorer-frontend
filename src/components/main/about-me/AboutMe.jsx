@@ -15,7 +15,7 @@ function AboutMe() {
                         и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно начал кодить. С 2015 года работал
                         в компании «СКБ Контур». После того, как прошёл курс по веб-разработке, начал заниматься
                         фриланс-заказами и ушёл с постоянной работы.</p>
-                    <a className="about-me__git">Github</a>
+                    <a href="https://github.com/MsJuliaMars" className="about-me__git" target='_blank'>Github</a>
                 </div>
                 <img src={photo} className="about-me__photo" alt="фото студента"/>
             </div>

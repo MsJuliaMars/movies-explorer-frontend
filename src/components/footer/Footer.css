@@ -2,6 +2,7 @@
 @import './css/footer__container.css';
 @import './css/footer__copyright.css';
 @import './css/footer__reference.css';
+@import './css/footer__link.css';
 
 .footer {
     display: flex;
@@ -22,11 +23,3 @@
         line-height: 15px;
     }
 }
-
-/*@media screen and (min-width: 1024px) {*/
-/*    .footer {*/
-/*        max-width: 880px;*/
-/*        flex-direction: row;*/
-/*        justify-content: space-between;*/
-/*    }*/
-/*}*/

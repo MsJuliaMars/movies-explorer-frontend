@@ -1,0 +1,5 @@
+.navigation__popup {
+    display: flex;
+    align-items: center;
+    margin: auto 0;
+}

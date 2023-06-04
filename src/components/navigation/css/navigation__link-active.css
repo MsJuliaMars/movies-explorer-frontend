@@ -1,0 +1,6 @@
+.navigation__link-active {
+    border-bottom: 2px solid #000000;
+    padding-bottom: 4px;
+    width: min-content;
+    align-self: center;
+}

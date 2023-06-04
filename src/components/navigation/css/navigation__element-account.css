@@ -1,11 +1,14 @@
-.nav__account-title {
+.navigation__element-account {
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
+    display: flex;
     align-items: center;
     color: #000000;
-    margin: 21px 0px 23px 0px;
-    padding-top: 7px;
+    text-decoration: none;
+    padding-top: 4px;
     padding-bottom: 7px;
+    margin-top: 20px;
+    gap: 17px;
 }

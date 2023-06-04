@@ -1,0 +1,14 @@
+.navigation__links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 159px auto 0px auto;
+    gap: 28px;
+}
+
+@media screen and (max-width: 320px) {
+    .navigation__links {
+        margin: 144px auto 0px auto;
+        gap: 24px;
+    }
+}

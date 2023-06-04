@@ -1,4 +1,3 @@
-import React from "react";
 import './Footer.css';
 
 function Footer() {
@@ -10,8 +9,8 @@ function Footer() {
                 &copy; {new Date().getFullYear()}
             </p>
             <div className="footer__reference">
-                <a className="footer__link">Яндекс.Практикум</a>
-                <a className="footer__link">Github</a>
+                <a href="https://practicum.yandex.ru/" className="footer__link" target='_blank'>Яндекс.Практикум</a>
+                <a href="https://github.com/" className="footer__link" target='_blank'>Github</a>
             </div>
             </div>
         </footer>
