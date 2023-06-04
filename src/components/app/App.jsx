@@ -16,6 +16,7 @@ function App() {
         <div className="root">
             <Routes>
                 <Route exact path="/"  element={<>
+                    <Header/>
                     <Main/>
                     <Footer/>
                 </>}>
