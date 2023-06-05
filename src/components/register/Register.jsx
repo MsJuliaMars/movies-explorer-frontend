@@ -46,7 +46,7 @@ function Register() {
                 </label>
             </form>
             <button
-                className="login__button-enter"
+                className="register__button-enter"
                 type="submit"
                 aria-label="Вход в аккаунт пользователя"
             >
