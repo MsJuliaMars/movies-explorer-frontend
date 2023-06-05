@@ -5,6 +5,7 @@
     line-height: 19px;
     text-align: center;
     margin: 0;
+    margin-bottom: 184px;
     padding: 0;
 }
 
@@ -12,5 +13,6 @@
     .not-found__subtitle {
         font-size: 12px;
         line-height: 15px;
+        margin-bottom: 284px;
     }
 }
