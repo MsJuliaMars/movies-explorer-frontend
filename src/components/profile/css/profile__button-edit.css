@@ -6,7 +6,7 @@
     align-items: center;
     text-align: center;
     color: #000000;
-    margin: 203px auto 16px auto;
+    margin: 185px auto 16px auto;
     border: none;
     background-color: transparent;
     padding: 0;
@@ -14,12 +14,12 @@
 
 @media screen and (max-width: 768px) {
     .profile__button-edit {
-        margin: 193px auto 16px auto;
+        margin: 175px auto 16px auto;
     }
 }
 @media screen and (max-width: 320px) {
     .profile__button-edit {
-        margin: 362px auto 16px auto;
+        margin: 345px auto 16px auto;
         font-size: 12px;
         line-height: 15px;
     }

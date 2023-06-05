@@ -7,7 +7,7 @@
     line-height: 17px;
     text-align: center;
     color: #FFFFFF;
-    margin:179px 0px 16px 0px;
+    margin:196px 0px 16px 0px;
     padding: 0;
     width: 396px;
     height: 45px;
@@ -22,10 +22,18 @@
     cursor: pointer;
 }
 
+@media screen and (max-width: 768px) {
+    .login__button-enter {
+        margin: 196px auto 14px auto;
+    }
+}
+
 @media screen and (max-width: 320px) {
     .login__button-enter {
+        font-size: 12px;
+        line-height: 15px;
         width: 260px;
         max-width: 260px;
-        margin: 117px auto 14px auto;
+        margin: 293px auto 14px auto;
     }
 }

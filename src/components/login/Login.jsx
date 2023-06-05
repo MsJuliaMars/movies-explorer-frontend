@@ -56,7 +56,7 @@ function Login({ onLogin }) {
                     type="submit"
                     aria-label="Вход в аккаунт пользователя"
                 >
-                    Вход
+                    Войти
                 </button>
                 <p className="login__question">
                     Ещё не зарегистрированы?{" "}
