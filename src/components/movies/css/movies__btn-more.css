@@ -1,5 +1,5 @@
 .movies__btn-more {
-    max-width: 320px;
+    width: 320px;
     height: 36px;
     background-color: #F9F9F9;
     border-radius: 6px;
@@ -9,26 +9,22 @@
     font-size: 12px;
     line-height: 15px;
     display: flex;
+    justify-content: center;
     align-items: center;
-    text-align: center;
     color: #000000;
-    padding: 11px 160px 9px 160px;
-    margin: 50px 352px 80px 352px;
+    margin: 50px auto 80px auto;
+    cursor: pointer;
+    padding: 0px;
+
 }
 
-@media screen and (max-width: 768px) {
-    .movies__btn-more{
-     margin: 50px 224px 80px 224px;
-
-    }
+.movies__btn-more:hover {
+    opacity: 0.5;
 }
+
 
 @media screen and (max-width: 320px) {
-    .movies__btn-more{
+    .movies__btn-more {
         max-width: 240px;
-        height: 36px;
-        padding: 11px 120px 9px 120px;
-        margin: 50px 40px 80px 40px;
-
     }
 }

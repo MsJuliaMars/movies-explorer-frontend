@@ -9,6 +9,9 @@
     bottom: 0;
     text-decoration: none;
 }
+.not-found__back:hover {
+    opacity: 0.5;
+}
 
 @media screen and (max-width: 768px) {
     .not-found__back {
