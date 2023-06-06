@@ -6,7 +6,7 @@ import NavAuthorization from "../nav-authorization/NavAuthorization";
 import Navigation from "../navigation/Navigation";
 
 
-function Header({loggedIn=true}) {
+function Header({loggedIn=false}) {
     return (
     <header className={`header ${!loggedIn ? 'header_authorization' : ''}`}>
         <Link to="/" className="header__logo">

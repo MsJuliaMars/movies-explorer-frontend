@@ -5,6 +5,15 @@
     margin-top: 66px;
 }
 
+
+@media screen and (max-width: 768px) {
+    .about-me__photo {
+        max-width: 255px;
+        height: 307px;
+        margin-top: 66px;
+    }
+}
+
 @media screen and (max-width: 320px) {
     .about-me__photo {
         max-width: 292px;
