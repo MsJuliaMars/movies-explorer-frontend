@@ -1,4 +1,6 @@
 .navigation__popup-opened {
+    align-items: center;
+    margin: auto 0;
     width: 68%;
     height: 100%;
     display: flex;

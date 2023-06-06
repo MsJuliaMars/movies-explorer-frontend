@@ -1,4 +1,7 @@
 .footer__caption {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
     margin: 79px 70px 0px 70px;
     padding-bottom:20px;
     color: #A0A0A0;

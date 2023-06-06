@@ -8,63 +8,59 @@ import Main from "../main/Main";
 import {Navigate, Route, Routes, useNavigate} from "react-router-dom";
 import Movies from "../movies/Movies";
 import SavedMovies from "../saved-movies/SavedMovies";
-import AboutMe from "../main/about-me/AboutMe";
-import Portfolio from "../main/portfolio/Portfolio";
 
 function App() {
     const navigate = useNavigate();
 
     return (
-        <div className="root">
-            <AboutMe/>
-            <Portfolio/>
-            {/*<Routes>*/}
-            {/*    <Route exact path="/"  element={<>*/}
-            {/*        <Header/>*/}
-            {/*        <Main/>*/}
-            {/*        <Footer/>*/}
-            {/*    </>}>*/}
-            {/*    </Route>*/}
+        <main className="root">
+            <Routes>
+                <Route exact path="/"  element={<>
+                    <Header/>
+                    <Main/>
+                    <Footer/>
+                </>}>
+                </Route>
 
-            {/*    <Route*/}
-            {/*        path="/sign-up"*/}
-            {/*        element={<Register/>}*/}
-            {/*    >*/}
-            {/*    </Route>*/}
-            {/*    <Route*/}
-            {/*        path="/sign-in"*/}
-            {/*        element={<Login/>}*/}
-            {/*    ></Route>*/}
-            {/*    <Route*/}
-            {/*        path="*"*/}
-            {/*        element={<PageNotFound/>}*/}
-            {/*    >*/}
-            {/*    </Route>*/}
+                <Route
+                    path="/sign-up"
+                    element={<Register/>}
+                >
+                </Route>
+                <Route
+                    path="/sign-in"
+                    element={<Login/>}
+                ></Route>
+                <Route
+                    path="*"
+                    element={<PageNotFound/>}
+                >
+                </Route>
 
-            {/*    <Route path="/profile" element={<>*/}
-            {/*        <Header/>*/}
-            {/*        <Profile/>*/}
-            {/*    </>}>*/}
-            {/*    </Route>*/}
+                <Route path="/profile" element={<>
+                    <Header/>
+                    <Profile/>
+                </>}>
+                </Route>
 
-            {/*    <Route path="/movies" element={<>*/}
-            {/*        <Header/>*/}
-            {/*        <Movies/>*/}
-            {/*        <Footer/>*/}
-            {/*    </>}>*/}
-            {/*    </Route>*/}
+                <Route path="/movies" element={<>
+                    <Header/>
+                    <Movies/>
+                    <Footer/>
+                </>}>
+                </Route>
 
-            {/*    <Route path="/saved-movies" element={<>*/}
-            {/*        <Header/>*/}
-            {/*        <SavedMovies/>*/}
-            {/*        <Footer/>*/}
-            {/*    </>}>*/}
-            {/*    </Route>*/}
+                <Route path="/saved-movies" element={<>
+                    <Header/>
+                    <SavedMovies/>
+                    <Footer/>
+                </>}>
+                </Route>
 
-            {/*    <Route path="*" element={<PageNotFound/>}>*/}
-            {/*    </Route>*/}
-            {/*</Routes>*/}
-        </div>
+                <Route path="*" element={<PageNotFound/>}>
+                </Route>
+            </Routes>
+        </main>
     );
 }
 

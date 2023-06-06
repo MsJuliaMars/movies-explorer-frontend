@@ -19,11 +19,11 @@ function Navigation({}) {
         <section className='navigation'>
             {windowWidth < 769 ? (<>
                 <div className={`${isOpenPopup ? "navigation__overlay" : ""}`}>
-                    <nav
-                        className={`navigation__popup navigation__popup-none  ${isOpenPopup ? 'navigation__popup-opened' : ''}`}>
+                    <div
+                        className={`navigation__popup ${isOpenPopup ? 'navigation__popup-opened' : ''}`}>
                         <button className='navigation__close-btn' alt='крестик закрывает бургер-меню'
                                 onClick={handlePopupClose}></button>
-                        <div className="navigation__links">
+                        <nav className="navigation__links">
                             <Link className='navigation__link' to='/'>
                                 Главная
                             </Link>
@@ -33,17 +33,17 @@ function Navigation({}) {
                             <Link className='navigation__link' to='/saved-movies'>
                                 Сохраненые фильмы
                             </Link>
-                        </div>
+                        </nav>
                         <Link className='navigation__link-account' to='/profile'>
                             Аккаунт
                             <img className='navigation__link-icon' src={account} alt='иконка аккаунта'></img>
                         </Link>
-                    </nav>
+                    </div>
                 </div>
                 <button className="navigation__burger-btn" onClick={handlePopupOpen}></button>
             </>) : (
                 <>
-                    <div className="navigation__laptop">
+                    <nav className="navigation__laptop">
                         <div className="navigation__elements">
                             <Link className='navigation__link' to='/movies'>
                                 Фильмы
@@ -56,7 +56,7 @@ function Navigation({}) {
                             Аккаунт
                             <img className='navigation__link-icon' src={account} alt='иконка аккаунта'></img>
                         </Link>
-                    </div>
+                    </nav>
                 </>
             )}
         </section>

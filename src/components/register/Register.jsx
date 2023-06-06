@@ -1,19 +1,21 @@
 import './Register.css';
 import logo from "../../images/logo.svg";
 import React from "react";
+import {Link} from "react-router-dom";
 
 function Register() {
-    return(
+    return (
         <div className="login">
-            <img src={logo} className="login__logo"/>
+            <Link to="/">
+                <img src={logo} className="login__logo"/></Link>
             <form className="login__form">
                 <h2 className="login__title">Добро пожаловать!</h2>
                 <label className="login__field">Имя
                     <input
                         type="name"
                         name="email_login"
-                        className="login__text login__text_name"
-                        placeholder=""
+                        className="login__text"
+                        placeholder="Имя"
                         minLength="2"
                         maxLength="40"
                         autoComplete="new-password"
@@ -24,8 +26,8 @@ function Register() {
                     <input
                         type="email"
                         name="email_login"
-                        className="login__text login__text_email"
-                        placeholder=""
+                        className="login__text"
+                        placeholder="E-mail"
                         minLength="2"
                         maxLength="40"
                         autoComplete="new-password"
@@ -54,7 +56,7 @@ function Register() {
             </button>
             <p className="login__question">
                 Уже зарегистрированы?{" "}
-                <a className="login__link-entry">Войти</a>
+                <Link to="/sign-in" className="login__link-entry">Войти </Link>
             </p>
         </div>
     )

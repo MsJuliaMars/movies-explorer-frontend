@@ -10,8 +10,8 @@ function Profile() {
                     <input
                         type="name"
                         name="email_login"
-                        className="profile__text profile__text_name"
-                        placeholder=""
+                        className="profile__text"
+                        placeholder="Имя"
                         minLength="2"
                         maxLength="40"
                         autoComplete="new-password"
@@ -22,8 +22,8 @@ function Profile() {
                     <input
                         type="email"
                         name="email_login"
-                        className="profile__text profile__text_email"
-                        placeholder=""
+                        className="profile__text"
+                        placeholder="E-mail"
                         minLength="2"
                         maxLength="40"
                         autoComplete="new-password"

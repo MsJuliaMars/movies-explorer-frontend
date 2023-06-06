@@ -4,6 +4,7 @@
 @import './css/card__title.css';
 @import './css/card__movie-time.css';
 @import './css/card__image.css';
+@import './css/card__delete-button.css';
 
 .card {
     list-style: none;

@@ -4,14 +4,16 @@
     gap: 10px;
     margin: 0px auto 100px auto;
     padding: 0px;
+    max-width: 690px;
 }
 @media screen and (max-width: 768px) {
     .techs__list {
         margin: 0px auto 90px auto;
+        max-width:648px;
     }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 650px) {
     .techs__list {
         margin: 0px auto 70px auto;
         display: grid;

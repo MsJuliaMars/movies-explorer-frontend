@@ -13,18 +13,6 @@ function MoviesCardList({movieLibrary}) {
                         key={movie.id}
                     />
                 ))}
-                {/*<MoviesCard/>*/}
-                {/*<MoviesCard/>*/}
-                {/*<MoviesCard/>*/}
-                {/*<MoviesCard/>*/}
-                {/*<MoviesCard/>*/}
-                {/*<MoviesCard/>*/}
-                {/*<MoviesCard/>*/}
-                {/*<MoviesCard/>*/}
-                {/*<MoviesCard/>*/}
-                {/*<MoviesCard/>*/}
-                {/*<MoviesCard/>*/}
-                {/*<MoviesCard/>*/}
             </ul>
         </section>
     );

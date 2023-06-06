@@ -16,8 +16,11 @@ function MoviesCard({title, time, movie}) {
                     <p className="card__movie-time">{time}</p>
                 </div>
                 <button
+
                     className={`card__save-button ${
-                        save ? "card__save-button_active" : ""
+                        window.location.pathname === '/saved-movies'
+                            ? 'card__delete-button'
+                            : save ? 'card__save-button_active' : ''
                     }`}
                     type="button"
                     aria-label="Флажок"
