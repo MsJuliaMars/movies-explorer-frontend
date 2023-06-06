@@ -7,4 +7,9 @@
     color: #FF6838;
     margin-left: 6px;
     text-decoration: none;
+    cursor: pointer;
+}
+
+.login__link-entry:hover {
+    opacity: 0.5;
 }

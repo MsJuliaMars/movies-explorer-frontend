@@ -9,6 +9,11 @@
     border: none;
     background-color: transparent;
     padding: 0;
+    cursor: pointer;
+}
+
+.profile__button-logout:hover{
+    opacity: 0.5;
 }
 
 @media screen and (max-width: 320px) {
