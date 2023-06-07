@@ -12,6 +12,7 @@
 @import './css/navigation__laptop.css';
 @import './css/navigation__elements.css';
 @import './css/navigation__element-account.css';
+@import './css/navigation__element.css';
 
 @media screen and (max-width: 320px) {
     .navigation {

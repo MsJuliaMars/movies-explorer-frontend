@@ -3,11 +3,8 @@
 @import './css/about-project__title-text.css';
 @import './css/about-project__subtitle.css';
 @import './css/about-project__progress.css';
-@import './css/about-project__progress-one.css';
 @import './css/about-project__progress-lines.css';
-@import './css/about-project__progress-two.css';
-@import './css/about-project__progress-three.css';
-@import './css/about-project__progress-four.css';
+@import './css/about-project__progress-element.css';
 
 .about-project {
     display: flex;

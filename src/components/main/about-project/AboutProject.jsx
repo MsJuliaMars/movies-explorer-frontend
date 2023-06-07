@@ -18,16 +18,12 @@ function AboutProject() {
                         соблюдать, чтобы успешно защититься.</p>
                 </div>
             </div>
-            <table className="about-project__progress">
-                <tr className="about-project__progress-lines">
-                    <td className="about-project__progress-one">1 неделя</td>
-                    <td className="about-project__progress-two">4 неделя</td>
-                </tr>
-                <tr className="about-project__progress-lines">
-                    <td className="about-project__progress-three">Back-end</td>
-                    <td className="about-project__progress-four">Front-end</td>
-                </tr>
-            </table>
+            <div className='about-project__progress'>
+                <li className='about-project__progress-element'>1 неделя</li>
+                <li className='about-project__progress-element'>4 недели</li>
+                <li className='about-project__progress-element'>Back-end</li>
+                <li className='about-project__progress-element'>Front-end</li>
+            </div>
         </section>
     )
         ;

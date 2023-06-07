@@ -1,4 +1,5 @@
 import './SearchForm.css';
+
 function SearchForm() {
     return (
         <section className="search">
@@ -8,8 +9,9 @@ function SearchForm() {
                     Поиск
                 </button>
                 <div className="search__container">
-                    <input type="checkbox" className="search__checkbox" required/>
-                    <label className="search__text">Короткометражки</label>
+                    <label className="search__text">
+                        <input type="checkbox" className="search__checkbox" required/>
+                        Короткометражки</label>
                 </div>
             </form>
         </section>

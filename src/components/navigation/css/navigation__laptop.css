@@ -5,6 +5,12 @@
     margin-right: 70px;
     gap: 385px;
 }
+@media screen and (max-width: 1024px) {
+    .navigation__laptop {
+        gap: 270px;
+    }
+}
+
 
 @media screen and (max-width: 800px) {
     .navigation__laptop {

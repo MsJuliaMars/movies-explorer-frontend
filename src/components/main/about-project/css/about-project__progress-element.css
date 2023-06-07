@@ -1,0 +1,25 @@
+.about-project__progress-element {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #000000;
+}
+
+.about-project__progress-element:first-child {
+    background-color: #2BE080;
+    padding: 9px 0px;
+}
+.about-project__progress-element:last-child {
+    padding: 9px 0px;
+    color: #A0A0A0;
+}
+.about-project__progress-element:nth-child(3) {
+    padding: 9px 0px;
+    color: #A0A0A0;
+}
+.about-project__progress-element:nth-child(2) {
+    background-color: #F2F2F2;
+    padding: 9px 0px;
+}

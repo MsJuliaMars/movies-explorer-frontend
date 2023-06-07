@@ -1,0 +1,18 @@
+.navigation__element {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    text-align: right;
+    color: #000000;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.navigation__element:hover {
+    opacity: 0.5;
+}
+
+.navigation__element-active {
+    font-weight: 500;
+}

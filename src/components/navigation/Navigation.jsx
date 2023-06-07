@@ -45,10 +45,10 @@ function Navigation({}) {
                 <>
                     <nav className="navigation__laptop">
                         <div className="navigation__elements">
-                            <Link className='navigation__link' to='/movies'>
+                            <Link className={`navigation__element ${window.location.pathname === '/movies' ? 'navigation__element-active' : ' '}`} to='/movies'>
                                 Фильмы
                             </Link>
-                            <Link className='navigation__link' to='/saved-movies'>
+                            <Link className={`navigation__element ${window.location.pathname === '/saved-movies' ? 'navigation__element-active' : ' '}`} to='/saved-movies'>
                                 Сохраненые фильмы
                             </Link>
                         </div>

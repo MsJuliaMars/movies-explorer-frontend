@@ -4,4 +4,11 @@
     font-size: 13px;
     line-height: 18px;
     color: #000000;
+    display:flex;
+    align-items: center;
+    cursor:pointer;
+}
+
+.search__text:hover {
+    opacity: 0.5;
 }
