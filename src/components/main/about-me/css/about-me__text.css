@@ -7,14 +7,14 @@
     margin: 0;
     margin-bottom: 99px;
     max-width: 600px;
-    height: 88px;
+    /*height: 88px;*/
 }
 
 @media screen and (max-width: 768px) {
     .about-me__text {
         font-size: 13px;
         line-height: 18px;
-        margin-bottom: 108px;
+        margin-bottom: 87px;
     }
 }
 

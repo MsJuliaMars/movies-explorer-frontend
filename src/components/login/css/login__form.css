@@ -1,9 +1,8 @@
 .login__form {
-    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    width: 396px;
+    /*width: 396px;*/
     paddind: 0;
 }
 

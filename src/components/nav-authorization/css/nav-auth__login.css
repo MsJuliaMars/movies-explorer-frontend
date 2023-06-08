@@ -5,6 +5,13 @@
     height: 16px;
     text-align: center;
     padding: 8px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000000;
+}
+
+.nav-auth__login:hover {
+    opacity: 0.5;
 }
 
 @media screen and (max-width: 320px) {

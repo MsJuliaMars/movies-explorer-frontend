@@ -7,6 +7,7 @@ import Navigation from "../navigation/Navigation";
 
 
 function Header({loggedIn=true}) {
+
     return (
     <header className={`header ${!loggedIn ? 'header_authorization' : ''}`}>
         <Link to="/" className="header__logo">

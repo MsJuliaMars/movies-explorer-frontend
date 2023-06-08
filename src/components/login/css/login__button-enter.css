@@ -12,6 +12,7 @@
     width: 396px;
     height: 45px;
     border: none;
+    cursor: pointer;
     /*max-width: 396px;*/
 }
 

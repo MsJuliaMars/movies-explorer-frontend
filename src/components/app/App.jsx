@@ -5,20 +5,23 @@ import Header from "../header/Header";
 import Register from "../register/Register";
 import Profile from "../profile/Profile";
 import Main from "../main/Main";
-import {Navigate, Route, Routes, useNavigate} from "react-router-dom";
+import {Navigate, Route, Routes, useLocation, useNavigate} from "react-router-dom";
 import Movies from "../movies/Movies";
 import SavedMovies from "../saved-movies/SavedMovies";
 
 function App() {
     const navigate = useNavigate();
+    const location = useLocation();
 
     return (
-        <main className="root">
+        <div className="root">
+                {  location.pathname === '/' ||
+                    location.pathname === '/movies' ||
+                location.pathname === '/saved-movies' ||
+                location.pathname === '/profile' ? (<Header />) : null}
             <Routes>
                 <Route exact path="/"  element={<>
-                    <Header/>
                     <Main/>
-                    <Footer/>
                 </>}>
                 </Route>
 
@@ -38,29 +41,27 @@ function App() {
                 </Route>
 
                 <Route path="/profile" element={<>
-                    <Header/>
                     <Profile/>
                 </>}>
                 </Route>
 
                 <Route path="/movies" element={<>
-                    <Header/>
                     <Movies/>
-                    <Footer/>
                 </>}>
                 </Route>
 
                 <Route path="/saved-movies" element={<>
-                    <Header/>
                     <SavedMovies/>
-                    <Footer/>
                 </>}>
                 </Route>
 
                 <Route path="*" element={<PageNotFound/>}>
                 </Route>
             </Routes>
-        </main>
+            { location.pathname === '/' ||
+            location.pathname === '/movies' ||
+            location.pathname === '/saved-movies' ? (<Footer />) : null}
+        </div>
     );
 }
 

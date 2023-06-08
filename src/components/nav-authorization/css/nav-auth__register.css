@@ -1,3 +1,9 @@
 .nav-auth__register {
+    cursor: pointer;
+    text-decoration: none;
+    color: #000000;
+}
 
+.nav-auth__register:hover {
+    opacity: 0.5;
 }

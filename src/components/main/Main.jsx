@@ -6,13 +6,13 @@ import Portfolio from "./portfolio/Portfolio";
 import './Main.css';
 function Main() {
     return (
-        <section className="main">
+        <main className="main">
             <Promo/>
             <AboutProject/>
             <Techs/>
             <AboutMe/>
             <Portfolio/>
-        </section>
+        </main>
     )
 }
 

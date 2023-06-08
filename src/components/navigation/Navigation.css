@@ -5,7 +5,7 @@
 @import './css/navigation__popup.css';
 @import './css/navigation__popup-none.css';
 @import './css/navigation__popup-opened.css';
-@import './css/navigation__link-active.css';
+@import 'css/navigation__link_active.css';
 @import './css/navigation__link.css';
 @import './css/navigation__close-btn.css';
 @import './css/navigation__overlay.css';

@@ -19,7 +19,7 @@ function Login({onLogin}) {
         onLogin({email: values.email_login, password: values.password_login});
     };
     return (
-        <div className="login">
+        <section className="login">
             <Link to="/">
                 <img src={logo} className="login__logo" alt="Логотип приложения"/></Link>
             <form className="login__form" onSubmit={handleSubmit}>
@@ -64,7 +64,7 @@ function Login({onLogin}) {
                 Ещё не зарегистрированы?{" "}
                 <Link to="/sign-up" className="login__link-entry">Регистрация</Link>
             </p>
-        </div>
+        </section>
     )
 }
 

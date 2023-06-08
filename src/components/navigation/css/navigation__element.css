@@ -13,6 +13,6 @@
     opacity: 0.5;
 }
 
-.navigation__element-active {
+.navigation__element_active {
     font-weight: 500;
 }
