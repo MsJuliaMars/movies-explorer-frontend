@@ -1,7 +1,0 @@
-.navigation__elements {
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-    margin-top: 28px;
-    /*align-items: center;*/
-}

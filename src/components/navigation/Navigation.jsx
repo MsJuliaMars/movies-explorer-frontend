@@ -20,8 +20,8 @@ function Navigation({}) {
             {windowWidth < 769 ? (<>
                 <div className={`${isOpenPopup ? "navigation__overlay" : ""}`}>
                     <div
-                        className={`navigation__popup ${isOpenPopup ? 'navigation__popup-opened' : ''}`}>
-                        <button className='navigation__close-btn' alt='крестик закрывает бургер-меню'
+                        className={`navigation__popup ${isOpenPopup ? 'navigation__popup_opened' : ''}`}>
+                        <button type="button" className='navigation__close-btn' alt='крестик закрывает бургер-меню'
                                 onClick={handlePopupClose}></button>
                         <nav className="navigation__links">
                             <Link className='navigation__link' to='/'>

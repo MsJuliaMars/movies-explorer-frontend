@@ -1,21 +1,207 @@
-@import './css/navigation__burger-btn.css';
-@import './css/navigation__link-account.css';
-@import './css/navigation__link-icon.css';
-@import './css/navigation__links.css';
-@import './css/navigation__popup.css';
-@import './css/navigation__popup-none.css';
-@import './css/navigation__popup-opened.css';
-@import 'css/navigation__link_active.css';
-@import './css/navigation__link.css';
-@import './css/navigation__close-btn.css';
-@import './css/navigation__overlay.css';
-@import './css/navigation__laptop.css';
-@import './css/navigation__elements.css';
-@import './css/navigation__element-account.css';
-@import './css/navigation__element.css';
-
 @media screen and (max-width: 320px) {
     .navigation {
         width: 100%;
+    }
+}
+
+.navigation__overlay {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.navigation__popup {
+    display: none;
+}
+
+.navigation__popup_opened {
+    align-items: center;
+    margin: auto 0;
+    width: 68%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    text-align: center;
+    background-color: #FFFFFF;
+    z-index: 10;
+}
+
+.navigation__close-btn {
+    background-image: url(../../images/close_btn.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    position: absolute;
+    top: 22.44px;
+    right: 22.44px;
+    width: 22px;
+    height: 22px;
+    border: none;
+    background-color: transparent;
+    border: none;
+}
+
+.navigation__links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 159px auto 0px auto;
+    gap: 28px;
+}
+
+.navigation__link {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.navigation__link:hover {
+    opacity: 0.7;
+}
+
+.navigation__link_active {
+    border-bottom: 2px solid #000000;
+    padding-bottom: 5px;
+    width: min-content;
+    align-self: center;
+}
+
+.navigation__link-account {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 17px;
+    bottom: 92px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #000000;
+}
+
+.navigation__link-icon {
+    width: 11.5px;
+    height: 14px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    border: none;
+    background-color: #F9F9F9;
+    border-radius: 4px;
+    padding:8px 7.25px 8px 7.25px;
+}
+
+.navigation__burger-btn{
+    background-image: url(../../images/burger.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    width: 44px;
+    height: 44px;
+    border: none;
+    background-color: transparent;
+    border: none;
+}
+
+.navigation__laptop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 70px;
+    gap: 385px;
+}
+
+.navigation__elements {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    margin-top: 28px;
+}
+
+.navigation__element {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    text-align: right;
+    color: #000000;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.navigation__element:hover {
+    opacity: 0.5;
+}
+
+.navigation__element_active {
+    font-weight: 500;
+}
+
+.navigation__element-account {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+    text-decoration: none;
+    padding-top: 4px;
+    padding-bottom: 7px;
+    margin-top: 20px;
+    gap: 17px;
+}
+
+@media screen and (max-width: 1024px) {
+    .navigation__laptop {
+        gap: 270px;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .navigation__laptop {
+        gap: 50px;
+        display: none;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .navigation__popup_opened {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .navigation__links {
+        margin: 144px auto 0px auto;
+        gap: 24px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .navigation__link-account {
+        bottom: 214px;
+        font-size: 14px;
+        line-height: 16px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .navigation__burger-btn {
+        right: 14px;
+        width: 40px;
+        height: 43px;
     }
 }

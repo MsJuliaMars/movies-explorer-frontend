@@ -15,12 +15,12 @@ function App() {
 
     return (
         <div className="root">
-                {  location.pathname === '/' ||
-                    location.pathname === '/movies' ||
-                location.pathname === '/saved-movies' ||
-                location.pathname === '/profile' ? (<Header />) : null}
+            {location.pathname === "/" ||
+            location.pathname === "/movies" ||
+            location.pathname === "/saved-movies" ||
+            location.pathname === "/profile" ? (<Header/>) : null}
             <Routes>
-                <Route exact path="/"  element={<>
+                <Route exact path="/" element={<>
                     <Main/>
                 </>}>
                 </Route>
@@ -58,9 +58,9 @@ function App() {
                 <Route path="*" element={<PageNotFound/>}>
                 </Route>
             </Routes>
-            { location.pathname === '/' ||
+            {location.pathname === '/' ||
             location.pathname === '/movies' ||
-            location.pathname === '/saved-movies' ? (<Footer />) : null}
+            location.pathname === '/saved-movies' ? (<Footer/>) : null}
         </div>
     );
 }
