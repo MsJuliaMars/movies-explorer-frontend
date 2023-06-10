@@ -146,6 +146,7 @@
 
 .navigation__element_active {
     font-weight: 500;
+    border-bottom: 2px solid #000000;
 }
 
 .navigation__element-account {

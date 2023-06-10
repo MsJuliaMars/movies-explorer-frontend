@@ -28,7 +28,7 @@
         font-size: 40px;
         line-height: 52px;
         max-width: 645px;
-        height: 104px;
+        /*height: 104px;*/
         margin: 350px auto 324px auto;
     }
 }
@@ -54,7 +54,7 @@
         font-size: 29px;
         line-height: 37px;
         max-width: 292px;
-        height: 111px;
+        /*height: 111px;*/
         margin: 220px 0px 212px 0px;
     }
 }

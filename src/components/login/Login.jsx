@@ -20,7 +20,7 @@ function Login({onLogin}) {
     };
     return (
         <section className="login">
-            <Link to="/">
+            <Link to="/" className="">
                 <img src={logo} className="login__logo" alt="Логотип приложения"/></Link>
             <form className="login__form" onSubmit={handleSubmit}>
                 <h2 className="login__title">Рады видеть!</h2>
@@ -52,7 +52,6 @@ function Login({onLogin}) {
                         required
                     />
                 </label>
-            </form>
             <button
                 className="login__button-enter"
                 type="submit"
@@ -64,6 +63,7 @@ function Login({onLogin}) {
                 Ещё не зарегистрированы?{" "}
                 <Link to="/sign-up" className="login__link-entry">Регистрация</Link>
             </p>
+            </form>
         </section>
     )
 }

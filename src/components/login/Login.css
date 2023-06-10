@@ -1,9 +1,24 @@
 .login {
+    margin: 70px auto 70px auto;
+    max-width: 396px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin: 70px 0px 70px 0px;
+}
+
+.login__container {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 396px;
+}
+
+@media screen and (max-width: 500px) {
+    .login__container {
+        align-items: center;
+        width: 260px;
+    }
 }
 
 .login__logo {
@@ -15,10 +30,11 @@
     text-decoration: none;
     cursor: pointer;
     margin: 0px 360px 36px 0px;
+    max-height: 38px;
 }
 
 .login__logo:hover {
-    opacity: 0.5;
+    /*opacity: 0.5;*/
 }
 
 .login__form {
@@ -26,6 +42,7 @@
     flex-direction: column;
     justify-content: flex-start;
     paddind: 0;
+    width: 100%;
 }
 
 .login__title {
@@ -40,7 +57,6 @@
 }
 
 .login__field {
-    position: relative;
     display: flex;
     flex-direction: column;
     font-style: normal;
@@ -52,7 +68,7 @@
 }
 
 .login__text {
-    /*margin: 0;*/
+    margin: 0;
     margin-bottom: 24px;
     font-style: normal;
     font-weight: 500;
@@ -108,7 +124,7 @@ input:-webkit-autofill {
     height: 45px;
     border: none;
     cursor: pointer;
-    /*max-width: 396px;*/
+    max-width: 396px;
 }
 
 .login__button-enter:hover {
@@ -146,7 +162,7 @@ input:-webkit-autofill {
 
 @media screen and (max-width: 768px) {
     .login {
-        margin: 232px 0px 232px 0px;
+        margin: 232px auto 232px auto;
     }
 }
 
@@ -176,7 +192,7 @@ input:-webkit-autofill {
 
 @media screen and (max-width: 320px) {
     .login {
-        margin: 56px 0px 30px 0px;
+        margin: 56px auto 30px auto;
     }
 }
 
@@ -228,6 +244,20 @@ input:-webkit-autofill {
 
 @media screen and (max-width: 320px) {
     .login__question {
-        margin: 0px 0px 30px 0px;
+        margin: 0px auto 30px auto;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .login__link-entry {
+        margin: 0px auto 30px auto;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
     }
 }

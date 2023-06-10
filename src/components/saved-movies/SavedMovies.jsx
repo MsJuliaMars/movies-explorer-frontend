@@ -1,5 +1,5 @@
-import SearchForm from "../movies/search-form/SearchForm";
-import MoviesCardList from "../movies/movies-card-list/MoviesCardList";
+import SearchForm from "../search-form/SearchForm";
+import MoviesCardList from "../movies-card-list/MoviesCardList";
 import {SaveInitialCards} from "../../utils/InitialCards";
 import './SavedMovies.css';
 
