@@ -5,9 +5,9 @@ import {Link} from "react-router-dom";
 
 function Register() {
     return (
-        <div className="login">
-            <Link to="/">
-                <img src={logo} className="login__logo"/></Link>
+        <div className="register">
+            {/*<Link to="/">*/}
+            {/*    <img src={logo} className="login__logo"/></Link>*/}
             <form className="login__form">
                 <h2 className="login__title">Добро пожаловать!</h2>
                 <label className="login__field">Имя
@@ -38,7 +38,7 @@ function Register() {
                     <input
                         type="password"
                         name="password_login"
-                        className="login__text login__text_password"
+                        className="login__text"
                         placeholder=""
                         minLength="2"
                         maxLength="200"
@@ -46,7 +46,6 @@ function Register() {
                         required
                     />
                 </label>
-            </form>
             <button
                 className="register__button-enter"
                 type="submit"
@@ -58,6 +57,7 @@ function Register() {
                 Уже зарегистрированы?{" "}
                 <Link to="/sign-in" className="login__link-entry">Войти </Link>
             </p>
+            </form>
         </div>
     )
 }

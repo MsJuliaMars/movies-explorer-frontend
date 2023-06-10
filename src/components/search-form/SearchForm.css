@@ -140,6 +140,12 @@ input[type="checkbox"].search__checkbox:checked:after {
     }
 }
 
+@media screen and (max-width: 320px){
+    .search__text {
+        font-size: 11px;
+    }
+}
+
 @media screen and (max-width: 320px) {
     .search__btn {
         width: 80px;

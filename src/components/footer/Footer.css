@@ -88,6 +88,8 @@
     .footer__caption {
         padding-bottom: 21px;
         margin: 79px 10px 0px 10px;
+        font-size: 12px;
+        line-height: 15px;
     }
 }
 
