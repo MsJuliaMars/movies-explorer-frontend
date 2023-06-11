@@ -1,6 +1,16 @@
+.navigation{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto 0;
+    /*margin: 70px auto 70px auto;*/
+    /*max-width: 676px;*/
+}
+
 @media screen and (max-width: 320px) {
     .navigation {
-        width: 100%;
+        /*width: 80%;*/
     }
 }
 
@@ -118,7 +128,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-right: 70px;
+    /*margin-right: 70px;*/
     gap: 372px;
 }
 
@@ -126,7 +136,7 @@
     display: flex;
     flex-direction: row;
     gap: 16px;
-    margin-top: 28px;
+    margin-top: 23px;
 }
 
 .navigation__element {
@@ -158,9 +168,8 @@
     align-items: center;
     color: #000000;
     text-decoration: none;
-    padding-top: 4px;
-    padding-bottom: 7px;
-    margin-top: 20px;
+    padding-bottom: 21px;
+    margin-top: 15px;
     gap: 17px;
 }
 

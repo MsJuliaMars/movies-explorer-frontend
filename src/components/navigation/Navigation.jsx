@@ -17,7 +17,7 @@ function Navigation({}) {
 
     return (
         <section className='navigation'>
-            {windowWidth < 769 ? (<>
+            {windowWidth < 800 ? (<>
                 <div className={`${isOpenPopup ? "navigation__overlay" : ""}`}>
                     <div
                         className={`navigation__popup ${isOpenPopup ? 'navigation__popup_opened' : ''}`}>

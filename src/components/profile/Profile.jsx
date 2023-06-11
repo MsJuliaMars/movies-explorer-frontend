@@ -30,21 +30,21 @@ function Profile() {
                         required
                     />
                 </label>
+                <button
+                    className="profile__button-edit"
+                    type="submit"
+                    aria-label="Редактирование аккаунта пользователя"
+                >
+                    Редактировать
+                </button>
+                <button
+                    className="profile__button-logout"
+                    type="submit"
+                    aria-label="Выход из аккаунта пользователя"
+                >
+                    Выйти из аккаунта
+                </button>
             </form>
-            <button
-                className="profile__button-edit"
-                type="submit"
-                aria-label="Редактирование аккаунта пользователя"
-            >
-                Редактировать
-            </button>
-            <button
-                className="profile__button-logout"
-                type="submit"
-                aria-label="Выход из аккаунта пользователя"
-            >
-                Выйти из аккаунта
-            </button>
         </div>
     )
 }
