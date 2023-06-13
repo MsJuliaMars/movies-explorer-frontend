@@ -1,16 +1,20 @@
 .login {
-    margin: 70px auto 70px auto;
-    max-width: 396px;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    margin: 0;
+    padding: 70px 0px 70px 0px;
 }
 
-@media screen and (max-width: 500px) {
-    .login__container {
-        align-items: center;
-        width: 260px;
+@media screen and (max-width: 768px) {
+    .login {
+        padding: 232px 0px 232px 0px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .login {
+        margin: 56px auto 30px auto;
+        padding: 0px;
     }
 }
 
@@ -30,12 +34,18 @@
 }
 
 .login__form {
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*justify-content: flex-start;*/
+    /*paddind: 0;*/
+    /*width: 100%;*/
+    /*box-sizing: border-box;*/
+
+    margin: 0;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    paddind: 0;
-    width: 100%;
-    box-sizing: border-box;
+    align-items: start;
+    width: 396px;
 }
 
 .login__title {
@@ -58,6 +68,7 @@
     line-height: 12px;
     margin-bottom: 5px;
     color: #A0A0A0;
+    width: 100%;
 }
 
 .login__text {
@@ -68,7 +79,7 @@
     font-size: 14px;
     line-height: 17px;
     color: #000000;
-    padding-bottom: 10px;
+    padding-bottom: 12px;
     border: none;
     max-width: 390px;
     height: 17px;
@@ -113,11 +124,10 @@ input:-webkit-autofill {
     color: #FFFFFF;
     margin: 196px 0px 16px 0px;
     padding: 0;
-    /*width: 396px;*/
     height: 45px;
     border: none;
     cursor: pointer;
-    max-width: 396px;
+    width: 100%;
 }
 
 .login__button-enter:hover {
@@ -133,6 +143,7 @@ input:-webkit-autofill {
     font-size: 14px;
     line-height: 17px;
     text-align: center;
+    align-self: center;
     color: #A0A0A0;
     margin: 0px 0px 70px 0px;
 }
@@ -154,12 +165,6 @@ input:-webkit-autofill {
 }
 
 @media screen and (max-width: 768px) {
-    .login {
-        margin: 232px auto 232px auto;
-    }
-}
-
-@media screen and (max-width: 768px) {
     .login__logo {
         margin: 0px 358px 39px 0px;
     }
@@ -173,21 +178,13 @@ input:-webkit-autofill {
 
 @media screen and (max-width: 768px) {
     .login__button-enter {
-        margin: 196px 0px 14px 0px;
+        margin: 190px 0px 14px 0px;
     }
 }
 
 @media screen and (max-width: 768px) {
     .login__question {
         margin: 0px 0px 232px 0px;
-    }
-}
-
-@media screen and (max-width: 320px) {
-    .login {
-        margin: 56px auto 30px auto;
-        max-width: 260px;
-        align-items: center;
     }
 }
 
@@ -199,7 +196,7 @@ input:-webkit-autofill {
 
 @media screen and (max-width: 420px) {
     .login__form {
-        max-width: 260px;
+        width: 260px;
         min-height: 156px;
         align-self: center;
     }
@@ -232,8 +229,8 @@ input:-webkit-autofill {
     .login__button-enter {
         font-size: 12px;
         line-height: 15px;
-      width: 100%;
-        margin: 293px auto 14px auto;
+        width: 100%;
+        margin: 283px auto 14px auto;
     }
 }
 

@@ -104,8 +104,10 @@
     .techs__list {
         margin: 0px auto 70px auto;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
+        grid-template-columns: 84px 1fr;
+        grid-template-rows: 57px 57px 57px;
+        row-gap: 10px;
+        column-gap: 10px;
     }
 }
 

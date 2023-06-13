@@ -20,9 +20,10 @@ function Login({onLogin}) {
     };
     return (
         <section className="login">
-            <Link to="/" className="">
-                <img src={logo} className="login__logo" alt="Логотип приложения"/></Link>
             <form className="login__form" onSubmit={handleSubmit}>
+            <Link to="/" className="login__logo">
+                <img src={logo} className="login__logo" alt="Логотип приложения"/></Link>
+            {/*<form className="login__form" onSubmit={handleSubmit}>*/}
                 <h1 className="login__title">Рады видеть!</h1>
                 <label className="login__field">E-mail
                     <input
