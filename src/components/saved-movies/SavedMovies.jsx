@@ -5,11 +5,11 @@ import './SavedMovies.css';
 
 function SavedMovies() {
     return (
-        <section className='saved-movies'>
+        <main className='saved-movies'>
             <SearchForm />
             <MoviesCardList movieLibrary={SaveInitialCards} />
             <div className='saved-movies__container'></div>
-        </section>
+        </main>
     );
 }
 

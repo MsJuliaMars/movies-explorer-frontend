@@ -106,6 +106,12 @@
 
 
 @media screen and (max-width: 768px) {
+    .profile {
+        margin: 0px auto 70px auto;
+    }
+}
+
+@media screen and (max-width: 768px) {
     .profile__title {
         margin: 236px auto 96px auto;
     }

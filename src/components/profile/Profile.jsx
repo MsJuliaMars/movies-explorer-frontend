@@ -5,7 +5,7 @@ function Profile() {
     return (
         <div className="profile">
             <form className="profile__form">
-                <h2 className="profile__title">Привет, Виталий!</h2>
+                <h1 className="profile__title">Привет, Виталий!</h1>
                 <label className="profile__field">Имя
                     <input
                         type="name"
@@ -14,7 +14,8 @@ function Profile() {
                         placeholder="Имя"
                         minLength="2"
                         maxLength="40"
-                        autoComplete="new-password"
+                        // autoComplete="name"
+                        disabled="disabled" autoComplete="off"
                         required
                     />
                 </label>
@@ -26,7 +27,8 @@ function Profile() {
                         placeholder="E-mail"
                         minLength="2"
                         maxLength="40"
-                        autoComplete="new-password"
+                        // autoComplete="new-password"
+                        disabled="disabled" autoComplete="off"
                         required
                     />
                 </label>

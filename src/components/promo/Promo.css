@@ -5,10 +5,8 @@
     justify-content: center;
     background: #F5F5F5;
     border-radius: 10px;
-    /*max-width: 1200px;*/
-    height: 493px;
+    min-height: 493px;
     margin: 20px 40px 0px 40px;
-    /*border: 1px solid red;*/
 }
 
 .promo__title {
@@ -19,6 +17,7 @@
     letter-spacing: -0.04em;
     color: #000000;
     max-width: 730px;
+    min-height: 116px;
     margin: 160px auto 151px auto;
 }
 
@@ -28,7 +27,7 @@
         font-size: 40px;
         line-height: 52px;
         max-width: 645px;
-        /*height: 104px;*/
+        min-height: 104px;
         margin: 350px auto 324px auto;
     }
 }
@@ -54,7 +53,7 @@
         font-size: 29px;
         line-height: 37px;
         max-width: 292px;
-        /*height: 111px;*/
+        min-height: 111px;
         margin: 220px 0px 212px 0px;
     }
 }

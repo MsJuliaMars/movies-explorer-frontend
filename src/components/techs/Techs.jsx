@@ -10,15 +10,15 @@ function Techs() {
                 <p className="techs__container-subtitle">На курсе веб-разработки мы освоили технологии, которые
                     применили в дипломном проекте.</p>
             </div>
-            <div className='techs__list'>
-                <div className='techs__list-element'><p className="techs__list-skill">HTML</p></div>
-                <div className='techs__list-element'><p className="techs__list-skill">CSS</p></div>
-                <div className='techs__list-element'><p className="techs__list-skill">JS</p></div>
-                <div className='techs__list-element'><p className="techs__list-skill">React</p></div>
-                <div className='techs__list-element'><p className="techs__list-skill">Git</p></div>
-                <div className='techs__list-element'><p className="techs__list-skill">Express.js</p></div>
-                <div className='techs__list-element'><p className="techs__list-skill">mongoDB</p></div>
-            </div>
+            <ul className='techs__list'>
+                <li className='techs__list-element techs__list-skill'>HTML</li>
+                <li className='techs__list-element techs__list-skill'>CSS</li>
+                <li className='techs__list-element techs__list-skill'>JS</li>
+                <li className='techs__list-element techs__list-skill'>React</li>
+                <li className='techs__list-element techs__list-skill'>Git</li>
+                <li className='techs__list-element techs__list-skill'>Express.js</li>
+                <li className='techs__list-element techs__list-skill'>mongoDB</li>
+            </ul>
         </section>
     )
 }

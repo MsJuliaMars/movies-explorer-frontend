@@ -197,8 +197,9 @@
 @media screen and (max-width: 455px) {
     .about-me__photo {
         max-width: 292px;
-        max-height: 352px;
+        min-height: 352px;
         margin-top: 60px;
+        object-fit: cover;
     }
 }
 

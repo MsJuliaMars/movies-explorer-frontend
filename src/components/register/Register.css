@@ -31,10 +31,28 @@
     cursor: pointer;
 }
 
+
+@media screen and (max-width: 768px) {
+    .register {
+        margin: 232px auto 232px auto;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .register {
+        margin: 56px auto 30px auto;
+    }
+}
+
 @media screen and (max-width: 320px) {
     .register__button-enter {
         width: 260px;
         max-width: 260px;
-        margin: 229px auto 14px auto;
+        margin: 213px auto 14px auto;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 15px;
+        text-align: center;
+        color: #FFFFFF;
     }
 }

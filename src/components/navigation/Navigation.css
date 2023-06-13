@@ -15,7 +15,12 @@
 }
 
 .navigation__overlay {
-    background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .navigation__popup {
@@ -210,8 +215,8 @@
 
 @media screen and (max-width: 320px) {
     .navigation__burger-btn {
-        right: 14px;
-        width: 40px;
+        right: 23px;
+        width: 23px;
         height: 43px;
     }
 }

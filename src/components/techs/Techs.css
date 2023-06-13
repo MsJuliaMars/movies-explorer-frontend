@@ -49,6 +49,7 @@
     margin: 0px auto 100px auto;
     padding: 0px;
     max-width: 690px;
+    list-style: none;
 }
 
 .techs__list-element {
@@ -62,11 +63,14 @@
     width: 90px;
     height: 60px;
     border-radius: 10px;
+    align-items: center;
 }
 
 .techs__list-skill {
-    margin-top: 21px;
-    margin-bottom: 21px;
+    /*margin-top: 21px;*/
+    /*margin-bottom: 21px;*/
+    display: flex;
+    justify-content: center;
 }
 
 @media  screen and (max-width: 768px){
@@ -123,7 +127,7 @@
 
 @media  screen and (max-width: 320px){
     .techs__title {
-        margin: 70px 18px 0px 18px;
+        margin: 58px 18px 0px 18px;
         padding-bottom: 28px;
         font-size: 18px;
         line-height: 22px;
