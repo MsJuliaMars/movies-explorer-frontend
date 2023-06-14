@@ -20,12 +20,11 @@
 
 .login__logo {
     padding: 0;
-    cursor: pointer;
     background-color: transparent;
     border: none;
     text-decoration: none;
     cursor: pointer;
-    margin: 0px 360px 40px 0px;
+    margin: 0px 0px 40px 0px;
     max-height: 38px;
 }
 
@@ -155,7 +154,7 @@ input:-webkit-autofill {
 
 @media screen and (max-width: 768px) {
     .login__logo {
-        margin: 0px 358px 39px 0px;
+        margin: 0px 0px 39px 0px;
     }
 }
 

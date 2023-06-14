@@ -62,33 +62,21 @@
     padding: 14px 0px;
 }
 
-
-@media screen and (max-width: 320px) {
-    .about-project__progress-element {
-        font-style: normal;
-        font-weight: 400;
-        font-size: 11px;
-        line-height: 13px;
-        text-align: center;
-        color: #000000;
-        padding: 10px 0px;
-    }
-}
-
 .about-project__progress-element:first-child {
     background-color: #2BE080;
     padding: 9px 0px;
 }
+
 .about-project__progress-element:last-child {
-    /*padding: 14px 0px;*/
     color: #A0A0A0;
     font-family: 'Suisse Intl';
 }
+
 .about-project__progress-element:nth-child(3) {
-    /*padding: 14px 0px;*/
     color: #A0A0A0;
     font-family: 'Suisse Intl';
 }
+
 .about-project__progress-element:nth-child(2) {
     background-color: #F2F2F2;
     padding: 9px 0px;
@@ -133,6 +121,18 @@
         margin-bottom: 85px;
         grid-template-columns: 140px 1fr;
         grid-template-rows: 36px 36px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .about-project__progress-element {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 11px;
+        line-height: 13px;
+        text-align: center;
+        color: #000000;
+        padding: 10px 0px;
     }
 }
 
