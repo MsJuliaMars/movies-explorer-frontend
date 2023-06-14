@@ -93,6 +93,9 @@
 
 .navigation__link_active{
     padding-bottom: 5px;
+    border-bottom: 2px solid #000000;
+    align-self: center;
+    width: max-content;
 }
 
 @media screen and (max-width: 320px) {
