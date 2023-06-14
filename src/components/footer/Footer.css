@@ -41,6 +41,8 @@
     margin: 20px 0px 20px 0px;
     list-style: none;
     padding: 0px;
+    font-size: 13px;
+    line-height: 16px;
 }
 
 .footer__link {
@@ -104,8 +106,20 @@
 @media screen and (max-width: 320px) {
     .footer__copyright {
         align-items: center;
-        margin: 30px auto 20px auto;
+        margin: 27px auto 20px auto;
         color: #A0A0A0;
+        font-size: 12px;
+        line-height: 15px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .footer__link {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+        color: #000000;
     }
 }
 

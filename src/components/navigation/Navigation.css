@@ -4,14 +4,6 @@
     justify-content: space-between;
     align-items: center;
     margin: auto 0;
-    /*margin: 70px auto 70px auto;*/
-    /*max-width: 676px;*/
-}
-
-@media screen and (max-width: 320px) {
-    .navigation {
-        /*width: 80%;*/
-    }
 }
 
 .navigation__overlay {
@@ -21,6 +13,7 @@
     left: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
 }
 
 .navigation__popup {
@@ -48,13 +41,20 @@
     background-position: center;
     cursor: pointer;
     position: absolute;
-    top: 22.44px;
-    right: 22.44px;
+    top: 26.44px;
+    right: 27.44px;
     width: 22px;
     height: 22px;
     border: none;
     background-color: transparent;
     border: none;
+}
+
+@media screen and (max-width: 320px) {
+    .navigation__close-btn {
+        top: 18.44px;
+        right: 18.44px;
+    }
 }
 
 .navigation__links {
@@ -76,15 +76,31 @@
     cursor: pointer;
 }
 
+@media screen and (max-width: 320px) {
+    .navigation__link {
+        padding-bottom: 5px;
+    }
+}
+
+
+.navigation__link:last-child {
+    padding-bottom: 0px;
+}
+
 .navigation__link:hover {
     opacity: 0.7;
 }
 
-.navigation__link_active {
-    border-bottom: 2px solid #000000;
+.navigation__link_active{
     padding-bottom: 5px;
-    width: min-content;
-    align-self: center;
+}
+
+@media screen and (max-width: 320px) {
+    .navigation__link_active {
+        border-bottom: 2px solid #000000;
+        width: min-content;
+        align-self: center;
+    }
 }
 
 .navigation__link-account {
@@ -201,7 +217,7 @@
 @media screen and (max-width: 320px) {
     .navigation__links {
         margin: 144px auto 0px auto;
-        gap: 24px;
+        gap: 20px;
     }
 }
 

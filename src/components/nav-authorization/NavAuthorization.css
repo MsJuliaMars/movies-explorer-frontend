@@ -36,15 +36,8 @@
     opacity: 0.5;
 }
 
-@media screen and (max-width: 768px) {
-    .nav-auth {
-        margin-right: 30px;
-    }
-}
-
 @media screen and (max-width: 320px) {
     .nav-auth {
-        margin-right: 14px;
         font-size: 10px;
         line-height: 16px;
         gap: 14px;
