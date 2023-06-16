@@ -28,12 +28,12 @@
     font-weight: 400;
     font-size: 50px;
     line-height: 58px;
-    margin: 90px 340px 26px 340px;
+    margin: 90px auto 26px auto;
 }
 
 .techs__container-subtitle {
     max-width:460px;
-    max-height: 40px;
+    min-height: 40px;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;

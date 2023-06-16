@@ -35,7 +35,7 @@
 @media screen and (max-width: 768px) {
     .promo {
         max-width: 728px;
-        height: 834px;
+        min-height: 834px;
         margin: 20px 20px 0px 20px;
     }
 }
@@ -43,7 +43,7 @@
 @media screen and (max-width: 320px) {
     .promo {
         max-width: 292px;
-        height: 586px;
+        min-height: 586px;
         margin: 14px 14px 0px 14px;
     }
 }

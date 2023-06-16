@@ -60,11 +60,14 @@
     text-align: right;
     color: #000000;
     border: none;
-    outline: none;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     background: transparent;
+}
+
+.profile__text:hover {
+    outline: #FF6838;
 }
 
 .profile__button-edit {

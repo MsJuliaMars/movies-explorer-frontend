@@ -76,7 +76,6 @@
     max-width: 390px;
     height: 17px;
     border-bottom: 1px solid #E8E8E8;
-    outline: none;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -86,6 +85,7 @@
 
 .login__text:hover {
     border-color: #FF6838;
+    outline: #FF6838;
 }
 
 

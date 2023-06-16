@@ -15,7 +15,8 @@ function Profile() {
                         minLength="2"
                         maxLength="40"
                         // autoComplete="name"
-                        disabled="disabled" autoComplete="off"
+                        disabled="disabled"
+                        autoComplete="off"
                         required
                     />
                 </label>
@@ -28,7 +29,8 @@ function Profile() {
                         minLength="2"
                         maxLength="40"
                         // autoComplete="new-password"
-                        disabled="disabled" autoComplete="off"
+                        disabled="disabled"
+                        autoComplete="off"
                         required
                     />
                 </label>

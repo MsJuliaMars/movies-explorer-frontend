@@ -21,15 +21,15 @@
     line-height: 20px;
     color: #A0A0A0;
     border: none;
-    outline: none;
     padding: 0px;
-    width: 90%;
+    width: 88%;
     margin: 25px 0px 25px 25px;
     cursor: pointer;
 }
 
 .search__input:hover {
     opacity: 0.5;
+    outline: #FF6838;
 }
 
 .search__btn {
