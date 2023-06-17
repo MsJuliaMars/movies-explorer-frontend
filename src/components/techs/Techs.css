@@ -155,7 +155,7 @@
 
 @media screen and (max-width: 320px) {
     .techs__container-subtitle {
-        margin: 0px auto 50px auto;
+        margin: 0px auto 42px auto;
         font-size: 11px;
         line-height: 16px;
         max-width: 292px;
