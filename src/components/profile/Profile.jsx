@@ -14,7 +14,6 @@ function Profile() {
                         placeholder="Имя"
                         minLength="2"
                         maxLength="40"
-                        // autoComplete="name"
                         disabled="disabled"
                         autoComplete="off"
                         required
@@ -28,7 +27,6 @@ function Profile() {
                         placeholder="E-mail"
                         minLength="2"
                         maxLength="40"
-                        // autoComplete="new-password"
                         disabled="disabled"
                         autoComplete="off"
                         required
