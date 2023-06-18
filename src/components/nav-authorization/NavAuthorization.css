@@ -1,0 +1,52 @@
+.nav-auth {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #000000;
+    gap: 30px;
+}
+.nav-auth__register {
+    cursor: pointer;
+    text-decoration: none;
+    color: #000000;
+}
+
+.nav-auth__register:hover {
+    opacity: 0.5;
+}
+
+.nav-auth__login {
+    background: #2BE080;
+    border-radius: 3px;
+    min-width: 36px;
+    height: 16px;
+    text-align: center;
+    padding: 8px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000000;
+}
+
+.nav-auth__login:hover {
+    opacity: 0.5;
+}
+
+@media screen and (max-width: 320px) {
+    .nav-auth {
+        font-size: 10px;
+        line-height: 16px;
+        gap: 14px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .nav-auth__login {
+        padding: 5px 12px;
+        min-width: 30px;
+    }
+}

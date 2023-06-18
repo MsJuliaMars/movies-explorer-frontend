@@ -1,0 +1,95 @@
+.card {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    /*overflow: hidden;*/
+    position: relative;
+    background: #FDFDFD;
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+}
+
+.card__group {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card__header-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 9px;
+}
+
+
+.card__title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    color: #000000;
+    margin: 14px 26px 0px 14px;
+}
+
+.card__movie-time {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    display: flex;
+    align-items: center;
+    color: #A0A0A0;
+    margin-top: 0px;
+    margin-left: 14px;
+    margin-bottom: 14px;
+}
+
+.card__save-button {
+    border: 0;
+    background-color: transparent;
+    background-image: url(../../images/flag_btn.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 19px 14px 19px 0px;
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+    transition: opacity .2s linear;
+}
+.card__save-button:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.card__save-button_active {
+    background-image: url(../../images/flag_btn_active.svg);
+    transition: opacity .2s linear;
+}
+
+.card__delete-button {
+    background-image: url(../../images/not-save_btn.svg);
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent;
+}
+
+.card__delete-button:hover {
+    opacity: 0.5;
+}
+
+.card__image {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    align-self: flex-start;
+    object-fit: cover;
+    justify-content: flex-start;
+}

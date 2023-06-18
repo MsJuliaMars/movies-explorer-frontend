@@ -1,0 +1,241 @@
+.navigation{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto 0;
+}
+
+.navigation__overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+}
+
+.navigation__popup {
+    display: none;
+}
+
+.navigation__popup_opened {
+    align-items: center;
+    margin: auto 0;
+    width: 68%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    text-align: center;
+    background-color: #FFFFFF;
+    z-index: 10;
+}
+
+.navigation__close-btn {
+    background-image: url(../../images/close_btn.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    position: absolute;
+    top: 26.44px;
+    right: 27.44px;
+    width: 22px;
+    height: 22px;
+    border: none;
+    background-color: transparent;
+    border: none;
+}
+
+@media screen and (max-width: 320px) {
+    .navigation__close-btn {
+        top: 18.44px;
+        right: 18.44px;
+    }
+}
+
+.navigation__links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 159px auto 0px auto;
+    gap: 28px;
+}
+
+.navigation__link {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 320px) {
+    .navigation__link {
+        padding-bottom: 5px;
+    }
+}
+
+
+.navigation__link:last-child {
+    padding-bottom: 0px;
+}
+
+.navigation__link:hover {
+    opacity: 0.7;
+}
+
+.navigation__link_active{
+    padding-bottom: 5px;
+    border-bottom: 2px solid #000000;
+    align-self: center;
+    width: max-content;
+}
+
+@media screen and (max-width: 320px) {
+    .navigation__link_active {
+        border-bottom: 2px solid #000000;
+        width: min-content;
+        align-self: center;
+    }
+}
+
+.navigation__link-account {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 17px;
+    bottom: 92px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #000000;
+}
+
+.navigation__link-icon {
+    width: 11.5px;
+    height: 14px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    border: none;
+    background-color: #F9F9F9;
+    border-radius: 4px;
+    padding:8px 7.25px 8px 7.25px;
+}
+
+.navigation__burger-btn{
+    background-image: url(../../images/burger.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    width: 44px;
+    height: 44px;
+    border: none;
+    background-color: transparent;
+    border: none;
+}
+
+.navigation__laptop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /*margin-right: 70px;*/
+    gap: 372px;
+}
+
+.navigation__elements {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    margin-top: 23px;
+}
+
+.navigation__element {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 18px;
+    text-align: right;
+    color: #000000;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.navigation__element:hover {
+    opacity: 0.5;
+}
+
+.navigation__element_active {
+    font-weight: 500;
+    border-bottom: 2px solid #000000;
+}
+
+.navigation__element-account {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+    text-decoration: none;
+    padding-bottom: 21px;
+    margin-top: 15px;
+    gap: 17px;
+}
+
+@media screen and (max-width: 1024px) {
+    .navigation__laptop {
+        gap: 270px;
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .navigation__laptop {
+        gap: 50px;
+        display: none;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .navigation__popup_opened {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .navigation__links {
+        margin: 144px auto 0px auto;
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .navigation__link-account {
+        bottom: 214px;
+        font-size: 14px;
+        line-height: 16px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .navigation__burger-btn {
+        right: 23px;
+        width: 23px;
+        height: 43px;
+    }
+}

@@ -1,0 +1,55 @@
+.register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 70px auto 70px auto;
+}
+
+.register__button-enter {
+    background-color: #FF6838;
+    border-radius: 3px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #FFFFFF;
+    margin:120px 0px 16px 0px;
+    padding: 0;
+    width: 100%;
+    height: 45px;
+    border: none;
+}
+
+.register__button-enter:hover {
+    opacity: 0.8;
+    color: #000000;
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 768px) {
+    .register {
+        margin: 232px auto 232px auto;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .register {
+        margin: 56px auto 30px auto;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .register__button-enter {
+       width: 100%;
+        margin: 218px auto 14px auto;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 15px;
+        text-align: center;
+        color: #FFFFFF;
+    }
+}

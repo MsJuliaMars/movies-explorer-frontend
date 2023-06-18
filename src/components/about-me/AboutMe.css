@@ -1,0 +1,213 @@
+.about-me {
+    display: flex;
+    flex-direction: column;
+    margin: 110px 70px 0px 70px;
+    max-width: 1140px;
+}
+
+.about-me__title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+    letter-spacing: -0.04em;
+    color: #000000;
+    padding-bottom: 23px;
+    margin: 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+}
+
+.about-me__container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.about-me__student {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 600px;
+}
+
+.about-me__name {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 58px;
+    letter-spacing: -0.04em;
+    margin: 66px 0px 18px 0px;
+}
+
+.about-me__job {
+    color: #000000;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+    mix-blend-mode: normal;
+    margin: 0px 0px 26px 0px;
+}
+
+.about-me__text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    mix-blend-mode: normal;
+    margin: 0;
+    margin-bottom: 99px;
+    max-width: 600px;
+}
+
+.about-me__git {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 101px;
+    text-decoration: none;
+    color: #000000;
+}
+
+.about-me__photo {
+    border-radius: 10px;
+    max-width: 270px;
+    height: 327px;
+    margin-top: 66px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .about-me {
+        margin: 86px 50px 0px 50px;
+        max-width: 668px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about-me__title {
+
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about-me__container {
+        margin: 0px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about-me__student {
+        max-width: 364px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about-me__name {
+        font-size: 40px;
+        line-height: 40px;
+        margin: 66px 0px 16px 0px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about-me__job {
+        margin: 0px 0px 20px 0px;
+        font-size: 13px;
+        line-height: 18px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about-me__text {
+        font-size: 12px;
+        line-height: 18px;
+        margin-bottom: 87px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about-me__git {
+        margin-bottom: 91px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .about-me__photo {
+        max-width: 255px;
+        height: 307px;
+        margin-top: 66px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .about-me {
+        margin: 70px 14px 0px 14px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .about-me__title {
+        font-size: 18px;
+        line-height: 22px;
+        padding-bottom: 28px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .about-me__container {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        margin: 0px;
+        max-width: 292px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .about-me__name {
+        font-size: 30px;
+        line-height: 36px;
+        margin-bottom: 20px;
+        margin-top: 40px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .about-me__job {
+        font-size: 11px;
+        line-height: 16px;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .about-me__text {
+        font-size: 11px;
+        line-height: 16px;
+        max-width: 292px;
+        min-height: 112px;
+        margin-bottom: 40px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .about-me__git {
+        margin-bottom: 70px;
+    }
+}
+
+@media screen and (max-width: 455px) {
+    .about-me__photo {
+        max-width: 292px;
+        min-height: 352px;
+        margin-top: 60px;
+        object-fit: cover;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .about-me__student {
+        max-width: 292px;
+    }
+}
