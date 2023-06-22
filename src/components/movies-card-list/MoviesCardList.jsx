@@ -1,16 +1,19 @@
 import './MoviesCardList.css';
 import MoviesCard from "../movies-card/MoviesCard";
+import {useContext, useState} from "react";
+import {CurrentMovieContext} from "../../contexts/CurrentMovieContext";
 
-function MoviesCardList({movieLibrary}) {
+function MoviesCardList({allMovies}) {
+
     return (
         <section className="cards">
+
             <ul className='cards__items'>
-                {movieLibrary.map((movie) => (
+                {allMovies?.map((movie) => (
                     <MoviesCard
-                        title={movie.title}
-                        time={movie.time}
-                        movie={movie.movie}
-                        key={movie.id}
+                        movie={movie}
+                        key={movie.id || movie.movieId}
+                        {...movie}
                     />
                 ))}
             </ul>

@@ -1,19 +1,25 @@
 import React, {useState} from "react";
 import './MoviesCard.css';
 
-function MoviesCard({title, time, movie}) {
+function MoviesCard({movie}) {
     const [save, setSave] = useState(false);
 
     function handleFlagToogle() {
         setSave(!save);
     }
 
+    const durationFormat = (duration) => {
+        const hours = Math.floor(duration / 60);
+        const min = duration % 60;
+        return `${hours > 0 ? hours + 'ч ' : ''}${min}м`;
+    }
+
     return (
         <li className="card">
             <div className="card__group">
                 <div className="card__header-text">
-                    <h2 className="card__title">{title}</h2>
-                    <p className="card__movie-time">{time}</p>
+                    <h2 className="card__title">{movie.nameRU}</h2>
+                    <p className="card__movie-time">{`${durationFormat(movie.duration)}`}</p>
                 </div>
                 <button
 
@@ -28,9 +34,9 @@ function MoviesCard({title, time, movie}) {
                 ></button>
             </div>
             <img
-                src={movie}
+                src={movie.image.url ? `https://api.nomoreparties.co${movie.image.url}` : movie.image}
                 className="card__image"
-                alt="Превью фильма"
+                alt={movie.nameRU}
             />
         </li>
     );
