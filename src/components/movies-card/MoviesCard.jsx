@@ -1,17 +1,36 @@
-import React, {useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
+import {CurrentMovieContext} from "../../contexts/CurrentMovieContext";
 import './MoviesCard.css';
 
-function MoviesCard({movie}) {
+function MoviesCard({movie, onCardLike, onCardUnlike, wasSaved, savedMovies, isSavedMoviesPage }) {
     const [save, setSave] = useState(false);
 
-    function handleFlagToogle() {
-        setSave(!save);
+    const [isLiked, setIsLiked] = useState(false);
+
+    // useEffect(() => {
+    //     console.log(savedMovies);
+    //     if (savedMovies.some((movie) => movie.movieId === movie.id)) {
+    //         setIsLiked(true);
+    //         console.log(savedMovies);
+    //     }
+    // }, [savedMovies, movie.id]);
+
+
+    function handleMovieLike() {
+        if (isLiked === false) {
+            onCardLike(movie);
+            setIsLiked(true);
+        }
+        // if (isLiked === true) {
+        //     onCardUnlike(movie);
+        //     setIsLiked(false);
+        // }
     }
 
     const durationFormat = (duration) => {
         const hours = Math.floor(duration / 60);
         const min = duration % 60;
-        return `${hours > 0 ? hours + 'ч ' : ''}${min}м`;
+        return `${hours > 0 ? hours + 'ч' : ''}${min}м`;
     }
 
     return (
@@ -22,15 +41,16 @@ function MoviesCard({movie}) {
                     <p className="card__movie-time">{`${durationFormat(movie.duration)}`}</p>
                 </div>
                 <button
-
+                    // onClick={handleMovieLike}
+                    onClick={isSavedMoviesPage ? '' : handleMovieLike}
                     className={`card__save-button ${
                         window.location.pathname === '/saved-movies'
                             ? 'card__delete-button'
-                            : save ? 'card__save-button_active' : ''
+                            : isLiked ? 'card__save-button_active' : ''
                     }`}
+                    // className={`card__save-button ${isLiked ? 'card__save-button_active' : ''}`}
                     type="button"
-                    aria-label="Флажок"
-                    onClick={handleFlagToogle}
+                    aria-label="Флажок сохранение/удаление"
                 ></button>
             </div>
             <img

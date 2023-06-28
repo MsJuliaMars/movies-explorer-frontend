@@ -35,25 +35,25 @@ class MainApi {
         }).then(this._checkResponse);
     }
 
-    // addMovie(newMovie) {
-    //     return fetch(`${this._url}/movies`, {
-    //         headers: prepareHeaders(),
-    //         method: 'POST',
-    //         body: JSON.stringify({
-    //             country: `${newMovie.country}`,
-    //             director: `${newMovie.director}`,
-    //             duration: newMovie.duration,
-    //             year: `${newMovie.year}`,
-    //             description: `${newMovie.description}`,
-    //             image: `https://api.nomoreparties.co/${newMovie.image.url}`,
-    //             trailerLink: `${newMovie.trailerLink}`,
-    //             nameRU: `${newMovie.nameRU}`,
-    //             nameEN: `${newMovie.nameEN}`,
-    //             thumbnail: `https://api.nomoreparties.co/${newMovie.image.formats.thumbnail.url}`,
-    //             movieId: `${newMovie.id}`,
-    //         }),
-    //     }).then(this._checkResponse);
-    // }
+    addCardMovie(newMovie) {
+        return fetch(`${this._url}/movies`, {
+            method: 'POST',
+            headers: this._headers,
+            body: JSON.stringify({
+                country: `${newMovie.country}`,
+                director: `${newMovie.director}`,
+                duration: newMovie.duration,
+                year: `${newMovie.year}`,
+                description: `${newMovie.description}`,
+                image: `https://api.nomoreparties.co/${newMovie.image.url}`,
+                trailerLink: `${newMovie.trailerLink}`,
+                nameRU: `${newMovie.nameRU}`,
+                nameEN: `${newMovie.nameEN}`,
+                thumbnail: `https://api.nomoreparties.co/${newMovie.image.formats.thumbnail.url}`,
+                movieId: `${newMovie.id}`,
+            }),
+        }).then(this._checkResponse);
+    }
 
     // // Редактирование аватара
     // setUserAvatar(link) {
@@ -73,13 +73,37 @@ class MainApi {
         }).then(this._checkResponse);
     }
 
+    // getSaveCardsMovie() {
+    //     return fetch(`${this._url}/movies`, {
+    //         method: "GET",
+    //         headers: this._headers,
+    //     }).then(this._checkResponse);
+    // }
 
+    getSaveCardsMovie() {
+        return fetch(`${this._url}/movies`, {
+            method: "GET",
+            headers: this._headers,
+        }).then(this._checkResponse);
+    }
 
-    // Сохранение карточек с фильмами
-    saveCardsMovie() {
+    saveCardsMovie(movie) {
         return fetch(`${this._url}/movies`, {
             method: "POST",
             headers: this._headers,
+            body: JSON.stringify({
+                country: movie.country,
+                director: movie.director,
+                duration: movie.duration,
+                year: movie.year,
+                description: movie.description,
+                image: `https://api.nomoreparties.co${movie.image.url}`,
+                trailer: movie.trailerLink,
+                movieId: movie.id,
+                nameRU: movie.nameRU,
+                nameEN: movie.nameEN,
+                thumbnail: `https://api.nomoreparties.co${movie.image.formats.thumbnail.url}`,
+            }),
         }).then(this._checkResponse);
     }
 
