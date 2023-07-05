@@ -15,10 +15,9 @@ import api from "../../utils/MainApi";
 import ProtectedRouteElement from "../ProtectedRoute/ProtectedRoute";
 import * as MoviesApi from "../../utils/MoviesApi";
 
-
 function App() {
     const [currentUser, setCurrentUser] = useState({});
-    const [userData, setUserData] = useState({ name: '', email: '' });
+    const [userData, setUserData] = useState({name: '', email: ''});
     const location = useLocation();
     const token = localStorage.getItem("token");
 
@@ -27,9 +26,9 @@ function App() {
     const [navigationOpened, setNavigationOpened] = useState(false);
     const [serverMessage, setServerMessage] = useState('');
 
-    const [filterSavedData, setFilterSavedData] = useState({ params: '', short: false });
-   const [initialMovies, setInitialMovies] = useState([]);
-    const [filterData, setFilterData] = useState({ params: '', short: false });
+    const [filterSavedData, setFilterSavedData] = useState({params: '', short: false});
+    const [initialMovies, setInitialMovies] = useState([]);
+    const [filterData, setFilterData] = useState({params: '', short: false});
     const [searchSuccses, setSearchSuccses] = useState(false);
     const [searchSavedSuccses, setSearchSavedSuccses] = useState(false);
     const [moviesToDisplay, setMoviesToDisplay] = useState([]);
@@ -57,12 +56,10 @@ function App() {
         setLoggedIn(false);
     }, []);
 
-
     // Авторизация при открытии страницы по сохраненному логину
     useEffect(() => {
-       Auth.checkToken();
+        Auth.checkToken();
     }, []);
-
 
     useEffect(() => {
         MoviesApi
@@ -93,7 +90,6 @@ function App() {
     //     }
     // }, []);
 
-
     useEffect(() => {
         if (loggedIn && location.pathname === '/movies') {
 
@@ -119,8 +115,8 @@ function App() {
             api.getSaveCardsMovie()
                 .then((res) => {
                     if (res.length) {
-                        // const ownerSavedMovies = res.filter((item) => (item.owner === currentUser._id));
-
+                        //const ownerSavedMovies = res.filter((item) => (item.owner === userData.id));
+                        // savedMovies.some(item => item.movieId === movie.movieId);
                         localStorage.setItem('savedMovies', JSON.stringify(res.filter((item) => (item.image && item.country && item.nameEN && item.director && item.trailerLink.startsWith('http')))));
                         setSavedMovies(JSON.parse(localStorage.getItem('savedMovies')));
 
@@ -130,7 +126,7 @@ function App() {
                     console.log(`Ошибка при загрузке списка сохранённых фильмов: ${err}`)
                 });
         }
-    }, [loggedIn, location, currentUser]);
+    }, [loggedIn, location, currentUser, userData]);
 
     function onSaveMovie(movie) {
         api.saveCardsMovie(movie)
@@ -144,7 +140,19 @@ function App() {
             });
     }
 
+    function onDeleteSavedMovie(movie) {
+        api.deleteCardMovie(movie.movieId)
+            .then(() => {
+                const res = savedMovies.filter((item) => item.movieId !== movie.movieId);
 
+                localStorage.setItem('savedMovies', JSON.stringify(res));
+
+                setSavedMovies(JSON.parse(localStorage.getItem('savedMovies')));
+            })
+            .catch((err) => {
+                console.log(`Ошибка при удаления сохранённого фильма из списка: ${err}`);
+            });
+    }
 
     const handleLogin = ({email, password}) => {
         Auth
@@ -183,8 +191,12 @@ function App() {
     // сброс параметров после "выхода", удаление токена
     const handleLogout = () => {
         logout();
-        setUserData(null);
-        localStorage.removeItem("jwt");
+        setUserData({name: '', email: ''});
+        setCurrentUser({});
+        // localStorage.removeItem("jwt");
+        // localStorage.removeItem("movies");
+        // localStorage.removeItem("savedMovies");
+        localStorage.clear();
         navigate("/sign-in");
     };
 
@@ -200,44 +212,126 @@ function App() {
                 .then((res) => {
                     // авторизуем пользователя
                     login();
-                    setUserData({ name: res.name, email: res.email, idUser: res.id});
+                    setUserData({name: res.name, email: res.email, idUser: res.id});
+                    setCurrentUser(res);
+                    console.log(setCurrentUser);
+                    console.log(setUserData);
+                    // const userMovies = savedMovies.filter((movie) => movie.owner === userData.idUser);
+                    // localStorage.setItem("MoviesSaved", JSON.stringify(userMovies));
                     navigate("/movies");
                 })
                 .catch((err) => console.log(err));
         }
     }, []);
 
-
-    function movieRemover(movie) {
-        api.deleteCardMovie(movie)
-            .then((data) => {
-                const adjustedSavedMovies = savedMovies.filter(item => item._id !== data._id);
-
-                setSavedMovies(adjustedSavedMovies);
-                localStorage.setItem('savedMovies', JSON.stringify(adjustedSavedMovies));
+    const handleUpdateUser = (userData) => {
+        api
+            .setUserInfo(userData)
+            .then((newData) => {
+                setCurrentUser(newData);
             })
-            .catch(err => console.log(err));
+            .catch((err) => console.log(err));
+    };
+
+    function getSavedMovies() {
+        api.downloadingCardsMovie()
+            .then((savedMovies) => {
+                setSavedMovies(savedMovies)
+            })
+            .catch((err) => {
+                console.log(err.message)
+            })
     }
 
-
+    useEffect(() => {
+        api.getUserInfo()
+            .then((data) => {
+                setCurrentUser(data);
+                getSavedMovies()
+            })
+            .catch((err) => {
+                console.log(err.message)
+            })
+    }, [loggedIn])
+    // function movieRemover(savedMovies) {
+    //     api.deleteCardMovie(savedMovies)
+    //         .then((data) => {
+    //             const adjustedSavedMovies = savedMovies.filter((item) => item.movieId !== savedMovies.id);
+    //             setSavedMovies(adjustedSavedMovies);
+    //             localStorage.setItem('savedMovies', JSON.stringify(adjustedSavedMovies));
+    //         })
+    //         .catch(err => console.log(err));
+    // }
+    function movieRemover(_id) {
+        api.deleteCardMovie(_id)
+            .then((res) => {
+                console.log(res);
+                api.getSaveCardsMovie()
+                    .then((data) => {
+                        setSavedMoviesToDisplay(data);
+                        setSavedMovies(data);
+                    })
+                    .catch((error) => {
+                        console.log(error.message);
+                    });
+            })
+            .catch((error) => {
+                console.log(error.message);
+            });
+    }
 
     function handleCardLike(movie) {
         api.addCardMovie(movie)
-            .then((savedMovie) => {
-                setSavedMoviesToDisplay((prevSavedMoviesToShow) => [...prevSavedMoviesToShow, savedMovie]);
-                setSavedMovies((prevSavedMovies) => [...prevSavedMovies, savedMovie]);
+            .then((movieData) => {
+                setSavedMovies([...savedMovies, movieData])
             })
+            // .then((savedMovie) => {
+            //     setSavedMoviesToDisplay((prevSavedMoviesToShow) => [...prevSavedMoviesToShow, savedMovie]);
+            //     setSavedMovies((prevSavedMovies) => [...prevSavedMovies, savedMovie]);
+            // })
             .catch((error) => console.log(error));
     }
 
-    function handleCardUnlike(movie) {
-        if (movie._id) {
-            movieRemover(movie._id);
-        } else {
-            const movieToDelete = savedMovies.find((savedMovie) => savedMovie.movieId === movie.id);
-            movieRemover(movieToDelete._id);
-        }
+    function handleCardUnlike(card) {
+        //if (card)
+        api.deleteCardMovie(card._id)
+            .then((card) => {
+                setSavedMovies([...savedMovies, card])
+                setSavedMovies(savedMovies.filter(item => item.id !== card.id))
+            })
+            .catch((err) => {
+                console.log(err.message)
+            })
     }
+
+    //  function handleCardUnlike(savedMovies) {
+
+    // // console.log(savedMovies + "____");
+    // // console.log (setSavedMovies + "___");
+    // // console.log(userData + "___" + setMovies);
+    // if (savedMovies.id) {
+    //    // const movieToDelete = setSavedMovies(JSON.parse(localStorage.getItem('savedMovies')));
+    //     //movieRemover(movieToDelete);
+    //     api.deleteCardMovie(savedMovies.id)
+    //         .then(() => {
+    //             const res = savedMovies.filter((item) => item.movieId !== savedMovies.movieId);
+    //
+    //             localStorage.setItem('savedMovies', JSON.stringify(res));
+    //
+    //             setSavedMovies(JSON.parse(localStorage.getItem('savedMovies')));
+    //
+    //             if (!JSON.parse(localStorage.getItem('savedMovies')).length);
+    //         })
+    //         .catch((err) => {
+    //             console.log(`Ошибка при удаления сохранённого фильма из списка: ${err}`);
+    //         });
+    // } else {
+    //     const movieToDelete = savedMovies.filter((item) => item.movieId === savedMovies.id);
+    //
+    //     //const adjustedSavedMovies = savedMovies.filter((item) => item.movieId == savedMovie._id);
+    //     movieRemover(movieToDelete.id);
+    // }
+    // }
 
     return (
         <CurrentMovieContext.Provider value={userData}>
@@ -245,7 +339,7 @@ function App() {
                 {location.pathname === "/" ||
                 location.pathname === "/movies" ||
                 location.pathname === "/saved-movies" ||
-                location.pathname === "/profile" ? (<Header/>) : null}
+                location.pathname === "/profile" ? (<Header loggedIn={loggedIn}/>) : null}
                 <Routes>
                     <Route exact path="/" element={<>
                         <Main/>
@@ -271,6 +365,8 @@ function App() {
                         <ProtectedRouteElement
                             loggedIn={loggedIn}
                             element={Profile}
+                            onUpdateUser={handleUpdateUser}
+                            onLogout={handleLogout}
                         >
                             {" "}
                         </ProtectedRouteElement>}>
@@ -281,7 +377,7 @@ function App() {
                             loggedIn={loggedIn}
                             element={Movies}
                             allMovies={allMovies}
-                            onSaveMovie={onSaveMovie}
+                            // onSaveMovie={onSaveMovie}
                             savedMovies={savedMovies}
                             onCardLike={handleCardLike}
                             onCardUnlike={handleCardUnlike}
@@ -297,6 +393,7 @@ function App() {
                             allMovies={setSavedMovies}
                             setSavedMovies={setSavedMovies}
                             savedMovies={savedMovies}
+                            onCardUnlike={handleCardUnlike}
                         >
                             {" "}
                         </ProtectedRouteElement>}>

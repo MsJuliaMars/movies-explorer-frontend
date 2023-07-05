@@ -5,7 +5,7 @@ import {useContext, useEffect, useState} from "react";
 import * as MoviesApi from "../../utils/MoviesApi";
 
 // import {InitialCards} from "../../utils/InitialCards";
-function Movies({allMovies, savedMovies, onCardLike, onCardUnlike, }) {
+function Movies({allMovies, savedMovies, onCardLike, onCardUnlike,  }) {
     const [cards, setCards] = useState([]);
 
 
@@ -20,7 +20,7 @@ function Movies({allMovies, savedMovies, onCardLike, onCardUnlike, }) {
     return (
         <main className="movies">
             <SearchForm/>
-            <MoviesCardList allMovies={allMovies} savedMovies={savedMovies} onCardLike={onCardLike} onCardUnlike={onCardUnlike} isSavedMoviesPage={false}/>
+            <MoviesCardList allMovies={allMovies} savedMovies={savedMovies} onCardLike={onCardLike} onCardUnlike={onCardUnlike}  isSavedMoviesPage={false}/>
             <button type="button" className="movies__btn-more" atl="показывает больше карточек">Ещё</button>
         </main>
     )

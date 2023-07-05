@@ -2,19 +2,32 @@ import './Register.css';
 import logo from "../../images/logo.svg";
 import React from "react";
 import {Link} from "react-router-dom";
-import {useForm} from "../../hooks/useForm";
+import {useFormWithValidation} from "../../hooks/useFormWithValidation";
+// import {useForm} from "../../hooks/useForm";
 
 const Register = ({onRegister}) => {
-    const {values, handleChange, setValues} = useForm({
+    const {
+        values,
+        handleChange,
+        setValues,
+        isErrors,
+        errorMessages,
+        isFormNotValid
+    } = useFormWithValidation({
         name: "",
         email: "",
         password: "",
     });
+    // const {values, handleChange, setValues} = useForm({
+    //     name: "",
+    //     email: "",
+    //     password: "",
+    // });
 
     const handleSubmit = (event) => {
         event.preventDefault(); // Запрещаем браузеру переходить по адресу формы
 
-        if (values.email === values.password === values.name ) {
+        if (values.email === values.password === values.name) {
             return;
         }
         onRegister({
@@ -42,6 +55,8 @@ const Register = ({onRegister}) => {
                         autoComplete="new-password"
                         required
                     />
+                    <span
+                        className={`error__message ${isErrors?.name ? "error__visible" : ""}`}>{errorMessages?.name}</span>
                 </label>
                 <label className="login__field">E-mail
                     <input
@@ -56,6 +71,8 @@ const Register = ({onRegister}) => {
                         autoComplete="new-password"
                         required
                     />
+                    <span
+                        className={`error__message ${isErrors?.email ? "error__visible" : ""}`}>{errorMessages?.email}</span>
                 </label>
                 <label className="login__field">Пароль
                     <input
@@ -70,11 +87,15 @@ const Register = ({onRegister}) => {
                         autoComplete="new-password"
                         required
                     />
+                    <span
+                        className={`error__message ${isErrors?.password ? "error__visible" : ""}`}>{errorMessages?.password}</span>
                 </label>
                 <button
-                    className="register__button-enter"
+                    // className="register__button-enter"
+                    className={`register__button-enter ${isFormNotValid ? "register__button-enter_disabled" : ""}`}
                     type="submit"
                     aria-label="Вход в аккаунт пользователя"
+                    disabled={isFormNotValid}
                 >
                     Зарегистрироваться
                 </button>

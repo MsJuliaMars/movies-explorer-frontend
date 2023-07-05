@@ -118,6 +118,14 @@ input:-webkit-autofill {
     width: 100%;
 }
 
+.login__button-enter_disabled {
+    background-color: white;
+    color: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    opacity: 0.8;
+    cursor: default;
+}
+
 .login__button-enter:hover {
     opacity: 0.8;
     color: #000000;

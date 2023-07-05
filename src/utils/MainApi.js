@@ -65,6 +65,7 @@ class MainApi {
     //     }).then(this._checkResponse);
     // }
 
+
     // Загрузка карточек с фильмами с сервера
     downloadingCardsMovie() {
         return fetch(`${this._url}/movies`, {

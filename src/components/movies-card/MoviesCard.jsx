@@ -1,19 +1,23 @@
 import React, {useContext, useEffect, useState} from "react";
 import {CurrentMovieContext} from "../../contexts/CurrentMovieContext";
 import './MoviesCard.css';
+import {useLocation} from "react-router-dom";
+import movies from "../movies/Movies";
 
-function MoviesCard({movie, onCardLike, onCardUnlike, wasSaved, savedMovies, isSavedMoviesPage }) {
+function MoviesCard({movie, onCardLike, onCardUnlike, savedMovies, allMovies }) {
     const [save, setSave] = useState(false);
-
     const [isLiked, setIsLiked] = useState(false);
 
+    const location = useLocation();
+
     // useEffect(() => {
-    //     console.log(savedMovies);
-    //     if (savedMovies.some((movie) => movie.movieId === movie.id)) {
+    //     //const sw = ;
+    //     if (savedMovies.some((item) => item.movieId === movie.id)) {
     //         setIsLiked(true);
-    //         console.log(savedMovies);
+    //     } else {
+    //         setIsLiked(false);
     //     }
-    // }, [savedMovies, movie.id]);
+    // }, [savedMovies, location.pathname==='/movies']);
 
 
     function handleMovieLike() {
@@ -21,10 +25,17 @@ function MoviesCard({movie, onCardLike, onCardUnlike, wasSaved, savedMovies, isS
             onCardLike(movie);
             setIsLiked(true);
         }
-        // if (isLiked === true) {
-        //     onCardUnlike(movie);
-        //     setIsLiked(false);
-        // }
+        if (isLiked === true) {
+            const unSaved = savedMovies.find(item => item.movieId === movie.id);
+            onCardUnlike(unSaved);
+            setIsLiked(false);
+        }
+    }
+
+    function handleMovieDeleteLike() {
+        //console.log(movie + "____ " );
+       // const unSaved = movies.filter(item => item.movieId === movie.id);
+        onCardUnlike(movie);
     }
 
     const durationFormat = (duration) => {
@@ -40,18 +51,29 @@ function MoviesCard({movie, onCardLike, onCardUnlike, wasSaved, savedMovies, isS
                     <h2 className="card__title">{movie.nameRU}</h2>
                     <p className="card__movie-time">{`${durationFormat(movie.duration)}`}</p>
                 </div>
-                <button
-                    // onClick={handleMovieLike}
-                    onClick={isSavedMoviesPage ? '' : handleMovieLike}
-                    className={`card__save-button ${
-                        window.location.pathname === '/saved-movies'
-                            ? 'card__delete-button'
-                            : isLiked ? 'card__save-button_active' : ''
-                    }`}
-                    // className={`card__save-button ${isLiked ? 'card__save-button_active' : ''}`}
-                    type="button"
-                    aria-label="Флажок сохранение/удаление"
-                ></button>
+                {location.pathname === '/movies' ? (
+                        <button  type="button"
+                                 aria-label="Флажок сохранение/удаление"
+                            className={`card__save-button ${isLiked ? 'card__save-button_active' : ''}`}
+                            onClick={handleMovieLike}></button>
+                ) : (
+                    <button  type="button"
+                             aria-label="Флажок сохранение/удаление"
+                        className='card__save-button card__delete-button'
+                        onClick={()=> handleMovieLike.onCardUnlike(movie)}></button>
+                )}
+                {/*<button*/}
+                {/*    // onClick={handleMovieLike}*/}
+                {/*    onClick={isSavedMoviesPage ? onCardUnlike(movie) : handleMovieLike}*/}
+                {/*    className={`card__save-button ${*/}
+                {/*        window.location.pathname === '/saved-movies'*/}
+                {/*            ? 'card__delete-button'*/}
+                {/*            : isLiked ? 'card__save-button_active' : ''*/}
+                {/*    }`}*/}
+                {/*    // className={`card__save-button ${isLiked ? 'card__save-button_active' : ''}`}*/}
+                {/*    type="button"*/}
+                {/*    aria-label="Флажок сохранение/удаление"*/}
+                {/*></button>*/}
             </div>
             <img
                 src={movie.image.url ? `https://api.nomoreparties.co${movie.image.url}` : movie.image}
