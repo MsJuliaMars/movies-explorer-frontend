@@ -55,16 +55,6 @@ class MainApi {
         }).then(this._checkResponse);
     }
 
-    // // Редактирование аватара
-    // setUserAvatar(link) {
-    //     return fetch(`${this._url}/users/me/avatar`, {
-    //         method: "PATCH",
-    //         // credentials: 'include',
-    //         headers: this._headers,
-    //         body: JSON.stringify(link),
-    //     }).then(this._checkResponse);
-    // }
-
 
     // Загрузка карточек с фильмами с сервера
     downloadingCardsMovie() {
@@ -73,13 +63,6 @@ class MainApi {
             headers: this._headers,
         }).then(this._checkResponse);
     }
-
-    // getSaveCardsMovie() {
-    //     return fetch(`${this._url}/movies`, {
-    //         method: "GET",
-    //         headers: this._headers,
-    //     }).then(this._checkResponse);
-    // }
 
     getSaveCardsMovie() {
         return fetch(`${this._url}/movies`, {
@@ -149,7 +132,7 @@ class MainApi {
 const api = new MainApi({
     url: "http://localhost:3001", // "https://api.mesto.kozhevnikova.nomoredomains.monster",//"http://localhost:3001", //"https://mesto.nomoreparties.co/v1/cohort-45",
     headers: {
-        authorization: localStorage.getItem('token'),//`Bearer ${token}`,//"715ee43e-9fed-4d9c-98b6-32ed8625bba1",
+        authorization: localStorage.getItem('token'),
         "Content-Type": "application/json",
     },
 });

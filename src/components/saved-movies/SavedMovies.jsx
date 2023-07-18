@@ -2,31 +2,20 @@ import SearchForm from "../search-form/SearchForm";
 import MoviesCardList from "../movies-card-list/MoviesCardList";
 import './SavedMovies.css';
 import {useEffect, useState} from "react";
+import Preloader from "../preloader/Preloader";
 
-import api from "../../utils/MainApi";
-// import {deleteCardMovie} from "../../utils/MainApi";
-
-function SavedMovies({savedMovies, setSavedMovies, allMovies, }) {
+function SavedMovies({savedMovies, allMovies, shortMovies, onDeleteSavedMovie, isPreloader, isSave, onSaveMovie}) {
 
     const [moviesForRender, setMoviesForRender] = useState(savedMovies);
 
-    const jwt = localStorage.getItem("jwt");
-
     useEffect(() => setMoviesForRender(savedMovies), [savedMovies]);
-
-    // async function handleCardClick(movie) {
-    //     const savedMovie = savedMovies.find(
-    //         (savedMovie) => savedMovie.movieId === movie.movieId,
-    //     );
-    //     await onDeleteSavedMovie(savedMovie);
-    //
-    // }
-
 
     return (
         <main className='saved-movies'>
-            <SearchForm />
-            <MoviesCardList allMovies={moviesForRender} savedMovies={allMovies}  />
+            <SearchForm shortMovies={shortMovies}/>
+            {isPreloader ? <Preloader/> :
+                <MoviesCardList allMovies={moviesForRender} shortMovies={shortMovies} savedMovies={savedMovies}
+                                onSaveMovie={onSaveMovie} onDeleteSavedMovie={onDeleteSavedMovie} isSave={isSave}/>}
             <div className='saved-movies__container'></div>
         </main>
     );

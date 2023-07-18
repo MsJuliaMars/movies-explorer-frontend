@@ -1,31 +1,26 @@
-import React, {useContext, useEffect, useState} from "react";
-import {CurrentMovieContext} from "../../contexts/CurrentMovieContext";
+import React, {useEffect, useState} from "react";
 import './MoviesCard.css';
 import {useLocation} from "react-router-dom";
-import movies from "../movies/Movies";
 
-function MoviesCard({movie, onCardLike, onCardUnlike, savedMovies, allMovies }) {
-    const [save, setSave] = useState(false);
+function MoviesCard({movie, onCardLike, onCardUnlike, savedMovies, onDeleteSavedMovie,}) {
     const [isLiked, setIsLiked] = useState(false);
+    const [isClosing, setIsClosing] = useState(false);
 
     const location = useLocation();
 
-    // useEffect(() => {
-    //     //const sw = ;
-    //     if (savedMovies.some((item) => item.movieId === movie.id)) {
-    //         setIsLiked(true);
-    //     } else {
-    //         setIsLiked(false);
-    //     }
-    // }, [savedMovies, location.pathname==='/movies']);
-
+    useEffect(() => {
+        // окрашиваем кнопку лайка, если он фильм нашелся в сохраненных
+        if (savedMovies.find(item => item.movieId === movie.id)) {
+            setIsLiked(true);
+        }
+    }, [movie.id, location]);
 
     function handleMovieLike() {
-        if (isLiked === false) {
+        if (location.pathname === '/movies' && isLiked === false) {
             onCardLike(movie);
             setIsLiked(true);
         }
-        if (isLiked === true) {
+        if (location.pathname === '/movies' && isLiked === true) {
             const unSaved = savedMovies.find(item => item.movieId === movie.id);
             onCardUnlike(unSaved);
             setIsLiked(false);
@@ -33,9 +28,7 @@ function MoviesCard({movie, onCardLike, onCardUnlike, savedMovies, allMovies }) 
     }
 
     function handleMovieDeleteLike() {
-        //console.log(movie + "____ " );
-       // const unSaved = movies.filter(item => item.movieId === movie.id);
-        onCardUnlike(movie);
+        onDeleteSavedMovie(movie);
     }
 
     const durationFormat = (duration) => {
@@ -52,28 +45,16 @@ function MoviesCard({movie, onCardLike, onCardUnlike, savedMovies, allMovies }) 
                     <p className="card__movie-time">{`${durationFormat(movie.duration)}`}</p>
                 </div>
                 {location.pathname === '/movies' ? (
-                        <button  type="button"
-                                 aria-label="Флажок сохранение/удаление"
+                    <button type="button"
+                            aria-label="Флажок сохранение/удаление"
                             className={`card__save-button ${isLiked ? 'card__save-button_active' : ''}`}
                             onClick={handleMovieLike}></button>
                 ) : (
-                    <button  type="button"
-                             aria-label="Флажок сохранение/удаление"
-                        className='card__save-button card__delete-button'
-                        onClick={()=> handleMovieLike.onCardUnlike(movie)}></button>
+                    <button type="button"
+                            aria-label="Флажок сохранение/удаление"
+                            className={`card__save-button ${isClosing ? '' : 'card__delete-button'}`}
+                            onClick={handleMovieDeleteLike}></button>
                 )}
-                {/*<button*/}
-                {/*    // onClick={handleMovieLike}*/}
-                {/*    onClick={isSavedMoviesPage ? onCardUnlike(movie) : handleMovieLike}*/}
-                {/*    className={`card__save-button ${*/}
-                {/*        window.location.pathname === '/saved-movies'*/}
-                {/*            ? 'card__delete-button'*/}
-                {/*            : isLiked ? 'card__save-button_active' : ''*/}
-                {/*    }`}*/}
-                {/*    // className={`card__save-button ${isLiked ? 'card__save-button_active' : ''}`}*/}
-                {/*    type="button"*/}
-                {/*    aria-label="Флажок сохранение/удаление"*/}
-                {/*></button>*/}
             </div>
             <img
                 src={movie.image.url ? `https://api.nomoreparties.co${movie.image.url}` : movie.image}

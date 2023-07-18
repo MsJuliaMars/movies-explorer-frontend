@@ -3,9 +3,8 @@ import logo from "../../images/logo.svg";
 import React from "react";
 import {Link} from "react-router-dom";
 import {useFormWithValidation} from "../../hooks/useFormWithValidation";
-// import {useForm} from "../../hooks/useForm";
 
-const Register = ({onRegister}) => {
+const Register = ({onRegister, userErrorMessage}) => {
     const {
         values,
         handleChange,
@@ -18,11 +17,6 @@ const Register = ({onRegister}) => {
         email: "",
         password: "",
     });
-    // const {values, handleChange, setValues} = useForm({
-    //     name: "",
-    //     email: "",
-    //     password: "",
-    // });
 
     const handleSubmit = (event) => {
         event.preventDefault(); // Запрещаем браузеру переходить по адресу формы
@@ -90,8 +84,8 @@ const Register = ({onRegister}) => {
                     <span
                         className={`error__message ${isErrors?.password ? "error__visible" : ""}`}>{errorMessages?.password}</span>
                 </label>
+                <span className="error__message error__visible">{userErrorMessage}</span>
                 <button
-                    // className="register__button-enter"
                     className={`register__button-enter ${isFormNotValid ? "register__button-enter_disabled" : ""}`}
                     type="submit"
                     aria-label="Вход в аккаунт пользователя"

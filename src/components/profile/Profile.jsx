@@ -3,10 +3,9 @@ import React, {useContext, useEffect, useState} from "react";
 import {CurrentMovieContext} from "../../contexts/CurrentMovieContext";
 import {useFormWithValidation} from "../../hooks/useFormWithValidation";
 
-function Profile({onLogout, onUpdateUser}) {
+function Profile({onLogout, onUpdateUser, successEditProfile, userMessage, userErrorMessage}) {
     const userData = useContext(CurrentMovieContext);
 
-    // const [values, setValues] = useState({name_profile: "", email_profile: ""});
     const {
         values,
         handleChange,
@@ -15,13 +14,6 @@ function Profile({onLogout, onUpdateUser}) {
         errorMessages,
         isFormNotValid
     } = useFormWithValidation({name_profile: "", email_profile: ""});
-
-    // const [isErrors, setIsErrors] = useState({
-    //     name_profile: false,
-    //     email_profile: false,
-    // });
-    // const [errorMessages, setErrorMessages] = useState({name_profile: '', email_profile: ''});
-    // const [isFormNotValid, setIsFormNotValid] = useState(false);
 
     useEffect(() => {
         if (userData.name && userData.email) {
@@ -32,28 +24,8 @@ function Profile({onLogout, onUpdateUser}) {
         }
     }, [userData]);
 
-    // const onChange = (event) => {
-    //     setValues((values) => ({
-    //         ...values,
-    //         [event.target.name]: event.target.value,
-    //     }));
-    //     setIsErrors((isErrors) => ({
-    //         ...isErrors, [event.target.name]: !event.target.validity.valid,
-    //     }));
-    //     if(!event.target.validity.valid) {
-    //         setErrorMessages({...errorMessages, [event.target.name]: event.target.validationMessage});
-    //     } else {
-    //         setErrorMessages({...errorMessages, [event.target.name]: ""});
-    //     }
-    // };
-
     const handleSubmit = (evt) => {
         evt.preventDefault(); // Запрещаем браузеру переходить по адресу формы
-
-        // if (!setValues.email || !enteredValues.password) {
-        //     return;
-        // }
-
         onUpdateUser({
             // Передаём значения управляемых компонентов во внешний обработчик
             name: values.name_profile,
@@ -98,9 +70,10 @@ function Profile({onLogout, onUpdateUser}) {
                     <span
                         className={`error__message ${isErrors?.email_profile ? "error__visible" : ""}`}>{errorMessages?.email_profile}</span>
                 </label>
+                <span
+                    className="error__message error__visible">{successEditProfile ? userMessage : userErrorMessage}</span>
                 <button
-                    // className="profile__button-edit"
-                     className={`profile__button-edit ${isFormNotValid ? "profile__button-edit_disabled" : ""}`}
+                    className={`profile__button-edit ${isFormNotValid ? "profile__button-edit_disabled" : ""}`}
                     type="submit"
                     aria-label="Редактирование аккаунта пользователя"
                     disabled={isFormNotValid}

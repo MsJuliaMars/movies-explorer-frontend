@@ -1,11 +1,10 @@
-import React, {useState} from 'react';
-import {useForm} from '../../hooks/useForm';
+import React from 'react';
 import {useFormWithValidation} from "../../hooks/useFormWithValidation";
 import './Login.css';
 import logo from '../../images/logo.svg';
 import {Link} from "react-router-dom";
 
-function Login({onLogin}) {
+function Login({onLogin, userErrorMessage}) {
     const {
         values,
         handleChange,
@@ -13,11 +12,7 @@ function Login({onLogin}) {
         isErrors,
         errorMessages,
         isFormNotValid
-    } = useFormWithValidation({ email_login: "", password_login: ""});
-    // const {values, handleChange, setValues} = useForm({
-    //     email_login: "",
-    //     password_login: "",
-    // });
+    } = useFormWithValidation({email_login: "", password_login: ""});
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -64,8 +59,8 @@ function Login({onLogin}) {
                     <span
                         className={`error__message ${isErrors?.password_login ? "error__visible" : ""}`}>{errorMessages?.password_login}</span>
                 </label>
+                <span className="error__message error__visible">{userErrorMessage}</span>
                 <button
-                    // className="login__button-enter"
                     className={`login__button-enter ${isFormNotValid ? "login__button-enter_disabled" : ""}`}
                     type="submit"
                     aria-label="Вход в аккаунт пользователя"

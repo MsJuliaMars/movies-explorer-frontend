@@ -1,25 +1,29 @@
 import './MoviesCardList.css';
 import MoviesCard from "../movies-card/MoviesCard";
-import {useContext, useState} from "react";
 import {CurrentMovieContext} from "../../contexts/CurrentMovieContext";
-
+import {useContext} from "react";
 function MoviesCardList({
-                            allMovies, savedMovies,
+                            allMovies, savedMovies, shortMovies,
                             onCardLike,
-                            onCardUnlike, isSavedMoviesPage
+                            onCardUnlike, isSave,onDeleteSavedMovie,
                         })
 {
 console.log(allMovies);
+console.log(savedMovies);
+console.log(shortMovies);
+    const { moviesLength } = useContext(CurrentMovieContext);
+
     return (
         <section className="cards">
-
             <ul className='cards__items'>
-                {allMovies?.map((movie) => (
+                {  allMovies.slice(0, moviesLength).map((movie) => (
                     <MoviesCard
                         allMovies={allMovies}
-                        isSavedMoviesPage={isSavedMoviesPage}
                         savedMovies={savedMovies}
+                        shortMovies={shortMovies}
+                        isSave={isSave}
                         onCardLike={onCardLike}
+                        onDeleteSavedMovie={onDeleteSavedMovie}
                         onCardUnlike={onCardUnlike}
                         movie={movie}
                         key={movie.id || movie.movieId}
