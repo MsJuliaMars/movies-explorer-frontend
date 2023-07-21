@@ -42,6 +42,8 @@ function App() {
     const [allMovies, setAllMovies] = useState([]);
     const [savedMovies, setSavedMovies] = useState([]); // для загрузки сохраненных фильмов
     const [shortMovies, setShortMovies] = useState([]); // для загрузки короткометражек
+    const [searchMoviesCard, setSearchMoviesCard] = useState([]); // для загрузки найденного фильма
+    const [userMessMovieDownload, setUserMessMovieDownload] = useState(''); // сообщение для пользователя о загрузке-поиске фильмов
 
     const [moviesLength, setMoviesLength] = useState(12);
     const [showMoreCards, setShowMoreCards] = useState(3);
@@ -64,7 +66,7 @@ function App() {
 
     }, [width]);
 
-    function addSavedMoviesOnPage() {
+    function addSavedMovies() {
         setMoviesLength(moviesLength + showMoreCards);
     }
 
@@ -104,10 +106,7 @@ function App() {
                             JSON.stringify(res.filter((item) => (item.image && item.country && item.nameEN && item.director && item.trailerLink.startsWith('http'))))
                         );
                         setMovies(JSON.parse(localStorage.getItem('movies')));
-
                     }
-                    // localStorage.setItem('shortMovies', JSON.stringify(res.filter((item) => item.duration <= 40)));
-                    // setShortMovies(JSON.parse(localStorage.getItem('shortMovies')));
                 })
                 .catch((err) => {
                     console.log(`Ошибка при загрузке списка фильмов: ${err}`)
@@ -121,13 +120,8 @@ function App() {
             api.getSaveCardsMovie()
                 .then((res) => {
                     if (res.length) {
-                        // if (res.some(item => item.movieId === movies.id)) {
-                        //const ownerSavedMovies = res.filter((item) => (item.owner === userData.id));
-                        //   savedMovies.some(item => item.movieId === movies.movieId);
                         localStorage.setItem('savedMovies', JSON.stringify(res.filter((item) => (item.image && item.country && item.nameEN && item.director && item.trailerLink.startsWith('http')))));
                         setSavedMovies(JSON.parse(localStorage.getItem('savedMovies')));
-                        // }
-
                     }
                 })
                 .catch((err) => {
@@ -138,27 +132,35 @@ function App() {
         }
     }, [loggedIn,]);
 
-    function searchMovie(isShortFilms) {
+/////////////////////////////////////
+    function searchMovie(nameMovie, isShortFilms) {
         MoviesApi.getMovies()
             .then((res) => {
-                if (isShortFilms) {
-                    localStorage.setItem('shortMovies', JSON.stringify(res.filter((item) => item.duration <= 40)));
-                    setShortMovies(JSON.parse(localStorage.getItem('shortMovies')));
+                // if (isShortFilms) {
+                //     localStorage.setItem('shortMovies', JSON.stringify(res.filter((item) => item.duration <= 40)));
+                //     setShortMovies(JSON.parse(localStorage.getItem('shortMovies')));
+                // }
+                const searchedMovies = res.filter((item) => item.nameRU.toString().toLowerCase().includes(nameMovie.toLowerCase()));
+                localStorage.setItem('searchMovieName', JSON.stringify(searchedMovies));
+                // setSearchMoviesCard(JSON.parse(localStorage.getItem('searchMovieName')));
+                const foundMovies = isShortFilms ? searchedMovies.filter((item) => item.duration <= 40) : searchedMovies;
+                localStorage.setItem('foundMovies', JSON.stringify(foundMovies));
+                if (foundMovies.length === 0) {
+                    setUserMessMovieDownload('Ничего не найдено');
                 }
-                //  const searchedMovies = movies.filter((item) => item.nameRU.toLowerCase().includes(nameMovie.toLowerCase()))
-                // const foundMovies = isShortFilms ? searchedMovies.filter((item) => item.duration <= 40) : searchedMovies
-                // localStorage.setItem('foundMovies', JSON.stringify(foundMovies))
-                // localStorage.setItem('searchMovieName', nameMovie)
-                // localStorage.setItem('shortFilms', isShortFilms)
             })
             .catch((err) => {
-                console.log(err.message)
-            })
+                console.log(err.message);
+                setUserMessMovieDownload("Во время запроса произошла ошибка. " +
+                    "Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.");
+            });
     }
 
-    function handleSearch(isShortFilms) {
-        searchMovie(isShortFilms)
+    function handleSearch(nameMovie, isShortFilms) {
+        searchMovie(nameMovie, isShortFilms)
     }
+
+////////////////////////////////
 
     function onSaveMovie(movie) {
         api.saveCardsMovie(movie)
@@ -383,8 +385,9 @@ function App() {
                             shortMovies={shortMovies}
                             onCardLike={handleCardLike}
                             onCardUnlike={handleCardUnlike}
+                            addSavedMovies={addSavedMovies}
                             handleSearch={handleSearch}
-                            addSavedMoviesOnPage={addSavedMoviesOnPage}
+                            userMessMovieDownload={userMessMovieDownload}
 
                         >
                             {" "}

@@ -15,7 +15,7 @@ export default function useScreenWidth() {
                 resizeTimer = setTimeout(() => {
                     clearTimeout(resizeTimer);
                     handleResize();
-                }, 1000);
+                }, 150);
             }
         }
         return () => {

@@ -9,6 +9,14 @@
     max-width: 1140px;
 }
 
+.cards__user-message {
+    color: #EE3465;
+    font-size: 10px;
+    font-family: Inter;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
 @media screen and (max-width: 768px) {
     .cards {
        max-width: 708px;

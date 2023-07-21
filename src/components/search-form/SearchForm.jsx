@@ -1,34 +1,20 @@
 import './SearchForm.css';
 import {useState} from "react";
-import {useLocation} from "react-router-dom";
 
 function SearchForm({savedMovies, handleSearch, shortMovies}) {
-    const [statusCheckbox, setStatusCheckbox] = useState(false);
 
     const [checked, setChecked] = useState(false); //установка галочки делается атрибутом "chacked"
     const [nameMovie, setNameMovie] = useState('');
-    const location = useLocation();
-    const [searchError, setSearchError] = useState('');
 
     function handleChangeCheckbox(event) {
         const isShortFilms = event.target.checked;
         setChecked(isShortFilms);
-        handleSearch(isShortFilms);
+        handleSearch(nameMovie, isShortFilms);
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        handleSearch(nameMovie);
-        // if (location.pathname === '/movies') {
-        //     if (!nameMovie) {
-        //         setSearchError('You need to enter a keyword');
-        //     }
-            // else {
-            //     dispatch(setSearchParams({params: searchData, short: shortSelected}));
-            //     dispatch(setSearchSuccses(true));
-            // }
-        // }
-
+        handleSearch(nameMovie, checked);
     };
 
     return (
@@ -45,7 +31,6 @@ function SearchForm({savedMovies, handleSearch, shortMovies}) {
                         <input type="checkbox" checked={checked} onChange={handleChangeCheckbox}
                                className="search__checkbox"/>
                         Короткометражки
-                        <span>{setSearchError}</span>
                     </label>
                 </div>
             </form>
