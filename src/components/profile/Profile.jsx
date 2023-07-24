@@ -32,10 +32,12 @@ function Profile({onLogout, onUpdateUser, successEditProfile, userMessage, userE
             email: values.email_profile,
         });
     };
+
+
     return (
         <div className="profile">
             <form className="profile__form" onSubmit={handleSubmit}>
-                <h1 className="profile__title">Привет, {userData?.name}!</h1>
+                <h1 className="profile__title">{`Привет, ${userData?.name_profile}!`}</h1>
                 <label className="profile__field">Имя
                     <input
                         type="name"

@@ -1,7 +1,7 @@
 import './SearchForm.css';
 import {useState} from "react";
 
-function SearchForm({savedMovies, handleSearch, shortMovies}) {
+function SearchForm({handleSearch}) {
 
     const [checked, setChecked] = useState(false); //установка галочки делается атрибутом "chacked"
     const [nameMovie, setNameMovie] = useState('');

@@ -23,9 +23,6 @@ function App() {
     const [userMessage, setUserMessage] = useState('');
     const location = useLocation();
     const token = localStorage.getItem("token");
-    //
-    const [savedMoviesToDisplay, setSavedMoviesToDisplay] = useState([]);
-    //
 
     const [isLoading, setIsLoading] = useState(false); // для отслеживания загрузки во время ожидагия от сервера ответа
     const [isPreloader, setIsPreloader] = useState(true);
@@ -120,7 +117,7 @@ function App() {
             api.getSaveCardsMovie()
                 .then((res) => {
                     if (res.length) {
-                        localStorage.setItem('savedMovies', JSON.stringify(res.filter((item) => (item.image && item.country && item.nameEN && item.director && item.trailerLink.startsWith('http')))));
+                        localStorage.setItem('savedMovies', JSON.stringify(res.filter((item) => (item.nameEN && item.director && item.image && item.country && item.trailerLink.startsWith('http')))));
                         setSavedMovies(JSON.parse(localStorage.getItem('savedMovies')));
                     }
                 })
@@ -130,21 +127,23 @@ function App() {
                 setIsPreloader(false);
             }, 1000));
         }
-    }, [loggedIn,]);
+    }, [loggedIn]);
 
-/////////////////////////////////////
     function searchMovie(nameMovie, isShortFilms) {
+        setIsPreloader(true);
         MoviesApi.getMovies()
             .then((res) => {
-                // if (isShortFilms) {
-                //     localStorage.setItem('shortMovies', JSON.stringify(res.filter((item) => item.duration <= 40)));
-                //     setShortMovies(JSON.parse(localStorage.getItem('shortMovies')));
-                // }
                 const searchedMovies = res.filter((item) => item.nameRU.toString().toLowerCase().includes(nameMovie.toLowerCase()));
                 localStorage.setItem('searchMovieName', JSON.stringify(searchedMovies));
-                // setSearchMoviesCard(JSON.parse(localStorage.getItem('searchMovieName')));
                 const foundMovies = isShortFilms ? searchedMovies.filter((item) => item.duration <= 40) : searchedMovies;
                 localStorage.setItem('foundMovies', JSON.stringify(foundMovies));
+                setSearchMoviesCard(JSON.parse(localStorage.getItem('foundMovies')));
+                setAllMovies(foundMovies);
+
+                if (location.pathname === '/saved-movies') {
+                    setSavedMovies(foundMovies);
+                }
+
                 if (foundMovies.length === 0) {
                     setUserMessMovieDownload('Ничего не найдено');
                 }
@@ -153,14 +152,14 @@ function App() {
                 console.log(err.message);
                 setUserMessMovieDownload("Во время запроса произошла ошибка. " +
                     "Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.");
-            });
+            }).finally(() => setTimeout(() => {
+            setIsPreloader(false);
+        }, 2000));
     }
 
     function handleSearch(nameMovie, isShortFilms) {
         searchMovie(nameMovie, isShortFilms)
     }
-
-////////////////////////////////
 
     function onSaveMovie(movie) {
         api.saveCardsMovie(movie)
@@ -315,7 +314,7 @@ function App() {
                 setSavedMovies(JSON.parse(localStorage.getItem('savedMovies')));
             })
             .catch((err) => {
-                console.log(`Ошибка при удаления сохранённого фильма из списка: ${err}`);
+                console.log(`Ошибка при удаления сохранённого фильма: ${err}`);
             });
     }
 
@@ -378,8 +377,6 @@ function App() {
                             loggedIn={loggedIn}
                             element={Movies}
                             isPreloader={isPreloader}
-                            isSave={isSave}
-                            onSaveMovie={onSaveMovie}
                             allMovies={allMovies}
                             savedMovies={savedMovies}
                             shortMovies={shortMovies}
@@ -388,7 +385,6 @@ function App() {
                             addSavedMovies={addSavedMovies}
                             handleSearch={handleSearch}
                             userMessMovieDownload={userMessMovieDownload}
-
                         >
                             {" "}
                         </ProtectedRouteElement>}>
@@ -401,10 +397,11 @@ function App() {
                             isSave={isSave}
                             isPreloader={isPreloader}
                             allMovies={setSavedMovies}
-                            setSavedMovies={setSavedMovies}
                             savedMovies={savedMovies}
-                            onSaveMovie={onSaveMovie}
                             onDeleteSavedMovie={handleDeleteSavedMovie}
+                            handleSearch={handleSearch}
+                            searchMoviesCard={searchMoviesCard}
+                            userMessMovieDownload={userMessMovieDownload}
                         >
                             {" "}
                         </ProtectedRouteElement>}>

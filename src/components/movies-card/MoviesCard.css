@@ -93,3 +93,8 @@
     object-fit: cover;
     justify-content: flex-start;
 }
+
+.card__link {
+    text-decoration: none;
+    color: #2BE080;
+}

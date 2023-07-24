@@ -56,11 +56,13 @@ function MoviesCard({movie, onCardLike, onCardUnlike, savedMovies, onDeleteSaved
                             onClick={handleMovieDeleteLike}></button>
                 )}
             </div>
+            <a className='card__link' href={movie.trailerLink} title={movie.trailerLink}>
             <img
                 src={movie.image.url ? `https://api.nomoreparties.co${movie.image.url}` : movie.image}
                 className="card__image"
                 alt={movie.nameRU}
             />
+            </a>
         </li>
     );
 }

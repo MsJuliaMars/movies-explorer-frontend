@@ -4,7 +4,11 @@ import './SavedMovies.css';
 import {useEffect, useState} from "react";
 import Preloader from "../preloader/Preloader";
 
-function SavedMovies({savedMovies, allMovies, shortMovies, onDeleteSavedMovie, isPreloader, isSave, onSaveMovie}) {
+function SavedMovies({
+                         savedMovies, onDeleteSavedMovie, isPreloader, isSave, onSaveMovie, handleSearch,
+                         userMessMovieDownload,
+                         searchMoviesCard
+                     }) {
 
     const [moviesForRender, setMoviesForRender] = useState(savedMovies);
 
@@ -12,9 +16,11 @@ function SavedMovies({savedMovies, allMovies, shortMovies, onDeleteSavedMovie, i
 
     return (
         <main className='saved-movies'>
-            <SearchForm shortMovies={shortMovies}/>
+            <SearchForm handleSearch={handleSearch}/>
             {isPreloader ? <Preloader/> :
-                <MoviesCardList allMovies={moviesForRender} shortMovies={shortMovies} savedMovies={savedMovies}
+                <MoviesCardList userMessMovieDownload={userMessMovieDownload}
+                                searchMoviesCard={searchMoviesCard} allMovies={moviesForRender}
+                                savedMovies={savedMovies}
                                 onSaveMovie={onSaveMovie} onDeleteSavedMovie={onDeleteSavedMovie} isSave={isSave}/>}
             <div className='saved-movies__container'></div>
         </main>

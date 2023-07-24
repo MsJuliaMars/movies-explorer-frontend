@@ -6,23 +6,25 @@ import Preloader from "../preloader/Preloader";
 function Movies({
                     allMovies,
                     savedMovies,
-                    shortMovies,
                     onCardLike,
                     onCardUnlike,
                     addSavedMovies,
                     onDeleteSavedMovie,
-                    isPreloader, isSave, onSaveMovie,handleSearch, setSearchMoviesCard,userMessMovieDownload,
+                    isPreloader,
+                    handleSearch,
+                    userMessMovieDownload,
+                    searchMoviesCard
                 }) {
 
     return (
         <main className="movies">
-            <SearchForm handleSearch={handleSearch} />
+            <SearchForm handleSearch={handleSearch}/>
             {isPreloader ? <Preloader/> :
-                <MoviesCardList userMessMovieDownload={userMessMovieDownload} handleSearch={setSearchMoviesCard}
-                                shortMovies={shortMovies} allMovies={allMovies}
-                                savedMovies={savedMovies} isSave={isSave} onSaveMovie={onSaveMovie}
+                <MoviesCardList userMessMovieDownload={userMessMovieDownload}
+                                allMovies={allMovies} searchMoviesCard={searchMoviesCard}
+                                savedMovies={savedMovies}
                                 onCardLike={onCardLike} onCardUnlike={onCardUnlike} addSavedMovies={addSavedMovies}
-                                onDeleteSavedMovie={onDeleteSavedMovie} isSavedMoviesPage={false}/>}
+                                onDeleteSavedMovie={onDeleteSavedMovie}/>}
         </main>
     )
 }
