@@ -1,6 +1,4 @@
-// export const BASE_URL = " https://auth.nomoreparties.co";
- //export const BASE_URL = "http://localhost:3001";
-export const BASE_URL = "http://localhost:3001";//"https://api.mesto.kozhevnikova.nomoredomains.monster"; //
+export const BASE_URL = "https://api.movies.kozhevnikova.nomoredomains.monster";//"http://localhost:3001";
 const getResponse = (res) => {
     return res.ok ? res.json() : Promise.reject(`Ошибка моя: ${res.status}`);
 };

@@ -130,7 +130,7 @@ class MainApi {
 
 // Создаем один экземпляр класса на все приложение
 const api = new MainApi({
-    url: "http://localhost:3001", // "https://api.mesto.kozhevnikova.nomoredomains.monster",//"http://localhost:3001", //"https://mesto.nomoreparties.co/v1/cohort-45",
+    url: "https://api.movies.kozhevnikova.nomoredomains.monster",
     headers: {
         authorization: localStorage.getItem('token'),
         "Content-Type": "application/json",
