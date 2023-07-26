@@ -70,7 +70,7 @@ function Login({onLogin, userErrorMessage}) {
                 </button>
                 <p className="login__question">
                     Ещё не зарегистрированы?{" "}
-                    <Link to="/sign-up" className="login__link-entry">Регистрация</Link>
+                    <Link to="/signup" className="login__link-entry">Регистрация</Link>
                 </p>
             </form>
         </section>

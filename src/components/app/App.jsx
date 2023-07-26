@@ -207,7 +207,7 @@ function App() {
             .then(() => {
                 setSuccessRegister(true);
                 setUserData({name: userData.name, email: userData.email})
-                navigate("/sign-in");
+                navigate("/signin");
             })
             .catch((err) => {
                 console.log(err);
@@ -225,7 +225,7 @@ function App() {
         setUserData({name: '', email: ''});
         setCurrentUser({});
         localStorage.clear();
-        navigate("/sign-in");
+        navigate("/signin");
     };
 
     //сохранение токена в локальном хранилище и передача email
@@ -344,12 +344,12 @@ function App() {
                     </Route>
 
                     <Route
-                        path="/sign-up"
+                        path="/signup"
                         element={<Register onRegister={handleRegister} userErrorMessage={userErrorMessage}/>}
                     >
                     </Route>
                     <Route
-                        path="/sign-in"
+                        path="/signin"
                         element={<Login onLogin={handleLogin} userErrorMessage={userErrorMessage}/>}
                     ></Route>
                     <Route

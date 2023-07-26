@@ -95,7 +95,7 @@ const Register = ({onRegister, userErrorMessage}) => {
                 </button>
                 <p className="login__question">
                     Уже зарегистрированы?{" "}
-                    <Link to="/sign-in" className="login__link-entry">Войти </Link>
+                    <Link to="/signin" className="login__link-entry">Войти </Link>
                 </p>
             </form>
         </div>
