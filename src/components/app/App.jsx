@@ -24,7 +24,6 @@ function App() {
     const [userErrorMessage, setUserErrorMessage] = useState('');
     const [userMessage, setUserMessage] = useState('');
     const location = useLocation();
-    const token = localStorage.getItem("token");
 
     const [isLoading, setIsLoading] = useState(false); // для отслеживания загрузки во время ожидагия от сервера ответа
     const [isPreloader, setIsPreloader] = useState(true);
@@ -34,13 +33,11 @@ function App() {
     const [loggedIn, setLoggedIn] = useState(false);
     const [successRegister, setSuccessRegister] = useState(false);
     const [successEditProfile, setSuccessEditProfile] = useState(false);
-    const [jwt, setJwt] = useState('');
     const navigate = useNavigate();
 
-    const [movies, setMovies] = useState([]);
     const [allMovies, setAllMovies] = useState([]);
     const [savedMovies, setSavedMovies] = useState([]); // для загрузки сохраненных фильмов
-    const [shortMovies, setShortMovies] = useState([]); // для загрузки короткометражек
+    const [shortMovies, setShortMovies] = useState(false); // для загрузки короткометражек
     const [searchMoviesCard, setSearchMoviesCard] = useState([]); // для загрузки найденного фильма
     const [userMessMovieDownload, setUserMessMovieDownload] = useState(''); // сообщение для пользователя о загрузке-поиске фильмов
 
@@ -78,29 +75,6 @@ function App() {
     }, []);
 
 
-    // function getSavedMovies() {
-    //     api.downloadingCardsMovie()
-    //         .then((savedMovies) => {
-    //             setSavedMovies(savedMovies);
-    //             localStorage.setItem('savedMovies', JSON.stringify(savedMovies));
-    //         })
-    //         .catch((err) => {
-    //          console.log(`Что-то пошло не так! Ошибка сервера ${err}`);
-    //         })
-    // }
-
-
-    // function getUserInfo() {
-    //     api.getUserInfo()
-    //         .then((data) => {
-    //             setCurrentUser(data);
-    //             setLoggedIn(true);
-    //         })
-    //         .catch((err) => {
-    //             console.log(`Что-то пошло не так! Ошибка сервера ${err}`);
-    //         })
-    // }
-
     // сохраняем в контекст пользователя
     useEffect(() => {
         if (loggedIn) {
@@ -111,7 +85,6 @@ function App() {
                 });
         }
     }, [location]);
-
 
     useEffect(() => {
         if (loggedIn && location.pathname === '/movies') {
@@ -124,14 +97,14 @@ function App() {
                         );
 
                         setAllMovies(JSON.parse(localStorage.getItem('movies')));
-                        setMovies(JSON.parse(localStorage.getItem('movies')));
                     }
                 })
                 .catch((err) => {
                     console.log(`Ошибка при загрузке списка фильмов: ${err}`)
                 }).finally(() => setIsPreloader(false))
         }
-    }, [loggedIn, location, setAllMovies]);
+    }, [location, currentUser]);
+
 
     useEffect(() => {
         setIsPreloader(true);
@@ -149,7 +122,7 @@ function App() {
                 setIsPreloader(false);
             }, 1000));
         }
-    }, [loggedIn, location, ]);
+    }, [loggedIn, location, currentUser]);
 
     function searchMovie(nameMovie, isShortFilms) {
         setIsPreloader(true);
@@ -180,28 +153,16 @@ function App() {
         }, 2000));
     }
 
-
-
     function handleSearch(nameMovie, isShortFilms) {
         searchMovie(nameMovie, isShortFilms)
     }
 
-    function onSaveMovie(movie) {
-        api.saveCardsMovie(movie)
-            .then((newSavedMovie) => {
-                const isMovieSawedAllReady = savedMovies.some(
-                    (item) => item.movieId === movie.movieId
-                );
-                if (!isMovieSawedAllReady) {
-                    localStorage.setItem('savedMovies58', JSON.stringify(newSavedMovie));
+    useEffect(() => {
+        if (location.pathname === "/movies") {
+            setAllMovies(JSON.parse(localStorage.getItem("foundMovies")));
+        }
+    },[location, ])
 
-                    setSavedMovies([JSON.parse(localStorage.getItem('savedMovies58')), ...savedMovies]);
-                }
-            })
-            .catch((err) => {
-                console.log(`Ошибка при сохранения фильма: ${err}`);
-            });
-    }
     const handleLogin = ({email, password}) => {
         Auth
             .authorize(email, password)
@@ -210,8 +171,6 @@ function App() {
                     localStorage.setItem("jwt", data.token);
                     // login();
                     api.setToken(data.token); // передает в api новое значение токена
-                    //getUserInfo();
-                    //getSavedMovies();
                     setLoggedIn(true);
                     navigate("/movies");
                 }
@@ -236,7 +195,7 @@ function App() {
             })
             .catch((err) => {
                 console.log(err);
-                setUserErrorMessage("Что-то пошло не так...");
+                setUserErrorMessage(USER_MESS.ERROR_SOME);
                 setSuccessRegister(false);
                 setTimeout(() => {
                     setUserErrorMessage("");

@@ -23,7 +23,7 @@ function SearchForm({handleSearch, defaultValue}) {
         if (location.pathname === "/movies") {
             setChecked(JSON.parse(localStorage.getItem("shortFilms")) || false);
         }
-    },[location, checked])
+    },[location, setChecked])
 
     return (
         <section className="search">

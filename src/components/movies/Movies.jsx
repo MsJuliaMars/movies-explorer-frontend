@@ -4,30 +4,29 @@ import MoviesCardList from "../movies-card-list/MoviesCardList";
 import Preloader from "../preloader/Preloader";
 
 function Movies({
-                  allMovies,
-                  savedMovies,
-                  onCardLike,
-                  onCardUnlike,
-                  addSavedMovies,
-                  onDeleteSavedMovie,
-                  isPreloader,
-                  handleSearch,
-                  userMessMovieDownload,
-                  searchMoviesCard,
-                  defaultValueInput
+	                allMovies,
+	                savedMovies,
+	                onCardLike,
+	                onCardUnlike,
+	                addSavedMovies,
+	                onDeleteSavedMovie,
+	                isPreloader,
+	                handleSearch,
+	                userMessMovieDownload,
+	                searchMoviesCard,
+	                defaultValueInput
                 }) {
 
-  return (
-      <main className="movies">
-        <SearchForm handleSearch={handleSearch} defaultValue={defaultValueInput}/>
-        {isPreloader ? <Preloader/> :
-            <MoviesCardList userMessMovieDownload={userMessMovieDownload}
-                            allMovies={allMovies} searchMoviesCard={searchMoviesCard}
-                            savedMovies={savedMovies}
-                            onCardLike={onCardLike} onCardUnlike={onCardUnlike} addSavedMovies={addSavedMovies}
-                            onDeleteSavedMovie={onDeleteSavedMovie}/>}
-      </main>
-  )
+	return (
+	<main className="movies">
+		<SearchForm handleSearch={handleSearch} defaultValue={defaultValueInput}/>
+		{isPreloader ? <Preloader/> :
+		<MoviesCardList userMessMovieDownload={userMessMovieDownload} allMovies={allMovies}
+		                searchMoviesCard={searchMoviesCard} savedMovies={savedMovies} onCardLike={onCardLike}
+		                onCardUnlike={onCardUnlike} addSavedMovies={addSavedMovies}
+		                onDeleteSavedMovie={onDeleteSavedMovie}/>}
+	</main>
+	)
 }
 
 export default Movies;

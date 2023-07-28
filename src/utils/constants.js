@@ -13,6 +13,7 @@ export const NUMBER_OF_CARDS = {
 }
 
 export const USER_MESS = {
+    ERROR_SOME: "Что-то пошло не так...",
     ERROR_DOWN_MOVIES: "Ошибка при загрузке списка фильмов",
     ERROR_DOWN_SAVE_MOVIES: "Ошибка при загрузке списка сохранённых фильмов",
     NOT_FOUND: "Ничего не найдено",
