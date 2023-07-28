@@ -5,21 +5,39 @@ import {useEffect, useState} from "react";
 import Preloader from "../preloader/Preloader";
 
 function SavedMovies({
-                         savedMovies, onDeleteSavedMovie, isPreloader, isSave, onSaveMovie, handleSearch,
-                         userMessMovieDownload,
-                         searchMoviesCard
+                         savedMovies, onDeleteSavedMovie, isPreloader, isSave, onSaveMovie,
+                         searchMoviesCard,
                      }) {
+    const [searchSavedMovies, setSearchSavedMovies] = useState([]);
 
-    const [moviesForRender, setMoviesForRender] = useState(savedMovies);
+    function handleSearch(nameMovie, isShortFilms) {
+        const filteredMovies = savedMovies.filter((item) => item.nameRU.toLowerCase().includes(nameMovie.toLowerCase()));
+        if (isShortFilms) {
+            setSearchSavedMovies(filteredMovies.filter((item) => item.duration <= 40));
+        } else {
+            setSearchSavedMovies(filteredMovies);
+        }
+    }
 
-    useEffect(() => setMoviesForRender(savedMovies), [savedMovies]);
+    useEffect(() => {
+        setSearchSavedMovies(
+            searchSavedMovies.filter(movie => savedMovies.some(card => movie.movieId === card.movieId))
+        )
+    }, [savedMovies]);
+
+    function filteredMovies() {
+        setSearchSavedMovies(savedMovies);
+    }
+
+    useEffect(() => {
+        filteredMovies();
+    }, []);
 
     return (
         <main className='saved-movies'>
-            <SearchForm handleSearch={handleSearch}/>
+            <SearchForm handleSearch={handleSearch} defaultValue=""/>
             {isPreloader ? <Preloader/> :
-                <MoviesCardList userMessMovieDownload={userMessMovieDownload}
-                                searchMoviesCard={searchMoviesCard} allMovies={moviesForRender}
+                <MoviesCardList searchMoviesCard={searchMoviesCard} allMovies={searchSavedMovies}
                                 savedMovies={savedMovies}
                                 onSaveMovie={onSaveMovie} onDeleteSavedMovie={onDeleteSavedMovie} isSave={isSave}/>}
             <div className='saved-movies__container'></div>

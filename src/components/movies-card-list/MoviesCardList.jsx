@@ -2,11 +2,10 @@ import './MoviesCardList.css';
 import MoviesCard from "../movies-card/MoviesCard";
 import {CurrentMovieContext} from "../../contexts/CurrentMovieContext";
 import {useContext} from "react";
-import {useLocation} from "react-router-dom";
 function MoviesCardList({
                             allMovies, savedMovies, shortMovies,handleSearch, searchMoviesCard,
                             onCardLike,
-                            onCardUnlike, isSave,onDeleteSavedMovie,setSearchMoviesCard, addSavedMovies, foundMovies, userMessMovieDownload
+                            onCardUnlike, isSave,onDeleteSavedMovie, addSavedMovies, foundMovies, userMessMovieDownload
                         })
 {
 console.log(allMovies);

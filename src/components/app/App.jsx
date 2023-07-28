@@ -15,6 +15,8 @@ import api from "../../utils/MainApi";
 import ProtectedRouteElement from "../ProtectedRoute/ProtectedRoute";
 import * as MoviesApi from "../../utils/MoviesApi";
 import useScreenWidth from "../../hooks/useScreenWidth";
+import {NUMBER_OF_CARDS, USER_MESS} from "../../utils/constants";
+
 
 function App() {
     const [currentUser, setCurrentUser] = useState({});
@@ -47,18 +49,18 @@ function App() {
     const width = useScreenWidth();
 
     useEffect(() => {
-        if (width >= 1280) {
+        if (width >= NUMBER_OF_CARDS.LAPTOP_WIDTH) {
             console.log(width);
-            setMoviesLength(12);
-            setShowMoreCards(3);
-        } else if (width < 1279 && width > 480) {
+            setMoviesLength(NUMBER_OF_CARDS.LAPTOP_LENGTH);
+            setShowMoreCards(NUMBER_OF_CARDS.TABLET_ADDED_MOVIES);
+        } else if (width < NUMBER_OF_CARDS.LAPTOP_WIDTH && width > NUMBER_OF_CARDS.TABLET_WIDTH) {
             console.log(width);
-            setMoviesLength(8);
-            setShowMoreCards(2);
-        } else if (width <= 480 && width > 320) {
+            setMoviesLength(NUMBER_OF_CARDS.TABLET_LENGTH);
+            setShowMoreCards(NUMBER_OF_CARDS.TABLET_ADDED_MOVIES);
+        } else if (width <= NUMBER_OF_CARDS.TABLET_WIDTH && width > NUMBER_OF_CARDS.PHONE_WIDTH) {
             console.log(width);
-            setMoviesLength(5);
-            setShowMoreCards(2);
+            setMoviesLength(NUMBER_OF_CARDS.PHONE_LENGTH);
+            setShowMoreCards(NUMBER_OF_CARDS.PHONE_ADDED_MOVIES);
         }
 
     }, [width]);
@@ -75,23 +77,41 @@ function App() {
         setLoggedIn(false);
     }, []);
 
+
+    // function getSavedMovies() {
+    //     api.downloadingCardsMovie()
+    //         .then((savedMovies) => {
+    //             setSavedMovies(savedMovies);
+    //             localStorage.setItem('savedMovies', JSON.stringify(savedMovies));
+    //         })
+    //         .catch((err) => {
+    //          console.log(`Что-то пошло не так! Ошибка сервера ${err}`);
+    //         })
+    // }
+
+
+    // function getUserInfo() {
+    //     api.getUserInfo()
+    //         .then((data) => {
+    //             setCurrentUser(data);
+    //             setLoggedIn(true);
+    //         })
+    //         .catch((err) => {
+    //             console.log(`Что-то пошло не так! Ошибка сервера ${err}`);
+    //         })
+    // }
+
+    // сохраняем в контекст пользователя
     useEffect(() => {
         if (loggedIn) {
-            navigate("/");
+            api.getUserInfo()
+                .then((response) => setCurrentUser(response))
+                .catch((err) => {
+                    console.log(`Ошибка при загрузке данных пользователя: ${err}`)
+                });
         }
-    }, []);
+    }, [location]);
 
-    // Загрузка всех фильмов
-    useEffect(() => {
-        MoviesApi
-            .getMovies()
-            .then((movies) => {
-                setAllMovies(movies);
-            })
-            .catch((err) => {
-                console.log(`Ошибка: ${err.status}`);
-            })
-    }, [loggedIn]);
 
     useEffect(() => {
         if (loggedIn && location.pathname === '/movies') {
@@ -102,6 +122,8 @@ function App() {
                         localStorage.setItem('movies',
                             JSON.stringify(res.filter((item) => (item.image && item.country && item.nameEN && item.director && item.trailerLink.startsWith('http'))))
                         );
+
+                        setAllMovies(JSON.parse(localStorage.getItem('movies')));
                         setMovies(JSON.parse(localStorage.getItem('movies')));
                     }
                 })
@@ -109,7 +131,7 @@ function App() {
                     console.log(`Ошибка при загрузке списка фильмов: ${err}`)
                 }).finally(() => setIsPreloader(false))
         }
-    }, [loggedIn, location]);
+    }, [loggedIn, location, setAllMovies]);
 
     useEffect(() => {
         setIsPreloader(true);
@@ -127,7 +149,7 @@ function App() {
                 setIsPreloader(false);
             }, 1000));
         }
-    }, [loggedIn]);
+    }, [loggedIn, location, ]);
 
     function searchMovie(nameMovie, isShortFilms) {
         setIsPreloader(true);
@@ -137,6 +159,8 @@ function App() {
                 localStorage.setItem('searchMovieName', JSON.stringify(searchedMovies));
                 const foundMovies = isShortFilms ? searchedMovies.filter((item) => item.duration <= 40) : searchedMovies;
                 localStorage.setItem('foundMovies', JSON.stringify(foundMovies));
+                localStorage.setItem('shortFilms', isShortFilms);
+                localStorage.setItem('saveNameMovie', nameMovie);
                 setSearchMoviesCard(JSON.parse(localStorage.getItem('foundMovies')));
                 setAllMovies(foundMovies);
 
@@ -145,17 +169,18 @@ function App() {
                 }
 
                 if (foundMovies.length === 0) {
-                    setUserMessMovieDownload('Ничего не найдено');
+                    setUserMessMovieDownload(USER_MESS.NOT_FOUND);
                 }
             })
             .catch((err) => {
                 console.log(err.message);
-                setUserMessMovieDownload("Во время запроса произошла ошибка. " +
-                    "Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.");
+                setUserMessMovieDownload(USER_MESS.TRY_AGAIN);
             }).finally(() => setTimeout(() => {
             setIsPreloader(false);
         }, 2000));
     }
+
+
 
     function handleSearch(nameMovie, isShortFilms) {
         searchMovie(nameMovie, isShortFilms)
@@ -168,33 +193,34 @@ function App() {
                     (item) => item.movieId === movie.movieId
                 );
                 if (!isMovieSawedAllReady) {
-                    localStorage.setItem('savedMovies', JSON.stringify(newSavedMovie));
+                    localStorage.setItem('savedMovies58', JSON.stringify(newSavedMovie));
 
-                    setSavedMovies([JSON.parse(localStorage.getItem('savedMovies')), ...savedMovies]);
+                    setSavedMovies([JSON.parse(localStorage.getItem('savedMovies58')), ...savedMovies]);
                 }
             })
             .catch((err) => {
                 console.log(`Ошибка при сохранения фильма: ${err}`);
             });
     }
-
     const handleLogin = ({email, password}) => {
         Auth
             .authorize(email, password)
             .then((data) => {
                 if (data?.token) {
                     localStorage.setItem("jwt", data.token);
-                    login();
+                    // login();
                     api.setToken(data.token); // передает в api новое значение токена
-                    setUserData({name: userData.name, email: userData.email})
+                    //getUserInfo();
+                    //getSavedMovies();
+                    setLoggedIn(true);
                     navigate("/movies");
-                    setJwt(token);
                 }
             })
             .catch((err) => {
                 console.log(err);
+                logout();
                 setSuccessRegister(false);
-                setUserErrorMessage("Неправильрые почта или пароль");
+                setUserErrorMessage(USER_MESS.FAIL_AUTH);
                 setTimeout(() => {
                     setUserErrorMessage("");
                 }, 2000);
@@ -206,8 +232,7 @@ function App() {
             .register(name, email, password)
             .then(() => {
                 setSuccessRegister(true);
-                setUserData({name: userData.name, email: userData.email})
-                navigate("/signin");
+                handleLogin({email, password});
             })
             .catch((err) => {
                 console.log(err);
@@ -219,15 +244,6 @@ function App() {
             });
     };
 
-    // сброс параметров после "выхода", удаление токена
-    const handleLogout = () => {
-        logout();
-        setUserData({name: '', email: ''});
-        setCurrentUser({});
-        localStorage.clear();
-        navigate("/signin");
-    };
-
     //сохранение токена в локальном хранилище и передача email
     useEffect(() => {
         // если у пользователя есть токен в localStorage,
@@ -237,19 +253,28 @@ function App() {
             // проверим токен
             Auth
                 .checkToken(jwt)
-                .then((res) => {
+                .then(({name, email, _id}) => {
                     // авторизуем пользователя
                     login();
-                    setUserData({name: res.name, email: res.email, idUser: res.id});
-                    setCurrentUser(res);
+                    setLoggedIn(true);
+                    api.setToken(jwt);
                     setUserMessage("");
-                    console.log(setCurrentUser);
-                    console.log(setUserData);
-                    navigate("/movies");
+                    setCurrentUser({name, email, _id});
                 })
                 .catch((err) => console.log(err));
         }
     }, []);
+
+    // сброс параметров после "выхода", удаление токена
+    const handleLogout = () => {
+        logout();
+        setUserData({name: '', email: ''});
+        setCurrentUser({});
+        setAllMovies([]);
+        setSavedMovies([]);
+        localStorage.clear();
+        navigate("/");
+    };
 
     const handleUpdateUser = (userData) => {
         setIsLoading(true);
@@ -258,7 +283,7 @@ function App() {
             .then((newData) => {
                 setCurrentUser(newData);
                 setSuccessEditProfile(true);
-                setUserMessage("Профиль пользователя отредактирован успешно");
+                setUserMessage(USER_MESS.SUCCESS_EDIT_USER);
                 setUserErrorMessage("");
                 setTimeout(() => {
                     setUserMessage("");
@@ -267,32 +292,11 @@ function App() {
             .catch((err) => {
                 console.log(err);
                 setSuccessEditProfile(false);
-                setUserErrorMessage("При обновлении профиля пользователя произошла оршибка");
+                setUserErrorMessage(USER_MESS.UPDATE_ERROR);
             }).finally(() => {
             setIsLoading(false);
         });
     };
-
-    function getSavedMovies() {
-        api.downloadingCardsMovie()
-            .then((savedMovies) => {
-                setSavedMovies(savedMovies)
-            })
-            .catch((err) => {
-                console.log(err.message)
-            })
-    }
-
-    useEffect(() => {
-        api.getUserInfo()
-            .then((data) => {
-                setCurrentUser(data);
-                getSavedMovies()
-            })
-            .catch((err) => {
-                console.log(err.message)
-            })
-    }, [loggedIn, location])
 
     function handleCardLike(movie) {
         api.addCardMovie(movie)
@@ -331,7 +335,7 @@ function App() {
     }
 
     return (
-        <CurrentMovieContext.Provider value={{userData, moviesLength}}>
+        <CurrentMovieContext.Provider value={{userData, currentUser, moviesLength}}>
             <div className="root">
                 {location.pathname === "/" ||
                 location.pathname === "/movies" ||
@@ -339,7 +343,7 @@ function App() {
                 location.pathname === "/profile" ? (<Header loggedIn={loggedIn}/>) : null}
                 <Routes>
                     <Route exact path="/" element={<>
-                        <Main/>
+                        <Main />
                     </>}>
                     </Route>
 
@@ -385,6 +389,7 @@ function App() {
                             addSavedMovies={addSavedMovies}
                             handleSearch={handleSearch}
                             userMessMovieDownload={userMessMovieDownload}
+                            defaultValueInput={localStorage.getItem("saveNameMovie") || ""}
                         >
                             {" "}
                         </ProtectedRouteElement>}>

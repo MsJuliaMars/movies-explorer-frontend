@@ -1,10 +1,11 @@
 import './Profile.css';
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext, useEffect,} from "react";
 import {CurrentMovieContext} from "../../contexts/CurrentMovieContext";
 import {useFormWithValidation} from "../../hooks/useFormWithValidation";
 
-function Profile({onLogout, onUpdateUser, successEditProfile, userMessage, userErrorMessage}) {
+function Profile({onLogout, onUpdateUser, successEditProfile, userMessage, userErrorMessage,}) {
     const userData = useContext(CurrentMovieContext);
+    const currentUser = useContext(CurrentMovieContext);
 
     const {
         values,
@@ -37,7 +38,7 @@ function Profile({onLogout, onUpdateUser, successEditProfile, userMessage, userE
     return (
         <div className="profile">
             <form className="profile__form" onSubmit={handleSubmit}>
-                <h1 className="profile__title">{`Привет, ${userData?.name_profile}!`}</h1>
+                <h1 className="profile__title">{`Привет, ${currentUser.currentUser.name}!`}</h1>
                 <label className="profile__field">Имя
                     <input
                         type="name"

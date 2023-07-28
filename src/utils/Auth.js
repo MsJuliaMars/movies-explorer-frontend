@@ -26,7 +26,7 @@ export const authorize = (email, password) => {
 };
 
 export const checkToken = (token) => {
-    return fetch(`${BASE_URL}/movies`, {
+    return fetch(`${BASE_URL}/users/me`, {
         method: "GET",
         headers: {
             Accept: "application/json",

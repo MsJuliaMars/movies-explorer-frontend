@@ -1,11 +1,12 @@
 import './SearchForm.css';
-import {useState} from "react";
+import {useEffect, useState} from "react";
+import {useLocation} from "react-router-dom";
 
-function SearchForm({handleSearch}) {
+function SearchForm({handleSearch, defaultValue}) {
 
     const [checked, setChecked] = useState(false); //установка галочки делается атрибутом "chacked"
     const [nameMovie, setNameMovie] = useState('');
-
+ const location = useLocation();
     function handleChangeCheckbox(event) {
         const isShortFilms = event.target.checked;
         setChecked(isShortFilms);
@@ -16,6 +17,13 @@ function SearchForm({handleSearch}) {
         event.preventDefault();
         handleSearch(nameMovie, checked);
     };
+
+    useEffect(() => {
+        setNameMovie(defaultValue)
+        if (location.pathname === "/movies") {
+            setChecked(JSON.parse(localStorage.getItem("shortFilms")) || false);
+        }
+    },[location, checked])
 
     return (
         <section className="search">

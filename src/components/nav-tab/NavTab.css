@@ -1,5 +1,5 @@
-.nav-tab{
-display: flex;
+.nav-tab {
+    display: flex;
     max-width: 320px;
 }
 
@@ -28,7 +28,7 @@ display: flex;
     line-height: 16px;
     align-items: center;
     color: #000000;
-    margin: 10px 17px;
+    padding: 10px 17px;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -48,7 +48,7 @@ display: flex;
     }
 }
 
-@media screen and (max-width: 320px){
+@media screen and (max-width: 320px) {
     .nav-tab__link {
         font-size: 10px;
         margin: 5px 15.5px;
