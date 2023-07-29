@@ -17,13 +17,13 @@ function Profile({onLogout, onUpdateUser, successEditProfile, userMessage, userE
     } = useFormWithValidation({name_profile: "", email_profile: ""});
 
     useEffect(() => {
-        if (userData.name && userData.email) {
+        if (currentUser.currentUser.name && currentUser.currentUser.email) {
             setValues({
-                name_profile: userData.name,
-                email_profile: userData.email,
+                name_profile: currentUser.currentUser.name,
+                email_profile: currentUser.currentUser.email,
             });
         }
-    }, [userData]);
+    }, [currentUser.currentUser]);
 
     const handleSubmit = (evt) => {
         evt.preventDefault(); // Запрещаем браузеру переходить по адресу формы
