@@ -14,20 +14,25 @@ function MoviesCardList({
   isSave,
   onDeleteSavedMovie,
   addSavedMovies,
-  foundMovies,
   userMessMovieDownload,
-    setLike
+  userMessSavedMovieDownload = allMovies.length === 0
+    ? "Ничего не найдено"
+    : allMovies == null
+    ? "Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз."
+    : "",
 }) {
-  console.log(allMovies);
-  console.log(savedMovies);
-  console.log(shortMovies);
-  console.log(foundMovies);
+  // console.log(allMovies);
+  // console.log(savedMovies);
+  // console.log(shortMovies);
+  // console.log(foundMovies);
   const { moviesLength } = useContext(CurrentMovieContext);
 
   return (
     <section className="cards">
-      {userMessMovieDownload ? (
-        <span className="error__message">{userMessMovieDownload}</span>
+      {userMessMovieDownload || userMessSavedMovieDownload ? (
+        <span className="error__message">
+          {userMessMovieDownload || userMessSavedMovieDownload}
+        </span>
       ) : (
         <span></span>
       )}

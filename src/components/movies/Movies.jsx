@@ -15,7 +15,6 @@ function Movies({
   userMessMovieDownload,
   searchMoviesCard,
   defaultValueInput,
-
 }) {
   return (
     <main className="movies">

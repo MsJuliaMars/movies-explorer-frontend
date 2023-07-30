@@ -3,7 +3,7 @@ import MoviesCardList from "../movies-card-list/MoviesCardList";
 import "./SavedMovies.css";
 import { useEffect, useState } from "react";
 import Preloader from "../preloader/Preloader";
-import {USER_MESS} from "../../utils/constants";
+import { USER_MESS } from "../../utils/constants";
 
 function SavedMovies({
   savedMovies,
@@ -11,25 +11,28 @@ function SavedMovies({
   isPreloader,
   isSave,
   onSaveMovie,
-  searchMoviesCard, defaultValueInput,setUserMessMovieDownload
+  searchMoviesCard,
+  defaultValueInput,
+  setUserMessSavedMovieDownload,
 }) {
   const [searchSavedMovies, setSearchSavedMovies] = useState([]);
+
+  //const [userMessSavedMovieDownload, setUserMessSavedMovieDownload] = useState("");
 
   function handleSearch(nameMovie, isShortFilms) {
     const filteredMovies = savedMovies.filter((item) =>
       item.nameRU.toLowerCase().includes(nameMovie.toLowerCase())
     );
 
+    localStorage.setItem("foundSavedMovies", JSON.stringify(filteredMovies));
     const foundSavedMovies = isShortFilms
-        ? filteredMovies.filter((item) => item.duration <= 40)
-        : filteredMovies;
+      ? filteredMovies.filter((item) => item.duration <= 40)
+      : filteredMovies;
 
     localStorage.setItem("foundSavedMovies", JSON.stringify(foundSavedMovies));
     localStorage.setItem("shortSavedFilms", isShortFilms);
     localStorage.setItem("nameSavedMovie", nameMovie);
     setSearchSavedMovies(foundSavedMovies);
-    savedMovies(foundSavedMovies);
-
   }
 
   useEffect(() => {
@@ -40,7 +43,7 @@ function SavedMovies({
     );
   }, [savedMovies]);
 
-    function filteredMovies() {
+  function filteredMovies() {
     setSearchSavedMovies(savedMovies);
   }
 
@@ -50,7 +53,10 @@ function SavedMovies({
 
   return (
     <main className="saved-movies">
-      <SearchForm handleSearch={handleSearch} defaultValue={defaultValueInput} />
+      <SearchForm
+        handleSearch={handleSearch}
+        defaultValue={defaultValueInput}
+      />
       {isPreloader ? (
         <Preloader />
       ) : (

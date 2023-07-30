@@ -40,6 +40,7 @@ function App() {
   const [searchMoviesCard, setSearchMoviesCard] = useState([]); // для загрузки найденного фильма
   const [userMessMovieDownload, setUserMessMovieDownload] = useState(""); // сообщение для пользователя о загрузке-поиске фильмов
 
+
   const [moviesLength, setMoviesLength] = useState(12);
   const [showMoreCards, setShowMoreCards] = useState(3);
   const width = useScreenWidth();
@@ -116,7 +117,6 @@ function App() {
               setAllMovies(JSON.parse(localStorage.getItem("movies")));
             } else {
               setAllMovies(JSON.parse(localStorage.getItem("foundMovies")));
-
             }
 
             setSavedMovies(JSON.parse(localStorage.getItem("savedMovies")));
@@ -152,13 +152,13 @@ function App() {
                 )
               )
             );
-            if (!localStorage.getItem("foundSavedMovies")){
+            if (!localStorage.getItem("foundSavedMovies")) {
               setSavedMovies(JSON.parse(localStorage.getItem("savedMovies")));
+            } else {
+              setSavedMovies(
+                JSON.parse(localStorage.getItem("foundSavedMovies"))
+              );
             }
-            else {
-              setSavedMovies(JSON.parse(localStorage.getItem("foundSavedMovies")));
-            }
-           // setSavedMovies(JSON.parse(localStorage.getItem("savedMovies")));
           }
         })
         .catch((err) => {
@@ -209,13 +209,6 @@ function App() {
     setIsNameMovie(nameMovie);
     setIsShortMovie(isShortFilms);
   }
-
-  // useEffect(() => {
-  //   if (location.pathname === "/movies" || location.pathname === "/saved-movies") {
-  //     setSavedMovies(JSON.parse(localStorage.getItem("foundMovies")));
-  //     setAllMovies(JSON.parse(localStorage.getItem("foundMovies")));
-  //   }
-  // }, [setSearchMoviesCard]);
 
   const handleLogin = ({ email, password }) => {
     Auth.authorize(email, password)
@@ -449,7 +442,6 @@ function App() {
                 onDeleteSavedMovie={handleDeleteSavedMovie}
                 handleSearch={handleSearch}
                 searchMoviesCard={searchMoviesCard}
-                userMessMovieDownload={userMessMovieDownload}
                 defaultValueInput={localStorage.getItem("nameSavedMovie") || ""}
               >
                 {" "}
