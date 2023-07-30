@@ -328,8 +328,10 @@ function App() {
       .deleteCardMovie(card._id)
       .then((card) => {
         setSavedMovies([...savedMovies, card]);
-        setSavedMovies(savedMovies.filter((item) => item._id !== card._id));
-        localStorage.setItem("savedMovies", JSON.stringify(setSavedMovies));
+        setSavedMovies(savedMovies.filter((item) => item._id != card.data._id));
+        const res = savedMovies.filter((item) => item._id != card.data._id);
+        localStorage.setItem("savedMovies", JSON.stringify(res));
+        setSavedMovies(JSON.parse(localStorage.getItem("savedMovies")));
       })
       .catch((err) => {
         console.log(err.message);

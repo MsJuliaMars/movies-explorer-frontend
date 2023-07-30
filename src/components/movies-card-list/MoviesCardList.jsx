@@ -16,6 +16,7 @@ function MoviesCardList({
   addSavedMovies,
   foundMovies,
   userMessMovieDownload,
+    setLike
 }) {
   console.log(allMovies);
   console.log(savedMovies);

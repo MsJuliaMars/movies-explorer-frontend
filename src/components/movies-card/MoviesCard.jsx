@@ -19,12 +19,13 @@ function MoviesCard({
     if (savedMovies.find((item) => item.movieId === movie.id)) {
       setIsLiked(true);
     }
-  }, [movie.id, location]);
+  }, [location, savedMovies]);
 
   function handleMovieLike() {
     if (location.pathname === "/movies" && isLiked === false) {
-      onCardLike(movie);
-      setIsLiked(true);
+      if (onCardLike(movie)) {
+        setIsLiked(true);
+      }
     }
     if (location.pathname === "/movies" && isLiked === true) {
       const unSaved = savedMovies.find((item) => item.movieId === movie.id);

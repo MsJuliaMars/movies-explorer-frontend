@@ -15,6 +15,7 @@ function Movies({
   userMessMovieDownload,
   searchMoviesCard,
   defaultValueInput,
+    setLike,
 }) {
   return (
     <main className="movies">
