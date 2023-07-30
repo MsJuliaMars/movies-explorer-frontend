@@ -47,7 +47,7 @@ function Login({ onLogin, userErrorMessage }) {
               isErrors?.email_login ? "error__visible" : ""
             }`}
           >
-            {errorMessages?.email_login}
+            {errorMessages?.email_login || isErrors?.email_login}
           </span>
         </label>
         <label className="login__field">

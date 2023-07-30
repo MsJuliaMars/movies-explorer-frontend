@@ -87,7 +87,7 @@ function Profile({
               isErrors?.email_profile ? "error__visible" : ""
             }`}
           >
-            {errorMessages?.email_profile}
+            {errorMessages?.email_profile || isErrors?.email_profile}
           </span>
         </label>
         <span className="error__message error__visible">

@@ -21,9 +21,12 @@ function SearchForm({ handleSearch, defaultValue }) {
   useEffect(() => {
     setNameMovie(defaultValue);
     if (location.pathname === "/movies") {
-      setChecked(JSON.parse(localStorage.getItem("shortFilms")) || false);
+      setChecked(JSON.parse(localStorage.getItem("shortFilms")));
     }
-  }, [location, setChecked]);
+    if (location.pathname === "/saved-movies") {
+      setChecked(JSON.parse(localStorage.getItem("shortSavedFilms")));
+    }
+  }, [location, setChecked, setNameMovie]);
 
   return (
     <section className="search">

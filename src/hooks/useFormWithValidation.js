@@ -29,7 +29,21 @@ export function useFormWithValidation(inputValues) {
   const handleChange = (event) => {
     const { value, name, validationMessage } = event.target;
     setValues({ ...values, [name]: value || "" });
+
     setIsErrors({ ...isErrors, [name]: !event.target.validity.valid });
+    if ((name.indexOf("email") !== -1) && event.target.validity.valid) {
+      const regMail = /^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i;
+      const valid = regMail.test(value);
+      if (!valid) {
+       // validationMessage = "Некорректный адрес электронной почты";
+        setIsErrors({ ...isErrors, [name]: "Некорректный адрес электронной почты"});
+        setErrorMessages({ ...errorMessages, [name]:  "Некорректный адрес электронной почты" });
+      }
+    }
+    else {
+      setErrorMessages({ ...errorMessages, [name]: "" });
+    }
+
 
     if (!event.target.validity.valid) {
       setErrorMessages({ ...errorMessages, [name]: validationMessage });

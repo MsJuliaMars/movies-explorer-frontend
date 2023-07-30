@@ -44,6 +44,9 @@ function App() {
   const [showMoreCards, setShowMoreCards] = useState(3);
   const width = useScreenWidth();
 
+  const [isNameMovie, setIsNameMovie] = useState("");
+  const [isShortMovie, setIsShortMovie] = useState();
+
   useEffect(() => {
     if (width >= NUMBER_OF_CARDS.LAPTOP_WIDTH) {
       console.log(width);
@@ -109,8 +112,14 @@ function App() {
                 )
               )
             );
+            if (!localStorage.getItem("foundMovies")) {
+              setAllMovies(JSON.parse(localStorage.getItem("movies")));
+            } else {
+              setAllMovies(JSON.parse(localStorage.getItem("foundMovies")));
 
-            setAllMovies(JSON.parse(localStorage.getItem("movies")));
+            }
+
+            setSavedMovies(JSON.parse(localStorage.getItem("savedMovies")));
           }
         })
         .catch((err) => {
@@ -143,7 +152,13 @@ function App() {
                 )
               )
             );
-            setSavedMovies(JSON.parse(localStorage.getItem("savedMovies")));
+            if (!localStorage.getItem("foundSavedMovies")){
+              setSavedMovies(JSON.parse(localStorage.getItem("savedMovies")));
+            }
+            else {
+              setSavedMovies(JSON.parse(localStorage.getItem("foundSavedMovies")));
+            }
+           // setSavedMovies(JSON.parse(localStorage.getItem("savedMovies")));
           }
         })
         .catch((err) => {
@@ -174,10 +189,6 @@ function App() {
         setSearchMoviesCard(JSON.parse(localStorage.getItem("foundMovies")));
         setAllMovies(foundMovies);
 
-        if (location.pathname === "/saved-movies") {
-          setSavedMovies(foundMovies);
-        }
-
         if (foundMovies.length === 0) {
           setUserMessMovieDownload(USER_MESS.NOT_FOUND);
         }
@@ -195,20 +206,22 @@ function App() {
 
   function handleSearch(nameMovie, isShortFilms) {
     searchMovie(nameMovie, isShortFilms);
+    setIsNameMovie(nameMovie);
+    setIsShortMovie(isShortFilms);
   }
 
-  useEffect(() => {
-    if (location.pathname === "/movies") {
-      setAllMovies(JSON.parse(localStorage.getItem("foundMovies")));
-    }
-  }, [location]);
+  // useEffect(() => {
+  //   if (location.pathname === "/movies" || location.pathname === "/saved-movies") {
+  //     setSavedMovies(JSON.parse(localStorage.getItem("foundMovies")));
+  //     setAllMovies(JSON.parse(localStorage.getItem("foundMovies")));
+  //   }
+  // }, [setSearchMoviesCard]);
 
   const handleLogin = ({ email, password }) => {
     Auth.authorize(email, password)
       .then((data) => {
         if (data?.token) {
           localStorage.setItem("jwt", data.token);
-          // login();
           api.setToken(data.token); // передает в api новое значение токена
           setLoggedIn(true);
           navigate("/movies");
@@ -299,7 +312,11 @@ function App() {
     api
       .addCardMovie(movie)
       .then((movieData) => {
-        setSavedMovies([...savedMovies, movieData]);
+        localStorage.setItem("savedMovies", JSON.stringify(movieData));
+        setSavedMovies([
+          JSON.parse(localStorage.getItem("savedMovies")),
+          ...savedMovies,
+        ]);
       })
       .catch((error) => console.log(error));
   }
@@ -433,6 +450,7 @@ function App() {
                 handleSearch={handleSearch}
                 searchMoviesCard={searchMoviesCard}
                 userMessMovieDownload={userMessMovieDownload}
+                defaultValueInput={localStorage.getItem("nameSavedMovie") || ""}
               >
                 {" "}
               </ProtectedRouteElement>

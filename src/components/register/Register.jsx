@@ -78,7 +78,7 @@ const Register = ({ onRegister, userErrorMessage }) => {
               isErrors?.email ? "error__visible" : ""
             }`}
           >
-            {errorMessages?.email}
+            {errorMessages?.email || isErrors?.email}
           </span>
         </label>
         <label className="login__field">
