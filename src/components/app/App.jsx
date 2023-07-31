@@ -45,9 +45,6 @@ function App() {
   const [showMoreCards, setShowMoreCards] = useState(3);
   const width = useScreenWidth();
 
-  const [isNameMovie, setIsNameMovie] = useState("");
-  const [isShortMovie, setIsShortMovie] = useState();
-
   useEffect(() => {
     if (width >= NUMBER_OF_CARDS.LAPTOP_WIDTH) {
       console.log(width);
@@ -137,21 +134,12 @@ function App() {
     ) {
       api
         .getSaveCardsMovie()
-        .then((res) => {
-          if (res.length) {
-            localStorage.setItem(
-              "savedMovies",
-              JSON.stringify(
-                res.filter(
-                  (item) =>
-                    item.nameEN &&
-                    item.director &&
-                    item.image &&
-                    item.country &&
-                    item.trailerLink.startsWith("http")
-                )
-              )
-            );
+      .then((moviesData) => {
+        const ownerSavedMovies = moviesData.filter(
+            (movie) => movie.owner._id === currentUser._id
+        );
+        localStorage.setItem("savedMovies", JSON.stringify(ownerSavedMovies));
+        setSavedMovies(ownerSavedMovies);
             if (!localStorage.getItem("foundSavedMovies")) {
               setSavedMovies(JSON.parse(localStorage.getItem("savedMovies")));
             } else {
@@ -159,7 +147,7 @@ function App() {
                 JSON.parse(localStorage.getItem("foundSavedMovies"))
               );
             }
-          }
+
         })
         .catch((err) => {
           console.log(`Ошибка при загрузке списка сохранённых фильмов: ${err}`);
@@ -170,7 +158,7 @@ function App() {
           }, 1000)
         );
     }
-  }, [loggedIn, location, currentUser]);
+  }, [location, currentUser]);
 
   function searchMovie(nameMovie, isShortFilms) {
     setIsPreloader(true);
@@ -206,8 +194,6 @@ function App() {
 
   function handleSearch(nameMovie, isShortFilms) {
     searchMovie(nameMovie, isShortFilms);
-    setIsNameMovie(nameMovie);
-    setIsShortMovie(isShortFilms);
   }
 
   const handleLogin = ({ email, password }) => {

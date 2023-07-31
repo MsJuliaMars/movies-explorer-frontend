@@ -4,6 +4,7 @@ import { CurrentMovieContext } from "../../contexts/CurrentMovieContext";
 import { useContext } from "react";
 
 function MoviesCardList({
+  foundMovies,
   allMovies,
   savedMovies,
   shortMovies,
@@ -21,10 +22,10 @@ function MoviesCardList({
     ? "Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз."
     : "",
 }) {
-  // console.log(allMovies);
-  // console.log(savedMovies);
-  // console.log(shortMovies);
-  // console.log(foundMovies);
+  console.log(allMovies);
+  console.log(savedMovies);
+  console.log(shortMovies);
+  console.log(foundMovies);
   const { moviesLength } = useContext(CurrentMovieContext);
 
   return (

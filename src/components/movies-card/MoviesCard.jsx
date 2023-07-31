@@ -16,8 +16,10 @@ function MoviesCard({
 
   useEffect(() => {
     // окрашиваем кнопку лайка, если он фильм нашелся в сохраненных
-    if (savedMovies.find((item) => item.movieId === movie.id)) {
-      setIsLiked(true);
+    if (savedMovies != null) {
+      if (savedMovies.find((item) => item.movieId === movie.id)) {
+        setIsLiked(true);
+      }
     }
   }, [location, savedMovies]);
 

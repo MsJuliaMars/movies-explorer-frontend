@@ -3,7 +3,6 @@ import MoviesCardList from "../movies-card-list/MoviesCardList";
 import "./SavedMovies.css";
 import { useEffect, useState } from "react";
 import Preloader from "../preloader/Preloader";
-import { USER_MESS } from "../../utils/constants";
 
 function SavedMovies({
   savedMovies,
@@ -13,11 +12,9 @@ function SavedMovies({
   onSaveMovie,
   searchMoviesCard,
   defaultValueInput,
-  setUserMessSavedMovieDownload,
 }) {
   const [searchSavedMovies, setSearchSavedMovies] = useState([]);
 
-  //const [userMessSavedMovieDownload, setUserMessSavedMovieDownload] = useState("");
 
   function handleSearch(nameMovie, isShortFilms) {
     const filteredMovies = savedMovies.filter((item) =>
