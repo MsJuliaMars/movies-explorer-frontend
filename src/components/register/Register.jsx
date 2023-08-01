@@ -107,12 +107,24 @@ const Register = ({ onRegister, userErrorMessage }) => {
           {userErrorMessage}
         </span>
         <button
-          className={`register__button-enter ${
-            isFormNotValid ? "register__button-enter_disabled" : ""
-          }`}
+          className={`${
+            values.name !== "" &&
+            values.email !== "" &&
+            values.password !== "" &&
+            !isFormNotValid
+              ? "register__button-enter"
+              : "register__button-enter_disabled"
+          } `}
           type="submit"
           aria-label="Вход в аккаунт пользователя"
-          disabled={isFormNotValid}
+          disabled={
+            values.name !== "" &&
+            values.email !== "" &&
+            values.password !== "" &&
+            !isFormNotValid
+              ? false
+              : true
+          }
         >
           Зарегистрироваться
         </button>

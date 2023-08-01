@@ -10,8 +10,9 @@ function Profile({
   userMessage,
   userErrorMessage,
 }) {
-  const userData = useContext(CurrentMovieContext);
   const currentUser = useContext(CurrentMovieContext);
+  const nameUser = currentUser.currentUser.name;
+  const emailUser = currentUser.currentUser.email;
 
   const {
     values,
@@ -93,13 +94,17 @@ function Profile({
         <span className="error__message error__visible">
           {successEditProfile ? userMessage : userErrorMessage}
         </span>
-        <button
-          className={`profile__button-edit ${
-            isFormNotValid ? "profile__button-edit_disabled" : ""
-          }`}
+        <button className={
+                  "profile__button-edit"
+                  }
           type="submit"
           aria-label="Редактирование аккаунта пользователя"
-          disabled={isFormNotValid}
+          disabled={ (
+              (nameUser !== values.name_profile  || emailUser !== values.email_profile )  &&
+              (values.name_profile !== '' || values.email_profile !== '') &&
+              !isFormNotValid )
+            ? false
+            : true}
         >
           Редактировать
         </button>

@@ -77,11 +77,22 @@ function Login({ onLogin, userErrorMessage }) {
         </span>
         <button
           className={`${
-            isFormNotValid ? "login__button-enter login__button-enter_disabled" : "login__button-enter"
-          }`}
+            values.email_login !== "" &&
+            values.password_login !== "" &&
+            !isFormNotValid
+              ? "login__button-enter"
+              : "login__button-enter_disabled"
+          } `}
           type="submit"
           aria-label="Вход в аккаунт пользователя"
-          disabled={isFormNotValid}
+          disabled={
+            values.email_login !== "" &&
+            values.password_login !== "" &&
+            !isFormNotValid
+              ? false
+              : true
+          }
+          // disabled={isFormNotValid}
         >
           Войти
         </button>
