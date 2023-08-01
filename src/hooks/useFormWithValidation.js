@@ -35,7 +35,6 @@ export function useFormWithValidation(inputValues) {
       const regMail = /^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i;
       const valid = regMail.test(value);
       if (!valid) {
-       // validationMessage = "Некорректный адрес электронной почты";
         setIsErrors({ ...isErrors, [name]: "Некорректный адрес электронной почты"});
         setErrorMessages({ ...errorMessages, [name]:  "Некорректный адрес электронной почты" });
       }
