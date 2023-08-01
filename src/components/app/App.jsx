@@ -79,6 +79,21 @@ function App() {
     setLoggedIn(false);
   }, []);
 
+
+  function getUserInfo() {
+    api
+    .getUserInfo()
+    .then((data) => {
+      setCurrentUser(data);
+      setLoggedIn(true);
+    })
+    .catch((err) => {
+      console.log(`Что-то пошло не так! Ошибка сервера ${err}`);
+    })
+    .finally(() => {
+      setIsLoading(false);
+    });
+  }
   // сохраняем в контекст пользователя
   useEffect(() => {
     if (loggedIn) {
@@ -89,7 +104,7 @@ function App() {
           console.log(`Ошибка при загрузке данных пользователя: ${err}`);
         });
     }
-  }, [location]);
+  }, [location, loggedIn]);
 
   useEffect(() => {
     if (loggedIn && location.pathname === "/movies") {
@@ -291,11 +306,8 @@ function App() {
     api
       .addCardMovie(movie)
       .then((movieData) => {
-        localStorage.setItem("savedMovies", JSON.stringify(movieData));
-        setSavedMovies([
-          JSON.parse(localStorage.getItem("savedMovies")),
-          ...savedMovies,
-        ]);
+      localStorage.setItem('savedMovies', JSON.stringify(movieData));
+      setSavedMovies([JSON.parse(localStorage.getItem('savedMovies')), ...savedMovies]);
       })
       .catch((error) => console.log(error));
   }
@@ -309,9 +321,7 @@ function App() {
         const res = savedMovies.filter(
           (item) => item.movieId !== movie.movieId
         );
-
         localStorage.setItem("savedMovies", JSON.stringify(res));
-
         setSavedMovies(JSON.parse(localStorage.getItem("savedMovies")));
       })
       .catch((err) => {
@@ -324,10 +334,11 @@ function App() {
       .deleteCardMovie(card._id)
       .then((card) => {
         setSavedMovies([...savedMovies, card]);
-        setSavedMovies(savedMovies.filter((item) => item._id != card.data._id));
-        const res = savedMovies.filter((item) => item._id != card.data._id);
+        //setSavedMovies(savedMovies.filter((item) => item._id != card.data._id));
+        const res = savedMovies.filter((item) => item._id !== card.data._id);
         localStorage.setItem("savedMovies", JSON.stringify(res));
-        setSavedMovies(JSON.parse(localStorage.getItem("savedMovies")));
+     setSavedMovies([JSON.parse(localStorage.getItem("savedMovies")), ...savedMovies,]);
+      setSavedMovies(JSON.parse(localStorage.getItem("savedMovies")));
       })
       .catch((err) => {
         console.log(err.message);

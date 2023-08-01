@@ -4,7 +4,7 @@ import { CurrentMovieContext } from "../../contexts/CurrentMovieContext";
 import { useContext } from "react";
 
 function MoviesCardList({
-  foundMovies,
+    foundMovies,
   allMovies,
   savedMovies,
   shortMovies,

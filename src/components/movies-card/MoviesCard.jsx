@@ -21,7 +21,7 @@ function MoviesCard({
         setIsLiked(true);
       }
     }
-  }, [location, savedMovies]);
+  }, [location, savedMovies, movie.id]);
 
   function handleMovieLike() {
     if (location.pathname === "/movies" && isLiked === false) {
@@ -30,11 +30,13 @@ function MoviesCard({
       }
     }
     if (location.pathname === "/movies" && isLiked === true) {
-      const unSaved = savedMovies.find((item) => item.movieId === movie.id);
-      if (onCardUnlike(unSaved)) {
+         const unSaved = savedMovies.find((item) => item.movieId === movie.id);
+        onCardUnlike(unSaved)
+      if (savedMovies.find((item) => item.movieId !== movie.id)) {
         setIsLiked(false);
       }
     }
+    console.log ("t1");
   }
 
   function handleMovieDeleteLike() {
