@@ -1,3 +1,54 @@
+.error__message {
+    color: #EE3465;
+    font-size: 10px;
+    font-family: Inter;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.error__visible {
+    visibility: visible;
+}
+
+/*.profile__button-edit_disabled {*/
+/*    color: #EE3465;*/
+/*    border-bottom: #ee3465;*/
+/*}*/
+.profile__button-edit {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    margin: 185px auto 16px auto;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+
+.profile__button-edit:hover {
+    opacity: 0.5;
+}
+
+.profile__button-edit:disabled {
+    cursor: default;
+    color: #A44234;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 185px auto 16px auto;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+
+}
+
 .profile {
     display: flex;
     flex-direction: column;
@@ -68,25 +119,6 @@
 
 .profile__text:hover {
     outline: #FF6838;
-}
-
-.profile__button-edit {
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 16px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #000000;
-    margin: 185px auto 16px auto;
-    border: none;
-    background-color: transparent;
-    padding: 0;
-    cursor: pointer;
-}
-
-.profile__button-edit:hover {
-    opacity: 0.5;
 }
 
 .profile__button-logout {

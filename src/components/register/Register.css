@@ -22,6 +22,23 @@
     border: none;
 }
 
+.register__button-enter_disabled {
+    background-color: white;
+    color: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    opacity: 0.8;
+    cursor: default;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    margin:120px 0px 16px 0px;
+    padding: 0;
+    width: 100%;
+    height: 45px;
+}
+
 .register__button-enter:hover {
     opacity: 0.8;
     color: #000000;

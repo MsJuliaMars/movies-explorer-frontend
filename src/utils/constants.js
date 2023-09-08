@@ -1,82 +1,26 @@
-export const initialCards = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
+export const NUMBER_OF_CARDS = {
+  LAPTOP_WIDTH: 1280,
+  TABLET_WIDTH: 480,
+  PHONE_WIDTH: 320,
 
-export const config = {
-  inputSelector: ".popup__text",
-  submitButtonSelector: ".popup__save-button",
-  inactiveButtonClass: "popup__save-button_disabled",
-  inputErrorClass: "popup__text_type-error",
-  errorClass: "popup__error_visible",
+  LAPTOP_LENGTH: 12,
+  TABLET_LENGTH: 8,
+  PHONE_LENGTH: 5,
+
+  LAPTOP_ADDED_MOVIES: 3,
+  TABLET_ADDED_MOVIES: 2,
+  PHONE_ADDED_MOVIES: 2,
 };
 
-export const formConfiguration = {
-  inputSelector: ".popup__text",
-  submitButtonSelector: ".popup__save-button",
-  formSelector: ".popup__form",
+export const USER_MESS = {
+  ERROR_SOME: "Что-то пошло не так...",
+  ERROR_DOWN_MOVIES: "Ошибка при загрузке списка фильмов",
+  ERROR_DOWN_SAVE_MOVIES: "Ошибка при загрузке списка сохранённых фильмов",
+  NOT_FOUND: "Ничего не найдено",
+  TRY_AGAIN:
+    "Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.",
+  FAIL_AUTH: "Неправильные почта или пароль",
+  SUCCESS_EDIT_USER: "Профиль пользователя отредактирован успешно",
+  UPDATE_ERROR: "При обновлении профиля пользователя произошла оршибка",
+  DELETE_ERROR: "Ошибка при удаления сохранённого фильма",
 };
-
-export const popupConfiguration = {
-  activeModifier: "popup_opened",
-  closeButtonSelector: ".popup__close",
-};
-
-export const profileConfiguration = {
-  userNameSelector: ".profile__title",
-  jobSelector: ".profile__subtitle",
-  avatarSelector: ".profile__avatar",
-};
-
-export const viewPopupConfig = {
-  imageSelector: ".popup__image",
-  captionSelector: ".popup__picture-title",
-};
-
-export const confirmButtonConfig = {
-  captionNormal: "Да",
-  captionActive: "Удаление...",
-};
-
-export const newCardButtonConfig = {
-  captionNormal: "Создать",
-  captionActive: "Сохранение...",
-};
-
-export const saveButtonConfig = {
-  captionNormal: "Сохранить",
-  captionActive: "Сохранение...",
-};
-
-export const ESC_KEY = "Escape";
-export const cardsContainerSelector = ".cards__items";
-export const newPlacePopupSelector = ".popup_type_card";
-export const profilePopupSelector = ".popup_type_profile";
-export const imagePopupSelector = ".popup_type_picture";
-export const editAvatarPopupSelector = ".popup_type_edit-avatar";
-export const confirmPopupSelector = ".popup_type_delete";
-export const editAvatarFormName = "popup-avatar";
-export const newPlaceFormName = "popup-mesto";
-export const profileFormName = "popup-profile";
